@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+}
+
+.container {
+  margin: 20px auto;
+  width: 80%;
+  height: 100%;
+}
+
+h2,
+h3 {
+  text-align: center;
+}
+
+h2 {
+  text-decoration: underline;
+}
+
+.form-name {
+  margin: 30px 0 0 0;
+}
