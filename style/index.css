@@ -7,7 +7,7 @@
 
 .container {
   margin: 20px auto;
-  width: 80%;
+  width: 70%;
   height: 100%;
 }
 
@@ -20,6 +20,27 @@ h2 {
   text-decoration: underline;
 }
 
+.producer-name,
+.model-name,
+.date-of-shoot,
+.location-of-shoot {
+  font-weight: 700;
+}
+
+.summary-title,
+.print-info {
+  text-align: left;
+}
+
 .form-name {
   margin: 30px 0 0 0;
+}
+
+.print-name,
+.social-security,
+.address,
+.city,
+.state,
+.zip {
+  font-weight: 600;
 }

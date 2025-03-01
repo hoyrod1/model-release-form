@@ -20,13 +20,24 @@
       into as of the date set forth below by and between:
     </p>
     <form action="" method="post">
-      <label for="producer-name">Producer/Photographer/Videographer Name:</label>
+      <label class="producer-name" for="producer-name">
+        Producer/Photographer/Videographer Name:
+      </label>
       <input type="text" name="producer-name" id="producer-name">
-      <label for="model-name">Model Name:</label>
+      <br>
+      <label class="model-name" for="model-name">
+        Model Name:
+      </label>
       <input type="text" name="model-name" id="model-name">
-      <label for="date-of-shoot">Date of Shoot:</label>
+      <br>
+      <label class="date-of-shoot" for="date-of-shoot">
+        Date of Shoot:
+      </label>
       <input type="text" name="date-of-shoot" id="date-of-shoot">
-      <label for="location-of-shoot">Location of Shoot:</label>
+      <br>
+      <label class="location-of-shoot" for="location-of-shoot">
+        Location of Shoot:
+      </label>
       <input type="text" name="location-of-shoot" id="location-of-shoot">
       <!-------------------------------------------->
       <h3 class="summary-title">
@@ -56,7 +67,10 @@
         Compensation
       </h3>
       <p class="contract-summary">
-      The Model acknowledges and agrees that they are voluntarily participating and that the compensation, if any, has been agreed upon separately. The Model waives any right to future royalties or compensation from the use of the images and recordings.
+      The Model acknowledges and agrees that they are voluntarily 
+      participating and that the compensation, if any, has been 
+      agreed upon separately. The Model waives any right to future 
+      royalties or compensation from the use of the images and recordings.
       </p>
       <!-------------------------------------------->
       <!-------------------------------------------->
@@ -67,7 +81,11 @@
         Age Verification
       </h3>
       <p class="contract-summary">
-      The Model affirms that they are at least 18 years of age and legally eligible to participate in the production of adult content. The Model agrees to provide valid government-issued photo identification for age verification purposes in compliance with 18 U.S.C. § 2257 record-keeping requirements.
+      The Model affirms that they are at least 18 years of age and legally 
+      eligible to participate in the production of adult content. The Model 
+      agrees to provide valid government-issued photo identification for age 
+      verification purposes in compliance with 18 U.S.C. § 2257 record-keeping 
+      requirements.
       </p>
       <!-------------------------------------------->
       <!-------------------------------------------->
@@ -78,7 +96,10 @@
         Consent to Perform
       </h3>
       <p class="contract-summary">
-      The Model affirms that they are voluntarily participating in this production and that they are not under the influence of drugs or alcohol. They further acknowledge that they have not been coerced, threatened, or forced into participating.
+      The Model affirms that they are voluntarily participating in this production 
+      and that they are not under the influence of drugs or alcohol. They further 
+      acknowledge that they have not been coerced, threatened, or forced into 
+      participating.
       </p>
       <!-------------------------------------------->
       <!-------------------------------------------->
@@ -89,7 +110,9 @@
         Usage and Editing
       </h3>
       <p class="contract-summary">
-      The Producer/Photographer/Videographer has full discretion regarding the editing, cropping, and modification of the images and recordings. The Model waives any right to inspect or approve the final product or its usage.
+      The Producer/Photographer/Videographer has full discretion regarding the 
+      editing, cropping, and modification of the images and recordings. The Model 
+      waives any right to inspect or approve the final product or its usage.
       </p>
       <!-------------------------------------------->
       <!-------------------------------------------->
@@ -100,7 +123,12 @@
         Release and Waiver
       </h3>
       <p class="contract-summary">
-      The Model irrevocably releases, discharges, and holds harmless the Producer/Photographer/Videographer and their assigns, licensees, legal representatives, and any third parties publishing and/or distributing the images and recordings from any claims, demands, or liabilities related to the use of their likeness, including but not limited to claims for defamation, right of publicity, or invasion of privacy.
+      The Model irrevocably releases, discharges, and holds harmless the 
+      Producer/Photographer/Videographer and their assigns, licensees, legal 
+      representatives, and any third parties publishing and/or distributing 
+      the images and recordings from any claims, demands, or liabilities 
+      related to the use of their likeness, including but not limited to claims 
+      for defamation, right of publicity, or invasion of privacy.
       </p>
       <!-------------------------------------------->
       <!-------------------------------------------->
@@ -111,7 +139,8 @@
         Indemnification
       </h3>
       <p class="contract-summary">
-      The Model agrees to indemnify and hold harmless the Producer/Photographer/Videographer from
+      The Model agrees to indemnify and hold harmless the 
+      Producer/Photographer/Videographer from
       </p>
       <!-------------------------------------------->
       <!-------------------------------------------->
@@ -122,7 +151,10 @@
         Confidentiality
       </h3>
       <p class="contract-summary">
-      The Model acknowledges that details regarding the production, including but not limited to payment, content, and distribution channels, may be confidential. They agree not to disclose such information without prior written consent from the Producer.
+      The Model acknowledges that details regarding the production, including 
+      but not limited to payment, content, and distribution channels, may be 
+      confidential. They agree not to disclose such information without prior 
+      written consent from the Producer.
       </p>
       <!-------------------------------------------->
       <!-------------------------------------------->
@@ -133,11 +165,16 @@
         Governing Law and Jurisdiction
       </h3>
       <p class="contract-summary">
-      This Agreement shall be governed by and construed in accordance with the laws of the state or country in which the Producer/Photographer/Videographer is based. Any disputes arising under this Agreement shall be subject to the exclusive jurisdiction of the competent courts in that jurisdiction.
+      This Agreement shall be governed by and construed in accordance with the 
+      laws of the state or country in which the Producer/Photographer/Videographer 
+      is based. Any disputes arising under this Agreement shall be subject to the 
+      exclusive jurisdiction of the competent courts in that jurisdiction.
       </p>
       <!-------------------------------------------->
       <!-------------------------------------------->
-      <label for="payment-amount">The model will receive a compensation in the amount of $</label>
+      <label for="payment-amount">
+        The model will receive a compensation in the amount of $
+      </label>
       <input type="text" name="payment-amount" id="payment-amount">
       <!-------------------------------------------->
       <!-------------------------------------------->
@@ -146,13 +183,37 @@
       </p>
       <!-------------------------------------------->
       <!-------------------------------------------->
-      <h2 class="print-info">Please Print Your Information Clearly</h2>
-      <label for="payment-amount">Printed Name:</label>
+      <h2 class="print-info">Please enter your information</h2>
+      <label class="print-name" for="print-name">
+        Printed Name:
+      </label>
       <input type="text" name="print-name" id="print-name">
-      <label for="payment-amount">Social Security:</label>
+      <br>
+      <label class="social-security" for="social-security">
+        Social Security:
+      </label>
       <input type="text" name="social-security" id="social-security">
+      <br>
+      <label class="address" for="address">
+        Address:
+      </label>
+      <input type="text" name="address" id="address">
+      <br>
+      <label class="city" for="city">
+        City:
+      </label>
+      <input type="text" name="city" id="city">
+      <br>
+      <label class="state" for="state">
+        State:
+      </label>
+      <input type="text" name="state" id="state">
+      <br>
+      <label class="zip" for="zip">
+        Zip:
+      </label>
+      <input type="text" name="zip" id="zip">
       <!-------------------------------------------->
-
     </form>
   </div>
 </body>
