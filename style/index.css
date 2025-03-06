@@ -73,8 +73,8 @@ h2 {
   margin: 10px 0 10px 0;
 }
 .payment-amount {
-  font-size: 18px;
-  font-weight: 700;
+  font-size: 15px;
+  font-weight: bolder;
 }
 
 .tax-disclaimer {
@@ -111,4 +111,62 @@ h2 {
   background-color: white;
   color: rgb(97, 98, 101);
   box-shadow: 1px 1px 10px 3px rgb(97, 98, 101);
+}
+
+/*====================================================================*/
+/*------------------- MEDIA QUERY FOR 52em WIDTH ------------------*/
+@media (max-width: 52em) {
+  .summary-title,
+  .print-info {
+    text-align: center;
+  }
+
+  .print-info {
+    margin: 20px 0 20px 0;
+  }
+  .tax-disclaimer {
+    text-align: center;
+  }
+
+  .producer-name,
+  .model-name,
+  .date-of-shoot,
+  .location-of-shoot,
+  .payment-amount,
+  .print-name,
+  .social-security,
+  .address,
+  .city,
+  .state,
+  .zip {
+    display: block;
+    text-align: center;
+  }
+
+  .payment-amount {
+    font-size: 15px;
+  }
+
+  #producer-name,
+  #model-name,
+  #date-of-shoot,
+  #location-of-shoot,
+  #payment-amount,
+  #print-name,
+  #social-security,
+  #address,
+  #city,
+  #state,
+  #zip {
+    width: 100%;
+  }
+}
+/*====================================================================*/
+/*------------------- MEDIA QUERY FOR 28.125em WIDTH ------------------*/
+@media (max-width: 28.125em) {
+  .producer-name,
+  .tax-disclaimer {
+    font-size: 13px;
+    text-align: center;
+  }
 }
