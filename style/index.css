@@ -14,19 +14,52 @@
 h2,
 h3 {
   text-align: center;
+  margin: 5px 0 5px 0;
 }
 
 h2 {
   text-decoration: underline;
 }
 
+.model-form {
+  padding: 5px;
+}
+
 .producer-name,
 .model-name,
 .date-of-shoot,
 .location-of-shoot {
+  font-size: 20px;
   font-weight: 700;
 }
 
+#producer-name,
+#model-name,
+#date-of-shoot,
+#location-of-shoot,
+#payment-amount,
+#print-name,
+#social-security,
+#address,
+#city,
+#state,
+#zip {
+  background-color: aqua;
+  padding: 5px;
+}
+
+#producer-name,
+#model-name,
+#date-of-shoot,
+#location-of-shoot,
+#print-name,
+#social-security,
+#address,
+#city,
+#state,
+#zip {
+  margin: 10px 0 10px 0;
+}
 .summary-title,
 .print-info {
   text-align: left;
@@ -36,11 +69,46 @@ h2 {
   margin: 30px 0 0 0;
 }
 
+.contract-summary {
+  margin: 10px 0 10px 0;
+}
+.payment-amount {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.tax-disclaimer {
+  margin: 5px 0 15px 0;
+  text-decoration: underline;
+  font-size: 18px;
+}
+
 .print-name,
 .social-security,
 .address,
 .city,
 .state,
 .zip {
+  font-size: 20px;
   font-weight: 600;
+}
+
+.submit-button {
+  display: block;
+  margin: 30px auto;
+  font-size: large;
+  font-weight: bold;
+  color: aliceblue;
+  width: 100%;
+  padding: 10px;
+  background-color: rgb(97, 98, 101);
+  border: none;
+  border-radius: 5px;
+  transition: all 1s linear;
+}
+
+.submit-button:hover {
+  background-color: white;
+  color: rgb(97, 98, 101);
+  box-shadow: 1px 1px 10px 3px rgb(97, 98, 101);
 }

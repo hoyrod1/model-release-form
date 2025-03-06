@@ -15,11 +15,11 @@
     <h2 class="dba">Exotic Hard Body Production</h2>
     <h3 class="corp-name">A division of S.T.C. Media Inc</h3>
     <h2 class="form-name">Model Release Form</h2>
+    <form class="model-form" action="" method="post">
     <p class="contract-summary">
       This Model Release Form ("Agreement") is made and entered 
       into as of the date set forth below by and between:
     </p>
-    <form action="" method="post">
       <label class="producer-name" for="producer-name">
         Producer/Photographer/Videographer Name:
       </label>
@@ -172,13 +172,13 @@
       </p>
       <!-------------------------------------------->
       <!-------------------------------------------->
-      <label for="payment-amount">
+      <label class="payment-amount" for="payment-amount">
         The model will receive a compensation in the amount of $
       </label>
       <input type="text" name="payment-amount" id="payment-amount">
       <!-------------------------------------------->
       <!-------------------------------------------->
-      <p class="contract-summary">
+      <p class="contract-summary tax-disclaimer">
       Rodney St. Cloud does not withhold any taxes
       </p>
       <!-------------------------------------------->
@@ -213,6 +213,10 @@
         Zip:
       </label>
       <input type="text" name="zip" id="zip">
+      <!-------------------------------------------->
+      <br>
+      <!-------------------------------------------->
+      <button class="submit-button" name="submit" type="submit">Submit Form</button>
       <!-------------------------------------------->
     </form>
   </div>
