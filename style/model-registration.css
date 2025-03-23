@@ -1,0 +1,35 @@
+/* Stylesheet For Model-Registration */
+* {
+  background-color: violet;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/*--------------------------------- CLICK ME BUTTON ----------------------------------*/
+.admin-start-button-div {
+  margin: 30px 0 30px 0;
+  width: 25%;
+  margin: 10px auto;
+}
+
+.admin-start-button {
+  display: block;
+  font-size: larger;
+  font-weight: bolder;
+  width: 50%;
+  background-color: rgb(127, 161, 224);
+  color: aliceblue;
+  padding: 10px;
+  border-radius: 50%;
+  border: none;
+  margin: 20px auto;
+  cursor: pointer;
+  transition: all 1s linear;
+}
+
+.admin-start-button:hover {
+  background-color: white;
+  color: rgb(127, 161, 224);
+  box-shadow: 1px 1px 10px 3px rgb(127, 161, 224);
+}
+/*-----------------------------------------------------------------------------------*/

@@ -1,0 +1,153 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#myVideo {
+  object-fit: cover;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -10;
+}
+
+.admin-container {
+  width: 75%;
+  height: 90%;
+  margin: 25vh auto;
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 35px 3px rgb(255, 255, 255);
+}
+
+hr.admin-hr {
+  border: 2px solid rgb(255, 255, 255);
+}
+
+.admin-h1 {
+  color: rgb(127, 161, 224);
+  text-align: center;
+  text-decoration: underline;
+}
+/*------------------------------ BEGINNING OF NAV SECTION ------------------------------*/
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: rgb(127, 161, 224);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  transition: all 1s linear;
+}
+
+li a:hover:not(.active) {
+  background-color: rgb(127, 161, 224);
+  color: white;
+}
+
+li a.active {
+  color: white;
+  background-color: rgb(127, 161, 224);
+}
+/*-----------------------------------------------------------------------------------*/
+/*-------------------------------- CONTACT EMAIL FORM --------------------------------*/
+.admin-email-div {
+  width: 40%;
+  text-align: center;
+  margin: 10px auto;
+  padding: 5px;
+  color: rgb(127, 161, 224);
+}
+
+.admin-form {
+  width: 100%;
+  margin: 10px auto;
+}
+
+.admin-email-input-div,
+.admin-password-input-div {
+  width: 100%;
+  margin: 10px auto;
+}
+
+.admin-contact-email,
+.admin-password-email {
+  width: 80%;
+  padding: 5px;
+  font-size: large;
+  font-weight: bold;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans",
+    Arial, sans-serif;
+  border-radius: 5px;
+}
+
+.admin-password-email::placeholder,
+.admin-contact-email::placeholder {
+  color: rgb(127, 161, 224);
+}
+
+.admin-login {
+  margin: 10px 0 0 0;
+  font-size: large;
+  font-weight: bold;
+  color: aliceblue;
+  width: 80%;
+  padding: 10px;
+  background-color: rgb(127, 161, 224);
+  border: none;
+  border-radius: 5px;
+  transition: all 1s linear;
+}
+
+.admin-login:hover {
+  background-color: white;
+  color: rgb(127, 161, 224);
+  box-shadow: 1px 1px 10px 3px rgb(127, 161, 224);
+}
+/*--------------------------------- CLICK ME BUTTON ----------------------------------*/
+.admin-start-button-div {
+  margin: 30px 0 30px 0;
+  width: 25%;
+  margin: 10px auto;
+}
+
+.admin-start-button {
+  display: block;
+  font-size: larger;
+  font-weight: bolder;
+  width: 50%;
+  background-color: rgb(127, 161, 224);
+  color: aliceblue;
+  padding: 10px;
+  border-radius: 50%;
+  border: none;
+  margin: 20px auto;
+  cursor: pointer;
+  transition: all 1s linear;
+}
+
+.admin-start-button:hover {
+  background-color: white;
+  color: rgb(127, 161, 224);
+  box-shadow: 1px 1px 10px 3px rgb(127, 161, 224);
+}
+/*-----------------------------------------------------------------------------------*/
+/*--------------------------------- FOOTER SECTION ----------------------------------*/
+.admin-footer-logo {
+  color: rgb(127, 161, 224);
+  text-align: center;
+}
+/* -----------------------------------------------------------------------------------*/
