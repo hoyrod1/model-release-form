@@ -24,14 +24,13 @@
  */
 function title()
 {
-    return $title = "Register Page";
+    return $title = "Model Release Registration Page";
 }
 //=================================================================================//
 //============================== BEGINNING OF HEADER ==============================//
-//require_once "/includes/header.php";
+require_once "includes/header.php";
 //=============================== ENDING OF HEADER ================================//
 ?>
-<body>
 <!------------------------------- BEGGINING OF BODY -------------------------------->
 <?php
 //========================= BEGGINING OF NAVIGATION BAR ===========================//
@@ -39,10 +38,9 @@ function title()
 //============================ END OF NAVIGATION BAR ==============================//
 ?>
 <!---------------------------- BEGGINING OF MAIN SECTION --------------------------->
-<div>
-  <hr>
-  <h1>Registration Page</h1>
-    <div>
+<hr>
+  <div class="registration-form-container">
+      <h1 class="form-title-h1">Registration Page</h1>
       <form method="POST">
           <input type="text" name="first_name" placeholder="Enter First Name">
           <br>
@@ -53,12 +51,12 @@ function title()
           <input type="email" name="Email" placeholder="Enter Email">
           <br>
           <input type="password" name="Password" placeholder="Enter Password">
-          <br>
+          <br>`
           <input type="password" name="confirm_pass" placeholder="Re-Enter Password">
           <br>
           <button name="signup">Sign Up</button>
         <div>
-            Already Registered: <a href="/login.php">Login</a>
+            Already Registered: <a href="model-login.php">Login</a>
         </div>
       </form>     
       <!-------------------------------- THE BUTTON -------------------------------->
@@ -66,13 +64,12 @@ function title()
         <button id="click-Me" class="admin-start-button">Click me</button>
       </div>
       <!---------------------------------------------------------------------------->
-    </div>
-    <hr>
-</div>
+  </div>
+<hr>
 <!------------------------------ END OF MAIN SECTION ------------------------------>
 <?php
 //============================= BEGGINING OF FOOTER ===============================//
-//require_once "/includes/footer.php";
+require_once "includes/footer.php";
 //================================ END OF FOOTER ==================================//
 ?>
 <!---------------------------------- END OF BODY ----------------------------------->

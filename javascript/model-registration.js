@@ -7,3 +7,6 @@ clickMe.addEventListener("click", testButton);
 function testButton(e) {
   alert("You have hit your model-registration page target");
 }
+
+const date = new Date();
+document.getElementById("demo").innerHTML = date.getFullYear();

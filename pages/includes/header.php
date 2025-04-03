@@ -13,13 +13,14 @@
 ?>
 
 <!DOCTYPE html>
-    <html  style="overflow-x: hidden;">
+    <html>
         <head>
             <!------------------ BEGINNING OF META DESCRIPTION ------------------>
             <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <meta http-equiv="X-UA-Comapatible" content="ie-edge">
-            <meta name="description" content="Kaden Registration System" />
+            <meta name="description" content="Model Release Registration System" />
             <!------------------- ENDING OF META DESCRIPTION -------------------->
 
             <!---------------------- BEGINNING OF fAVICON ----------------------->
@@ -29,29 +30,37 @@
             <!------------------------ ENDING OF fAVICON ------------------------>
 
             <!------------------ BEGINNING OF JAVASCRIPT FILES ------------------>
-            <script
+            <!-- <script defer src="./date-file.js"></script> -->
+            <script defer src="../javascript/model-registration.js"></script>
+            <!-- <script
               type="module"
               src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"
             ></script>
             <script
               nomodule=""
               src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"
-            ></script>
+            ></script> -->
             <!-------------------- ENDING OF JAVASCRIPT FILES -------------------->
 
             <!---------------------- BEGINNING OF CSS FILES ---------------------->
-            <link rel="stylesheet" href="./css_2/nav.css">
-            <link rel="stylesheet" href="./css_2/footer.css">
-            <link rel="stylesheet" href="./css_2/index.css">
-            <link rel="stylesheet" href="./css_2/home.css">
-            <link rel="stylesheet" href="./css_2/about.css">
-            <link rel="stylesheet" href="./css_2/contact.css">
-            <link rel="stylesheet" href="./css_2/login.css">
-            <link rel="stylesheet" href="./css_2/register.css">
-            <link rel="stylesheet" href="./css_2/reset.css">
-            <link rel="stylesheet" href="./css_2/code.css">
-            <link rel="stylesheet" href="./css_2/activate.css">
-            <link rel="stylesheet" href="./css_2/recover.css">
+            <link rel="stylesheet" href="../style/model-registration.css" />
+            <link
+              rel="stylesheet"
+              href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css"
+            />
+            <!-- <link
+              rel="stylesheet"
+              href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css"
+            /> -->
             <!------------------------ ENDING OF CSS FILES ----------------------->
             <title> <?php echo title(); ?></title>
         </head>
+        <body>
+          <nav>
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Contact</a></li>
+              <li><a href="model-registration.php">Register</a></li>
+            </ul>
+          </nav>

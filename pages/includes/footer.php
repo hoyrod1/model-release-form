@@ -12,8 +12,7 @@
  */
 ?>
 <footer class="footer-section">
-  Copyright © Kaden St. Cloud Registration-Login System inc 2020 - 
+  Copyright © STC Media inc Model Relase Registration-Login System inc 2008 - 
   <span id="demo"></span>
 </footer>
-<script defer type="text/javascript" src="js/mobile.js"></script>
-<script src="./Date_Non_Mem.js"></script>
+<!-- <script defer type="text/javascript" src="js/mobile.js"></script> -->
