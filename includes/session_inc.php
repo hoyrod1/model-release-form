@@ -26,12 +26,25 @@ session_set_cookie_params(
 session_start();
 
 if (!isset($_SESSION["regeneration_set"])) {
-    session_regenerate_id();
-    $_SESSION["regeneration_set"] = time();
+    Regenerate_Session_id();
 } else {
     $interval = 60*30;
     if (time() - $_SESSION["regeneration_set"] >= $interval) {
-        session_regenerate_id();
-        $_SESSION["regeneration_set"] = time();
+        Regenerate_Session_id();
     }
 }
+
+//*==============================================================*//
+/**
+ * This function regenerate the session id  
+ * 
+ * @access public  
+ * 
+ * @return mixed
+ */
+function Regenerate_Session_id()
+{
+    session_regenerate_id();
+    $_SESSION["regeneration_set"] = time();
+}
+//*==============================================================*//
