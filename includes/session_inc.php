@@ -10,9 +10,12 @@
  * @license  STC Media inc
  * @link     https://model-release-form/includes/session_inc.php
  */
+//*==============================================================*//
 ini_set('session.use_only_cookies', 1);
 ini_set('session.use_strict_mode', 1);
+//*==============================================================*//
 
+//*==============================================================*//
 session_set_cookie_params(
     [
         'lifetime' => 1800, 
@@ -22,9 +25,13 @@ session_set_cookie_params(
         'httponly' => true
     ]
 );
+//*==============================================================*//
 
+//*==============================================================*//
 session_start();
+//*==============================================================*//
 
+//*==============================================================*//
 if (!isset($_SESSION["regeneration_set"])) {
     Regenerate_Session_id();
 } else {
@@ -33,6 +40,7 @@ if (!isset($_SESSION["regeneration_set"])) {
         Regenerate_Session_id();
     }
 }
+//*==============================================================*//
 
 //*==============================================================*//
 /**
@@ -40,7 +48,7 @@ if (!isset($_SESSION["regeneration_set"])) {
  * 
  * @access public  
  * 
- * @return mixed
+ * @return void
  */
 function Regenerate_Session_id()
 {

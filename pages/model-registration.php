@@ -41,20 +41,19 @@ require_once "includes/header.php";
 <hr>
   <div class="registration-form-container">
       <h1 class="form-title-h1">Registration Page</h1>
-      <form method="POST">
-          <input type="text" name="first_name" placeholder="Enter First Name">
+      <form action="registration_signup.php" method="POST">
+          <input required type="text" name="first_name" placeholder="Enter First Name">
           <br>
-          <input type="text" name="last_name" placeholder="Enter Last Name">
+          <input required type="text" name="last_name" placeholder="Enter Last Name">
           <br>
-          <input type="text" name="username" placeholder="Enter Username">
+          <input required type="text" name="username" placeholder="Enter Username">
           <br>
-          <input type="email" name="Email" placeholder="Enter Email">
+          <input required type="email" name="email" placeholder="Enter Email">
           <br>
-          <input type="password" name="Password" placeholder="Enter Password">
-          <br>`
-          <input type="password" name="confirm_pass" placeholder="Re-Enter Password">
+          <input required type="password" name="password" placeholder="Enter Password">
+          <input required type="password" name="confirm_pass" placeholder="Re-Enter Password">
           <br>
-          <button name="signup">Sign Up</button>
+          <input type="submit" name="submit" value="Sign Up">
         <div>
             Already Registered: <a href="model-login.php">Login</a>
         </div>
