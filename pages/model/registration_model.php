@@ -26,9 +26,32 @@ declare(strict_types=1);
  */
 function Get_username(object $pdo, string $username)
 {
-    $query = "SELECT username FROM users WHERE username = :username";
+    $query = "SELECT user_name FROM model_registration WHERE user_name = :username";
     $stmt  = $pdo->prepare($query);
     $stmt->bindValue(":username", $username, PDO::PARAM_STR);;
+    $stmt->execute();
+
+    $results = $stmt->fetch(PDO::FETCH_ASSOC);
+    return $results;
+}
+//*=========================================================================*//
+
+//*=========================================================================*//
+/**
+ * The Get_email function queries the users email from the database
+ * 
+ * @param object $pdo   This param has the PDO connection
+ * @param string $email This param has the users email
+ * 
+ * @access public  
+ * 
+ * @return mixed
+ */
+function Get_email(object $pdo, string $email)
+{
+    $query = "SELECT email FROM model_registration WHERE email = :email";
+    $stmt  = $pdo->prepare($query);
+    $stmt->bindValue(":username", $email, PDO::PARAM_STR);;
     $stmt->execute();
 
     $results = $stmt->fetch(PDO::FETCH_ASSOC);

@@ -55,6 +55,13 @@ function Is_Input_empty(string $firstname, string $lastname, string $email, stri
  */
 function Is_Input_valid(string $firstname, string $lastname, string $email, string $username, string $password, string $confirm_pass)
 {
+    //*--------------------------- SANATIZED DATA ---------------------------*//
+    // $filtered_first_name = filter_var($first_name, FILTER_SANITIZE_STRING);
+    // $filtered_last_name = filter_var($last_name, FILTER_SANITIZE_STRING);
+    // $filtered_username = filter_var($username, FILTER_SANITIZE_STRING);
+    // $filtered_password = filter_var($password, FILTER_SANITIZE_STRING);
+    // $filtered_confirm_pass =  filter_var($confirm_pass, FILTER_SANITIZE_STRING);
+    //*----------------------------------------------------------------------*//
     $arr = array(
       "firstname" => $firstname,
       "lastname" => $lastname,
@@ -97,6 +104,27 @@ function Is_Input_valid(string $firstname, string $lastname, string $email, stri
 function Is_Username_taken(object $pdo, string $username)
 {
     if (Get_username($pdo, $username)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+//*=========================================================================*//
+
+//*=========================================================================*//
+/**
+ * The Is_Email_taken function verifies if the email is already being used
+ * 
+ * @param object $pdo   This param has the PDO connection
+ * @param string $email This param has the users email
+ * 
+ * @access public  
+ * 
+ * @return mixed
+ */
+function Is_Email_taken(object $pdo, string $email)
+{
+    if (Get_email($pdo, $email)) {
         return true;
     } else {
         return false;

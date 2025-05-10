@@ -8,7 +8,7 @@
  * @package  Registration_Form
  * @author   Rodney St.Cloud <hoyrod1@aol.com>
  * @license  STC Media inc
- * @link     https://model-release-form/pages/model-register.php
+ * @link     https://model-release-form/pages/registration-page/model-register.php
  */
 
 // ob_start();
@@ -28,7 +28,7 @@ function title()
 }
 //=================================================================================//
 //============================== BEGINNING OF HEADER ==============================//
-require_once "includes/header.php";
+require_once "../includes/header.php";
 //=============================== ENDING OF HEADER ================================//
 ?>
 <!------------------------------- BEGGINING OF BODY -------------------------------->
@@ -55,7 +55,7 @@ require_once "includes/header.php";
           <br>
           <input type="submit" name="submit" value="Sign Up">
         <div>
-            Already Registered: <a href="model-login.php">Login</a>
+            Already Registered: <a href="../login-page/model-login.php">Login</a>
         </div>
       </form>     
       <!-------------------------------- THE BUTTON -------------------------------->
