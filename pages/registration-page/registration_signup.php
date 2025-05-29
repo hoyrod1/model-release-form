@@ -11,48 +11,75 @@
  * @link     https://model-release-form/pages/registration-page/registration_signup.php
  */
 //*=========================================================================*//
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
     //*----------------------------------------------------------------------*//
-    $first_name = $_POST["first_name"];
-    $last_name = $_POST["last_name"];
-    $username = $_POST["username"];
-    $email = $_POST["email"];
-    $password = $_POST["password"];
-    $confirm_pass = $_POST["confirm_pass"];
+    $first_name =     trim($_POST["first_name"]);
+    $last_name =      trim($_POST["last_name"]);
+    $contact_number = trim($_POST["contact_number"]);
+    $email =          trim($_POST["email"]);
+    $user_name =      trim($_POST["username"]);
+    $pass_word =      trim($_POST["password"]);
+    $confirm_pass =   trim($_POST["confirm_pass"]);
     //*----------------------------------------------------------------------*//
 
     //*----------------------------------------------------------------------*//
     try 
     {
+        // START SESSION TO CATCH ANY REGISTRATION ERRORS //
+        include_once "../../includes/session_inc.php";
         // INCLUDE THE DATBASE CONNECTION //
         include_once "../../includes/database.procedural.inc.php";
         // INCLUDE THE REGISTRATION MODEL THAT INTERACTS WITH THE DATABSE //
         include_once "../model/registration_model.php";
         // INCLUDE THE REGISTRATION CONTROLLER THAT HANDLES USER INPUT //
         include_once "../controller/registration_controller.php";
+
         // ERROR HANDLERS ARRAY //
         $errors = [];
-        // CHECK IF ALL INPUT FEILDS ARE NOT EMPTY //
-        if (Is_Input_empty($first_name, $last_name, $email, $username, $password, $confirm_pass)) {
+        // CHECK IF ALL INPUT FEILDS ARE NOT EMPTY
+        if (Is_Input_empty($first_name, $last_name, $contact_number, $email, $user_name, $pass_word, $confirm_pass)) {
             $errors["empty_input"] = "Fill in all fields";
         }
-        // CHECK IF ALL SANITIZED INPUT FIELDS CONTAIN VALID DATA
-        if (Is_Input_valid($first_name, $last_name, $email, $username, $password, $confirm_pass)) {
-            $errors["invalid_email"] = "Invalid email used";
+        //------------------------------------------------------------------------------------------------//
+        // CHECK IF THE FIRST AND LAST NAME CONTAIN VALID DATA
+        if (Is_Name_valid($first_name, $last_name)) {
+            $errors["invalid_name"] = "Please use letters, hyphens and periods in your first and last name";;
         }
-        // CHECK IF USERNAME ALREADY EXIST
-        if (Is_Username_taken($pdo, $username)) {
-            $errors["username_taken"] = "This username has already been taken";
+        // CHECK IF CONTACT NUMBER IS VALID
+        var_dump(Is_Contact_valid($contact_number));
+        if (Is_Contact_valid($contact_number)) {
+            $errors["invalid_number"] = "Please only use numbers";
         }
-        // CHECK IF EMAIL ALREADY EXIST
-        if (Is_Email_taken($pdo, $email)) {
-            $errors["email_taken"] = "This email is already being used";
+        // CHECK IF EMAIL IS VALID
+        if (Is_Email_valid($email)) {
+            $errors["invalid_email"] = "Invalid email format";
         }
-        // START SESSION TO CATCH ANY REGISTRATION ERRORS //
-        include_once "../../includes/session_inc.php";
+        // CHECK IF USERNAME IS VALID
+        if (Is_Username_valid($user_name)) {
+            $errors["invalid_username"] = "Please enter 6-16 letters and numbers";
+        }
+        // CHECK IF PASSWORD IS VALID
+        if (Is_Password_valid($pass_word)) {
+            $errors["invalid_password"] = "Your password must contain 6-24 characters, at least one number and one letter";
+        }
+        // CHECK IF PASSWORD AND CONFIRM PASSWORD MATCHES
+        if (Is_Password_match($pass_word, $confirm_pass)) {
+            $errors["nonmatching-password"] = "Your passwords do not match";
+        }
+        //------------------------------------------------------------------------------------------------//
+
+        //------------------------------------------------------------------------------------------------//
+        // // CHECK IF USERNAME ALREADY EXIST
+        // if (Is_Username_taken($pdo, $user_name)) {
+        //     $errors["username_taken"] = "This username has already been taken";
+        // }
+        // // CHECK IF EMAIL ALREADY EXIST
+        // if (Is_Email_taken($pdo, $email)) {
+        //     $errors["email_taken"] = "This email is already being used";
+        // }
         if ($errors) {
-            $_SESSION["signup_error"] = $errors;
-            header("Location: /model-registration.php");
+            $_SESSION["registration_error"] = $errors;
+            header("Location: ../registration-page/model-registration.php");
             die();
         }    
     }
@@ -62,6 +89,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
     //*----------------------------------------------------------------------*//
 } else {
-    header("Location: /model-registration.php");
+    header("Location: ../registration-page/model-registration.php");
     die();
 }

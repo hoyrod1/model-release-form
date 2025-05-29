@@ -4,8 +4,8 @@
  * php version 8.2
  * Procedural registration model Configuration file for Model Release Form
  * 
- * @category Registration_Signup_Model
- * @package  Procedural_Registration_Signup_Configuration_Model
+ * @category Registration_Model
+ * @package  Procedural_Registration_Model_Configuration
  * @author   Rodney St.Cloud <hoyrod1@aol.com>
  * @license  STC Media inc
  * @link     https://model-release-form/pages/model/registration_model.php

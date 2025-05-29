@@ -10,10 +10,9 @@
  * @license  STC Media inc
  * @link     https://model-release-form/pages/registration-page/model-register.php
  */
-
-// ob_start();
-// session_start();
-
+// START SESSION TO CATCH ANY REGISTRATION ERRORS //
+require_once "../../includes/session_inc.php";
+require_once "../view/registration_view.php";
 //=================================================================================//
 /**
  * Function sets the page title
@@ -40,18 +39,24 @@ require_once "../includes/header.php";
 <!---------------------------- BEGGINING OF MAIN SECTION --------------------------->
 <hr>
   <div class="registration-form-container">
+    <?php 
+    errorMessage(); 
+    // echo successMessage(); 
+    ?>
       <h1 class="form-title-h1">Registration Page</h1>
       <form action="registration_signup.php" method="POST">
-          <input required type="text" name="first_name" placeholder="Enter First Name">
+          <input type="text" name="first_name" placeholder="Enter First Name">
           <br>
-          <input required type="text" name="last_name" placeholder="Enter Last Name">
+          <input type="text" name="last_name" placeholder="Enter Last Name">
           <br>
-          <input required type="text" name="username" placeholder="Enter Username">
+          <input type="email" name="email" placeholder="Enter Email">
           <br>
-          <input required type="email" name="email" placeholder="Enter Email">
+          <input type="text" name="contact_number" placeholder="Enter Phone Number">
           <br>
-          <input required type="password" name="password" placeholder="Enter Password">
-          <input required type="password" name="confirm_pass" placeholder="Re-Enter Password">
+          <input type="text" name="username" placeholder="Enter Username">
+          <br>
+          <input type="password" name="password" placeholder="Enter Password">
+          <input type="password" name="confirm_pass" placeholder="Re-Enter Password">
           <br>
           <input type="submit" name="submit" value="Sign Up">
         <div>
