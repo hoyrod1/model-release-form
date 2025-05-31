@@ -18,9 +18,9 @@ try
 {
     $dsn = "mysql:host=$servname;dbname=$dbname";
 
-    $PDO_conn = new PDO($dsn, $username, $password);
+    $pdo = new PDO($dsn, $username, $password);
     // set the PDO error mode to exception
-    $PDO_conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     // echo "Database Connection";
 }
 catch(PDOException $e) 

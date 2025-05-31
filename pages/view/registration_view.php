@@ -25,9 +25,7 @@ function errorMessage()
 {
     if (isset($_SESSION['registration_error'])) {
         $errors = $_SESSION['registration_error'];
-
         echo "<br>";
-
         foreach ($errors as $error) {
             $error_message = "<div style=\"width: 335px;margin: auto; background-color:red; color:white;\" align=\"center\" class=\"alert\">";
             $error_message .= $error;
@@ -48,21 +46,16 @@ function errorMessage()
  * 
  * @return mixed
  */
-// function successMessage()
-// {
-//     if (isset($_SESSION["registration_success"])) {
-//         $success_messages = $_SESSION["registration_success"];
+function successMessage()
+{
+    if (isset($_SESSION["registration_success"])) {
+        $success_messages = $_SESSION["registration_success"];
 
-//         echo "<br>";
-        
-//         foreach ($success_messages as $success_message) {
-//             $message = "<div style=\"width: 535px;margin: auto;\" align=\"center\" class=\"alert alert-success\">";
-//             $message .= htmlentities($success_message);
-//             $sessage .= "</div>";
-    
-//             echo $message;
-//         }
-//         unset($_SESSION["registration_success"]);
-//     }
-// }
+        $message = "<p style=\"width: 335px;margin: auto; background-color:green; color:white;\" align=\"center\">";
+        $message .= $success_messages;
+        $sessage .= "</p>";
+        echo $message;
+    }
+    unset($_SESSION["registration_success"]);
+}
 //=====================================================================//

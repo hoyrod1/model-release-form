@@ -46,7 +46,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
             $errors["invalid_name"] = "Please use letters, hyphens and periods in your first and last name";;
         }
         // CHECK IF CONTACT NUMBER IS VALID
-        var_dump(Is_Contact_valid($contact_number));
         if (Is_Contact_valid($contact_number)) {
             $errors["invalid_number"] = "Please only use numbers";
         }
@@ -69,19 +68,39 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
         //------------------------------------------------------------------------------------------------//
 
         //------------------------------------------------------------------------------------------------//
-        // // CHECK IF USERNAME ALREADY EXIST
-        // if (Is_Username_taken($pdo, $user_name)) {
-        //     $errors["username_taken"] = "This username has already been taken";
-        // }
-        // // CHECK IF EMAIL ALREADY EXIST
-        // if (Is_Email_taken($pdo, $email)) {
-        //     $errors["email_taken"] = "This email is already being used";
-        // }
+        // CHECK IF USERNAME ALREADY EXIST
+        if (Is_Username_taken($pdo, $user_name)) {
+            $errors["username_taken"] = "This username has already been taken";
+        }
+        // CHECK IF EMAIL ALREADY EXIST
+        if (Is_Email_taken($pdo, $email)) {
+            $errors["email_taken"] = "This email is already being used";
+        }
+        // CHECK IF THERE ARE ANY ERRORS 
         if ($errors) {
             $_SESSION["registration_error"] = $errors;
             header("Location: ../registration-page/model-registration.php");
-            die();
-        }    
+            die("Query Failed: " . $e->getMessage());
+        }
+        //------------------------------------------------------------------------------------------------//
+
+        //------------------------------------------------------------------------------------------------//
+        // START THE PROCCESS OF REGISTERING THE USER
+        $register_test = Register_User_controller($pdo, $first_name, $last_name, $email, $contact_number, $user_name, $pass_word);
+
+        if ($register_test) {
+            // header("Location: ../registration-page/model-registration.php?signup=success");
+            $_SESSION["registration_success"] = "You have successfully registered";
+            header("Location: ../registration-page/model-registration.php");
+            $pdo = null;
+            $stmt = null;
+            die();       
+        } else {
+            $errors["registration_failed"] = "There was an issue with registeration";
+            header("Location: ../registration-page/model-registration.php");
+            die("Registeration Failed: " . $e->getMessage());
+        }
+        //------------------------------------------------------------------------------------------------//
     }
     catch(PDOException $e) 
     {

@@ -38,11 +38,11 @@ require_once "../includes/header.php";
 ?>
 <!---------------------------- BEGGINING OF MAIN SECTION --------------------------->
 <hr>
-  <div class="registration-form-container">
-    <?php 
-    errorMessage(); 
-    // echo successMessage(); 
-    ?>
+<?php 
+  errorMessage();
+  successMessage();
+?>
+    <div class="registration-form-container">
       <h1 class="form-title-h1">Registration Page</h1>
       <form action="registration_signup.php" method="POST">
           <input type="text" name="first_name" placeholder="Enter First Name">

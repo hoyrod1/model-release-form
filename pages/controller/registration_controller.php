@@ -38,7 +38,11 @@ function Is_Input_empty(string $firstname, string $lastname, string $contact_num
     }
 }
 //*=========================================================================*//
-//*----------------------------------- SANITATION & VALIDATION SECTION -----------------------------------*//
+
+//=================================================================================//
+//*----------------------- SANITATION & VALIDATION SECTION -----------------------*//
+//=================================================================================//
+
 //*=========================================================================*//
 /**
  * 1. The Is_Name_valid function checks if the first and lastname valid
@@ -149,8 +153,6 @@ function Is_Password_valid(string $password)
     $filtered_Password = filter_var($password, FILTER_SANITIZE_STRING);
     //----------------------------------------------------------------------//
     if (strlen($filtered_Password) < 6 || strlen($filtered_Password) > 24) {
-        var_dump(strlen($filtered_Password));
-        var_dump($filtered_Password);
         return true;
     } else {
         return false;
@@ -225,117 +227,28 @@ function Is_Email_taken(object $pdo, string $email)
 }
 //*=========================================================================*//
 
-//*========================================================================================================*//
-// /**
-//  * The Is_Input_empty function checks if all the input fields are sanatized
-//  * 
-//  * @param string $firstname      This param has the first name
-//  * @param string $lastname       This param has the last name
-//  * @param string $contact_number This param has the contact number
-//  * @param string $email          This param has the email
-//  * @param string $user_name      This param has the users username
-//  * @param string $password       This param has the password
-//  * 
-//  * @access public  
-//  * 
-//  * @return mixed
-//  */
-// function Is_Input_valid(string $firstname, string $lastname, string $contact_number, string $email, string $user_name, string $password)
-// {
-//     *--------------------------- SANATIZED DATA ---------------------------*//
-//     $filtered_firstName = filter_var($firstname, FILTER_SANITIZE_STRING);
-//     $filtered_lastName = filter_var($lastname, FILTER_SANITIZE_STRING);
-//     $filtered_Number = filter_var($contact_number, FILTER_SANITIZE_STRING);
-//     $filtered_Username = filter_var($user_name, FILTER_SANITIZE_STRING);
-//     $filtered_Password = filter_var($password, FILTER_SANITIZE_STRING);
-//     *----------------------------------------------------------------------*//
-//     $input_err = [];
-//     if (!preg_match("/^[a-zA-Z-'\. ]*$/", $filtered_firstName)) {
-//         // $input_err["inval-fname"] = "Please use letters hyphens, spaces and periods";
-//         return true;
-//     } else {
-//         return false;
-//     }
-
-
-//     if (!preg_match("/^[a-zA-Z-'\. ]*$/", $filtered_lastName)) {
-//         // $input_err["inval-lname"] = "Please use letters hyphens, spaces and periods";
-//         return true;
-//     } else {
-//         return false;
-//     }
-
-
-//     if (!preg_match("/[0-9]/", $filtered_Number)) {
-//         // $input_err["inval-num"] = "Only numbers and hyphens";
-//         return true;
-//     } else {
-//         return false;
-//     }
-
-  
-//     if (!preg_match("/^[0-9A-Za-z]{6,16}$/", $filtered_Username)) {
-//         // $input_err["inval-user"] = "Please enter between 6-16 letters and numbers";
-//         return true;
-//     } else {
-//         return false;
-//     }
-
-//     if (strlen($filtered_Password) < 6) {
-//         // $input_err["inval-less"] = "Your password must have at least 6 characters";
-//         return true;
-//     } else {
-//         return false;
-//     }
-
-
-//     if (strlen($filtered_Password) > 24) {
-//         // $input_err["inval-more"] = "Your password cant have more than 32 characters";
-//         return true;
-//     } else {
-//         return false;
-//     }
-
-  
-//     if (!preg_match("/[0-9]/", $filtered_Password)) {
-//         // $input_err["inval-nonum"] = "Your password must have one number";
-//         return true;
-//     } else {
-//         return false;
-//     }
-
-
-//     if (!preg_match("/[a-zA-Z]/", $filtered_Password)) {
-//         // $input_err["inval-noletter"] = "Your password must have one letter";
-//         return true;
-//     } else {
-//         return false;
-//     }
-
-//     $arr = array(
-//       "firstname" => $firstname,
-//       "lastname" => $lastname,
-//       "contactnumber" => $contact_number,
-//       "email" => $email,
-//       "user_name" => $user_name,
-//       "pass_word" => $password,
-//     );
-
-//     $filters = array(
-//       "firstname" => FILTER_SANITIZE_STRING,
-//       "lastname" => FILTER_SANITIZE_STRING,
-//       "contactnumber" => FILTER_SANITIZE_STRING,
-//       "email" => FILTER_SANITIZE_EMAIL,
-//       "user_name" => FILTER_SANITIZE_STRING,
-//       "pass_word" => FILTER_SANITIZE_STRING,
-//     );
-
-//     $filtered_input = filter_var_array($arr, $filters);
-//     var_dump($filtered_input);
-//     if (!$filtered_input) {
-//         return true;
-//     } else {
-//         return false;
-//     }
-// }
-//*========================================================================================================*//
+//*=========================================================================*//
+/**
+ * The Register_User_controller function sends the users data to be registered
+ * 
+ * @param object $pdo            This param has the PDO connection
+ * @param string $firstname      This param has the first name
+ * @param string $lastname       This param has the last name
+ * @param string $email          This param has the email
+ * @param string $contact_number This param has the contact number
+ * @param string $username       This param has the users username
+ * @param string $password       This param has the password
+ * 
+ * @access public  
+ * 
+ * @return mixed
+ */
+function Register_User_controller(object $pdo, string $firstname, string $lastname, string $email, string $contact_number, string $username, string $password)
+{
+    if (Register_User_model($pdo, $firstname, $lastname, $email, $contact_number, $username, $password)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+//*=========================================================================*//
