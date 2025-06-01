@@ -15,20 +15,20 @@ declare(strict_types=1);
 
 //*=========================================================================*//
 /**
- * The Get_username function queries the username from the database
+ * The Get_Model_Name function queries the models name from the database
  * 
- * @param object $pdo      This param has the PDO connection
- * @param string $username This param has the users username
+ * @param object $pdo        This param has the PDO connection
+ * @param string $model_name This param has the users model name
  * 
  * @access public  
  * 
  * @return mixed
  */
-function Get_username(object $pdo, string $username)
+function Get_Model_name(object $pdo, string $model_name)
 {
-    $query = "SELECT username FROM model_registration WHERE username = :username";
+    $query = "SELECT model_name FROM model_registration WHERE model_name = :model_name";
     $stmt  = $pdo->prepare($query);
-    $stmt->bindValue(":username", $username, PDO::PARAM_STR);;
+    $stmt->bindValue(":model_name", $model_name, PDO::PARAM_STR);;
     $stmt->execute();
 
     $results = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -68,16 +68,16 @@ function Get_email(object $pdo, string $email)
  * @param string $lastname       This param has the last name
  * @param string $email          This param has the email
  * @param string $contact_number This param has the contact number
- * @param string $username       This param has the users username
+ * @param string $model_name     This param has the users model name
  * @param string $password       This param has the password
  * 
  * @access public  
  * 
  * @return mixed
  */
-function Register_User_model(object $pdo, string $firstname, string $lastname, string $email, string $contact_number, string $username, string $password)
+function Register_User_model(object $pdo, string $firstname, string $lastname, string $email, string $contact_number, string $model_name, string $password)
 {
-    $reg_sql  = "INSERT INTO model_registration (firstname, lastname, email, contact_number, username, pass_word) VALUES(:firstname, :lastname, :email, :contact_number, :username, :pass_word)";
+    $reg_sql  = "INSERT INTO model_registration (firstname, lastname, email, contact_number, model_name, pass_word) VALUES(:firstname, :lastname, :email, :contact_number, :model_name, :pass_word)";
     $stmt = $pdo->prepare($reg_sql);
     $hash_options = [
         'cost' => 12
@@ -89,7 +89,7 @@ function Register_User_model(object $pdo, string $firstname, string $lastname, s
     $stmt->bindValue(':lastname', $lastname);
     $stmt->bindValue(':email', $email);
     $stmt->bindValue(':contact_number', $contact_number);
-    $stmt->bindValue(':username', $username);
+    $stmt->bindValue(':model_name', $model_name);
     $stmt->bindValue(':pass_word', $hash_password);
     $execute  = $stmt->execute();
     return $execute;

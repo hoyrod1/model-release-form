@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
     $last_name =      trim($_POST["last_name"]);
     $contact_number = trim($_POST["contact_number"]);
     $email =          trim($_POST["email"]);
-    $user_name =      trim($_POST["username"]);
+    $model_name =      trim($_POST["model-name"]);
     $pass_word =      trim($_POST["password"]);
     $confirm_pass =   trim($_POST["confirm_pass"]);
     //*----------------------------------------------------------------------*//
@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
         // ERROR HANDLERS ARRAY //
         $errors = [];
         // CHECK IF ALL INPUT FEILDS ARE NOT EMPTY
-        if (Is_Input_empty($first_name, $last_name, $contact_number, $email, $user_name, $pass_word, $confirm_pass)) {
+        if (Is_Input_empty($first_name, $last_name, $contact_number, $email, $model_name, $pass_word, $confirm_pass)) {
             $errors["empty_input"] = "Fill in all fields";
         }
         //------------------------------------------------------------------------------------------------//
@@ -54,12 +54,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
             $errors["invalid_email"] = "Invalid email format";
         }
         // CHECK IF USERNAME IS VALID
-        if (Is_Username_valid($user_name)) {
-            $errors["invalid_username"] = "Please enter 6-16 letters and numbers";
+        if (Is_Model_Name_valid($model_name)) {
+            $errors["model_name"] = "Please enter 6-16 letters and numbers as a model name";
         }
         // CHECK IF PASSWORD IS VALID
         if (Is_Password_valid($pass_word)) {
-            $errors["invalid_password"] = "Your password must contain 6-24 characters, at least one number and one letter";
+            $errors["invalid_password"] = "Your password must contain 6-24 characters, at least one number and one letter in your password";
         }
         // CHECK IF PASSWORD AND CONFIRM PASSWORD MATCHES
         if (Is_Password_match($pass_word, $confirm_pass)) {
@@ -69,8 +69,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
 
         //------------------------------------------------------------------------------------------------//
         // CHECK IF USERNAME ALREADY EXIST
-        if (Is_Username_taken($pdo, $user_name)) {
-            $errors["username_taken"] = "This username has already been taken";
+        if (Is_Model_Name_taken($pdo, $model_name)) {
+            $errors["model_name_taken"] = "This Model name is already being used";
         }
         // CHECK IF EMAIL ALREADY EXIST
         if (Is_Email_taken($pdo, $email)) {
@@ -86,7 +86,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
 
         //------------------------------------------------------------------------------------------------//
         // START THE PROCCESS OF REGISTERING THE USER
-        $register_test = Register_User_controller($pdo, $first_name, $last_name, $email, $contact_number, $user_name, $pass_word);
+        $register_test = Register_User_controller($pdo, $first_name, $last_name, $email, $contact_number, $model_name, $pass_word);
 
         if ($register_test) {
             // header("Location: ../registration-page/model-registration.php?signup=success");

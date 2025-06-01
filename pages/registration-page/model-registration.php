@@ -44,7 +44,7 @@ require_once "../includes/header.php";
 ?>
     <div class="registration-form-container">
       <h1 class="form-title-h1">Registration Page</h1>
-      <form action="registration_signup.php" method="POST">
+      <form class="reg-form" action="registration_signup.php" method="POST">
           <input type="text" name="first_name" placeholder="Enter First Name">
           <br>
           <input type="text" name="last_name" placeholder="Enter Last Name">
@@ -53,7 +53,7 @@ require_once "../includes/header.php";
           <br>
           <input type="text" name="contact_number" placeholder="Enter Phone Number">
           <br>
-          <input type="text" name="username" placeholder="Enter Username">
+          <input type="text" name="model-name" placeholder="Enter Model Name">
           <br>
           <input type="password" name="password" placeholder="Enter Password">
           <input type="password" name="confirm_pass" placeholder="Re-Enter Password">
