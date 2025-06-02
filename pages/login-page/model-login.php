@@ -8,7 +8,7 @@
  * @package  Login_Page_Configuration
  * @author   Rodney St.Cloud <hoyrod1@aol.com>
  * @license  STC Media inc
- * @link     https://model-release-form/pages/model-login.php
+ * @link     https://model-release-form/pages/login-page/model-login.php
  */
 ?>
 <!DOCTYPE html>
@@ -36,7 +36,7 @@
       <h1 class="admin-h1">Model Login Page</h1>
       <div class="admin-email-div">
         <div class="admin-email-form">
-          <form action="" class="admin-form">
+          <form action="model_signin.php" class="admin-form" method="POST">
             <div class="admin-email-input-div">
               <input
                 type="email"
@@ -55,7 +55,16 @@
                 placeholder="Enter you password"
               />
             </div>
-            <input type="submit" value="Login" class="admin-login" />
+            <input type="submit" name="submit" value="Login" class="admin-login" />
+            <!-------------------------------------------------------------------->
+            <!-------------------------------------------------------------------->
+            <div class="login-recover-remember">
+              <a href="" class="login-anchor">Forgot Password</a>
+              <br>
+              <input class="log-check" type="checkbox" name="remember">
+              <span> Remember Me</span>
+            </div>
+            <!-------------------------------------------------------------------->
           </form>
         </div>
       </div>
@@ -65,16 +74,25 @@
 
       <!-------------------------------- THE BUTTON -------------------------------->
       <div id="admin-div-button" class="admin-start-button-div">
-        <button id="click-Me" class="admin-start-button">Click me</button>
+        <button id="click-Me" class="admin-start-button">
+          <a href="../registration-page/model-registration.php">
+            Click me to Register
+          </a>
+        </button>
       </div>
       <!---------------------------------------------------------------------------->
     </div>
-    <footer>
-      <p class="admin-footer-logo">STC media inc Technology 2008-2024</p>
-    </footer>
+<?php
+//============================= BEGGINING OF FOOTER ===============================//
+require_once "../includes/footer.php";
+//================================ END OF FOOTER ==================================//
+?>
+<!---------------------------- BEGINNING OF VIDEO TAG ------------------------------>
     <video autoplay muted loop id="myVideo">
       <source src="../video/earth-from-space.mp4" type="video/mp4" />
       Your browser does not support HTML5 video.
     </video>
+<!------------------------------- END OF VIDEO TAG --------------------------------->
   </body>
+<!---------------------------------- END OF BODY ----------------------------------->
 </html>

@@ -117,10 +117,28 @@ li a.active {
   color: rgb(127, 161, 224);
   box-shadow: 1px 1px 10px 3px rgb(127, 161, 224);
 }
+/*------------------------------- REMEMBER ME BUTTON --------------------------------*/
+.login-recover-remember {
+  margin: 10px 0 0 0;
+}
+/*-----------------------------------------------------------------------------------*/
+
+/*----------------------------- FORGOT PASSWORD BUTTON ------------------------------*/
+.login-anchor {
+  color: rgb(253, 253, 253);
+  text-decoration: none;
+  transition: all 2s;
+}
+
+.log-check {
+  margin-top: 10px;
+}
+/*------------------------------------------------------------------------------------*/
+
 /*--------------------------------- CLICK ME BUTTON ----------------------------------*/
 .admin-start-button-div {
   margin: 30px 0 30px 0;
-  width: 25%;
+  width: 45%;
   margin: 10px auto;
 }
 
@@ -128,7 +146,7 @@ li a.active {
   display: block;
   font-size: larger;
   font-weight: bolder;
-  width: 50%;
+  width: 60%;
   background-color: rgb(127, 161, 224);
   color: aliceblue;
   padding: 10px;
@@ -144,9 +162,14 @@ li a.active {
   color: rgb(127, 161, 224);
   box-shadow: 1px 1px 10px 3px rgb(127, 161, 224);
 }
+.admin-start-button a {
+  color: white;
+  text-decoration: none;
+}
 /*-----------------------------------------------------------------------------------*/
+
 /*--------------------------------- FOOTER SECTION ----------------------------------*/
-.admin-footer-logo {
+.footer-section {
   color: rgb(127, 161, 224);
   text-align: center;
 }

@@ -3,8 +3,5 @@ const clickMe = document.querySelector("#admin-div-button");
 // console.log(clickMe);
 clickMe.addEventListener("click", testButton);
 function testButton(e) {
-  alert("You have hit your Model-Login page target");
+  alert("Please click to confirm that you want to register");
 }
-
-const date = new Date();
-document.getElementById("demo").innerHTML = date.getFullYear();

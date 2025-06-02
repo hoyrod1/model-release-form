@@ -8,7 +8,7 @@
  * @package  Procedural_Registration_Controller_Configuration
  * @author   Rodney St.Cloud <hoyrod1@aol.com>
  * @license  STC Media inc
- * @link     https://model-release-form/pages/model/registration_controller.php
+ * @link     https://model-release-form/pages/controller/registration_controller.php
  */
 declare(strict_types=1);
 //*=========================================================================*//

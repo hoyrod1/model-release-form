@@ -56,7 +56,7 @@ require_once "../includes/header.php";
           <input type="text" name="model-name" placeholder="Enter Model Name">
           <br>
           <input type="password" name="password" placeholder="Enter Password">
-          <input type="password" name="confirm_pass" placeholder="Re-Enter Password">
+          <input type="password" name="confirm_pass" placeholder="Confirm Password">
           <br>
           <input type="submit" name="submit" value="Sign Up">
         <div>
@@ -69,11 +69,10 @@ require_once "../includes/header.php";
       </div>
       <!---------------------------------------------------------------------------->
   </div>
-<hr>
 <!------------------------------ END OF MAIN SECTION ------------------------------>
 <?php
 //============================= BEGGINING OF FOOTER ===============================//
-require_once "includes/footer.php";
+require_once "../includes/footer.php";
 //================================ END OF FOOTER ==================================//
 ?>
 <!---------------------------------- END OF BODY ----------------------------------->
