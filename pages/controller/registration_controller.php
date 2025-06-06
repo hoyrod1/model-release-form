@@ -15,7 +15,7 @@ declare(strict_types=1);
 
 //*=========================================================================*//
 /**
- * The Is_Input_empty function checks if all the input fields are not empty
+ * The Is_Input_empty function checks if all the input fields are empty
  * 
  * @param string $firstname        This param has the first name
  * @param string $lastname         This param has the last name

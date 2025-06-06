@@ -45,22 +45,27 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
         if (Is_Name_valid($first_name, $last_name)) {
             $errors["invalid_name"] = "Please use letters, hyphens and periods in your first and last name";;
         }
+        //------------------------------------------------------------------------------------------------//
         // CHECK IF CONTACT NUMBER IS VALID
         if (Is_Contact_valid($contact_number)) {
             $errors["invalid_number"] = "Please only use numbers";
         }
+        //------------------------------------------------------------------------------------------------//
         // CHECK IF EMAIL IS VALID
         if (Is_Email_valid($email)) {
             $errors["invalid_email"] = "Invalid email format";
         }
+        //------------------------------------------------------------------------------------------------//
         // CHECK IF USERNAME IS VALID
         if (Is_Model_Name_valid($model_name)) {
             $errors["model_name"] = "Please enter 6-16 letters and numbers as a model name";
         }
+        //------------------------------------------------------------------------------------------------//
         // CHECK IF PASSWORD IS VALID
         if (Is_Password_valid($pass_word)) {
-            $errors["invalid_password"] = "Your password must contain 6-24 characters, at least one number and one letter in your password";
+            $errors["invalid_password"] = "Your password must contain 6-24 characters, at least one number and one letter and no spaces.";
         }
+        //------------------------------------------------------------------------------------------------//
         // CHECK IF PASSWORD AND CONFIRM PASSWORD MATCHES
         if (Is_Password_match($pass_word, $confirm_pass)) {
             $errors["nonmatching-password"] = "Your passwords do not match";

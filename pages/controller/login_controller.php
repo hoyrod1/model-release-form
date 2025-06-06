@@ -12,3 +12,74 @@
  */
 declare(strict_types=1);
 //*=========================================================================*//
+
+//*=========================================================================*//
+/**
+ * The Is_Input_empty function checks if all the input fields are empty
+ * 
+ * @param string $email    This param has the email
+ * @param string $password This param has the password
+ * 
+ * @access public  
+ * 
+ * @return mixed
+ */
+function Is_Input_empty(string $email, string $password)
+{
+    if (empty($email) || empty($password)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+//*=========================================================================*//
+
+//===========================================================================//
+//*-------------------- SANITATION & VALIDATION SECTION --------------------*//
+//===========================================================================//
+
+//*=========================================================================*//
+/**
+ * 2. The Is_Email_valid function checks if email entered is valid
+ * 
+ * @param string $email This param has the email
+ * 
+ * @access public  
+ * 
+ * @return mixed
+ */
+function Is_Email_valid(string $email)
+{
+    //--------------------------- SANATIZED DATA ---------------------------//
+    $filtered_Email = filter_var($email, FILTER_SANITIZE_EMAIL);
+    //----------------------------------------------------------------------//
+    if (!preg_match("/[a-zA-Z0-9._]{3,}@[a-zA-Z0-9._]{3,}.{1}[a-zA-Z0-9._]{2,}/", $filtered_Email)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+//*=========================================================================*//
+
+//*=========================================================================*//
+/**
+ * 5. The Is_Password_valid function checks if the password entered is valid
+ * 
+ * @param string $password This param has the password
+ * 
+ * @access public  
+ * 
+ * @return mixed
+ */
+function Is_Password_valid(string $password)
+{
+    //--------------------------- SANATIZED DATA ---------------------------//
+    $filtered_Password = filter_var($password, FILTER_SANITIZE_STRING);
+    //----------------------------------------------------------------------//
+    if (!preg_match("/^[a-zA-Z,0-9_]*$/", $filtered_Password)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+//*=========================================================================*//

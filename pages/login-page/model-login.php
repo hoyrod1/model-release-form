@@ -10,29 +10,16 @@
  * @license  STC Media inc
  * @link     https://model-release-form/pages/login-page/model-login.php
  */
+//=========================== BEGINNING OF HEADER & NAV ===========================//
+require_once "../includes/login_header.php";
+//============================ ENDING OF HEADER & NAV =============================//
 ?>
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Model Login Page</title>
-    <link rel="stylesheet" href="../style/model-login.css" />
-    <script defer src="../javascript/model-login.js"></script>
-  </head>
-  <body>
-    <nav>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
-        <li>
-          <a href="../registration-page/model-registration.php">Register</a>
-        </li>
-      </ul>
-    </nav>
+    <hr>
     <div class="admin-container">
+    <?php 
+      // errorMessage();
+      // successMessage();
+    ?>
       <h1 class="admin-h1">Model Login Page</h1>
       <div class="admin-email-div">
         <div class="admin-email-form">
