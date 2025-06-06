@@ -83,3 +83,24 @@ function Is_Password_valid(string $password)
     }
 }
 //*=========================================================================*//
+
+//*=========================================================================*//
+/**
+ * The Get_User_Email_controller function checks if email exist in the database
+ * 
+ * @param object $pdo   This param has the PDO connection
+ * @param string $email This param has the email
+ * 
+ * @access public  
+ * 
+ * @return mixed
+ */
+function Get_User_Email_controller(object $pdo, string $email)
+{
+    if (Get_User_Email_model($pdo, $email)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+//*=========================================================================*//

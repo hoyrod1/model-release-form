@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
     $last_name =      trim($_POST["last_name"]);
     $contact_number = trim($_POST["contact_number"]);
     $email =          trim($_POST["email"]);
-    $model_name =      trim($_POST["model-name"]);
+    $model_name =     trim($_POST["model-name"]);
     $pass_word =      trim($_POST["password"]);
     $confirm_pass =   trim($_POST["confirm_pass"]);
     //*----------------------------------------------------------------------*//

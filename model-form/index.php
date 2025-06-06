@@ -1,5 +1,17 @@
 <?php
-
+/**
+ * * @file
+ * php version 8.2
+ * Procedural login view Configuration file for Model Release Form
+ * 
+ * @category Login_View
+ * @package  Procedural_Login_View_Configuration
+ * @author   Rodney St.Cloud <hoyrod1@aol.com>
+ * @license  STC Media inc
+ * @link     https://model-release-form/model-form/index.php
+ */
+require_once "../includes/session_inc.php";
+require_once "../pages/view/login_view.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,6 +23,9 @@
   <link rel="stylesheet" href="style/index.css">
 </head>
 <body>
+  <?php
+      successMessage(); 
+    ?>
   <div class="container">
     <h2 class="dba">Exotic Hard Body Production</h2>
     <h3 class="corp-name">A division of S.T.C. Media Inc</h3>

@@ -16,8 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
     $email =     trim($_POST["email"]);
     $pass_word = trim($_POST["password"]);
     //*----------------------------------------------------------------------*//
-    var_dump($email);
-    var_dump($pass_word);
+
     try {
         // START SESSION TO CATCH ANY LOGIN ERRORS //
         include_once "../../includes/session_inc.php";
@@ -39,6 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
         if (Is_Email_valid($email)) {
             $errors["invalid_email"] = "Invalid email format";
         }
+        //------------------------------------------------------------------------------------------------//
         // CHECK IF PASSWORD IS VALID
         if (Is_Password_valid($pass_word)) {
             $errors["invalid_password"] = "Your password must contain 6-24 characters, at least one number and one letter and no spaces";
@@ -47,8 +47,24 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
         // CHECK IF THERE ARE ANY ERRORS 
         if ($errors) {
             $_SESSION["login_error"] = $errors;
-            header("Location: ../login-page/model_signin..php");
+            header("Location: ../login-page/model-login.php");
             die("Query Failed: " . $e->getMessage());
+        } else {
+            // IF THERE ARE NO ERRORS CHECK IF EMAIL EXIST IN THE DATABASE 
+            $test_login =  Get_User_Email_controller($pdo, $email);
+            if ($test_login) {
+                //var_dump($test_login);
+                $_SESSION["login_success"] = "Please fill out the form";
+                header("Location: ../../model-form/index.php");
+                $pdo = null;
+                $stmt = null;
+                die();    
+            } else {
+                //var_dump($test_login);
+                $_SESSION["login_error"] = "The email entered wasn't found";
+                header("Location: ../login-page/model-login.php");
+                die("Login Failed: " . $e->getMessage());
+            }
         }
         //------------------------------------------------------------------------------------------------//
     } catch (PDOException $e) {

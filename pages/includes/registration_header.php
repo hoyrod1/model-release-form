@@ -62,7 +62,7 @@
               <li><a href="#">About</a></li>
               <li><a href="#">Contact</a></li>
               <li>
-                <a href="/registration-page/model-registration.php">Register</a>
+                <a href="../login-page/model-login.php">Login</a>
               </li>
             </ul>
           </nav>

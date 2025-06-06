@@ -15,11 +15,11 @@ require_once "../includes/login_header.php";
 //============================ ENDING OF HEADER & NAV =============================//
 ?>
     <hr>
-    <div class="admin-container">
     <?php 
-      // errorMessage();
-      // successMessage();
+      errorMessage();
+      successMessage();
     ?>
+    <div class="admin-container">
       <h1 class="admin-h1">Model Login Page</h1>
       <div class="admin-email-div">
         <div class="admin-email-form">
