@@ -11,6 +11,10 @@
  * @link     https://model-release-form/model-form/index.php
  */
 require_once "../includes/session_inc.php";
+if (!isset($_SESSION["users_name"])) {
+    header("Location: ../pages/login-page/model-login.php");
+    $_SESSION["login_success"] = $_SESSION["users_name"] . ' you are already logged in';
+}
 require_once "../pages/view/login_view.php";
 ?>
 <!DOCTYPE html>
@@ -202,7 +206,7 @@ require_once "../pages/view/login_view.php";
       <label class="print-name" for="print-name">
         Printed Name:
       </label>
-      <input type="text" name="print-name" id="print-name">
+      <input type="text" name="print-name" id="print-name" value="<?php echo$_SESSION["users_name"]; ?>">
       <br>
       <label class="social-security" for="social-security">
         Social Security:

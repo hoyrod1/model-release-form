@@ -32,19 +32,30 @@ session_start();
 //*==============================================================*//
 
 //*==============================================================*//
-if (!isset($_SESSION["regeneration_set"])) {
-    Regenerate_Session_id();
+if (isset($_SESSION["users_id"])) {
+    if (!isset($_SESSION["regeneration_set"])) {
+        Regenerate_Session_Id_signedin();
+    } else {
+        $interval = 60*30;
+        if (time() - $_SESSION["regeneration_set"] >= $interval) {
+            Regenerate_Session_Id_signedin();
+        }
+    }
 } else {
-    $interval = 60*30;
-    if (time() - $_SESSION["regeneration_set"] >= $interval) {
+    if (!isset($_SESSION["regeneration_set"])) {
         Regenerate_Session_id();
+    } else {
+        $interval = 60*30;
+        if (time() - $_SESSION["regeneration_set"] >= $interval) {
+            Regenerate_Session_id();
+        }
     }
 }
 //*==============================================================*//
 
 //*==============================================================*//
 /**
- * This function regenerate the session id  
+ * This function regenerate the session id before user logged in
  * 
  * @access public  
  * 
@@ -52,7 +63,27 @@ if (!isset($_SESSION["regeneration_set"])) {
  */
 function Regenerate_Session_id()
 {
-    session_regenerate_id();
+    session_regenerate_id(true);
+    $_SESSION["regeneration_set"] = time();
+}
+//*==============================================================*//
+
+//*==============================================================*//
+/**
+ * This function regenerate the session id after user is logged in
+ * 
+ * @access public  
+ * 
+ * @return void
+ */
+function Regenerate_Session_Id_signedin()
+{
+    session_regenerate_id(true);
+
+    $userId = $_SESSION["users_id"];
+    $mewUserSessionId = session_create_id();
+    $userSessionId = $mewUserSessionId ."_". $userId;
+    session_id($userSessionId);
     $_SESSION["regeneration_set"] = time();
 }
 //*==============================================================*//

@@ -24,7 +24,7 @@ declare(strict_types=1);
  * 
  * @return mixed
  */
-function Get_User_Email_model(object $pdo, string $email)
+function Get_User_model(object $pdo, string $email)
 {
     $query = "SELECT * FROM model_registration WHERE email = :email";
     $stmt  = $pdo->prepare($query);

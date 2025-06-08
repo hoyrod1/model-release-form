@@ -15,7 +15,7 @@ declare(strict_types=1);
 
 //*=========================================================================*//
 /**
- * The Is_Input_empty function checks if all the input fields are empty
+ * 1. The Is_Input_empty function checks if all the input fields are empty
  * 
  * @param string $email    This param has the email
  * @param string $password This param has the password
@@ -50,10 +50,7 @@ function Is_Input_empty(string $email, string $password)
  */
 function Is_Email_valid(string $email)
 {
-    //--------------------------- SANATIZED DATA ---------------------------//
-    $filtered_Email = filter_var($email, FILTER_SANITIZE_EMAIL);
-    //----------------------------------------------------------------------//
-    if (!preg_match("/[a-zA-Z0-9._]{3,}@[a-zA-Z0-9._]{3,}.{1}[a-zA-Z0-9._]{2,}/", $filtered_Email)) {
+    if (!preg_match("/[a-zA-Z0-9._]{3,}@[a-zA-Z0-9._]{3,}.{1}[a-zA-Z0-9._]{2,}/", $email)) {
         return true;
     } else {
         return false;
@@ -63,7 +60,7 @@ function Is_Email_valid(string $email)
 
 //*=========================================================================*//
 /**
- * 5. The Is_Password_valid function checks if the password entered is valid
+ * 3. The Is_Password_valid function checks if the password entered is valid
  * 
  * @param string $password This param has the password
  * 
@@ -73,10 +70,7 @@ function Is_Email_valid(string $email)
  */
 function Is_Password_valid(string $password)
 {
-    //--------------------------- SANATIZED DATA ---------------------------//
-    $filtered_Password = filter_var($password, FILTER_SANITIZE_STRING);
-    //----------------------------------------------------------------------//
-    if (!preg_match("/^[a-zA-Z,0-9_]*$/", $filtered_Password)) {
+    if (!preg_match("/^[a-zA-Z,0-9_]*$/", $password)) {
         return true;
     } else {
         return false;
@@ -84,20 +78,24 @@ function Is_Password_valid(string $password)
 }
 //*=========================================================================*//
 
+//===========================================================================//
+//*--------------------- QUERY DATABASE TO VERIFY USER ---------------------*//
+//===========================================================================//
+
 //*=========================================================================*//
 /**
- * The Get_User_Email_controller function checks if email exist in the database
+ * 3. The Is_Password_correct function checks if the password entered matches
  * 
- * @param object $pdo   This param has the PDO connection
- * @param string $email This param has the email
+ * @param string $password      This param has the password entered
+ * @param string $user_password This param has the users password
  * 
  * @access public  
  * 
  * @return mixed
  */
-function Get_User_Email_controller(object $pdo, string $email)
+function Is_Password_correct(string $password, string $user_password)
 {
-    if (Get_User_Email_model($pdo, $email)) {
+    if (!password_verify($password, $user_password)) {
         return true;
     } else {
         return false;
