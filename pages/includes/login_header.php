@@ -10,12 +10,12 @@
  * @license  STC Media inc
  * @link     https://model-release-form/pages/incudes/login_header.php
  */
-// START SESSION TO CATCH ANY LOGIN ERRORS //
 require_once "../../includes/session_inc.php";
 if (isset($_SESSION["users_name"])) {
     header("Location: ../../model-form/index.php");
     $_SESSION["login_success"] = $_SESSION["users_name"] . ' you are already logged in';
 }
+require_once "../view/login_view.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">

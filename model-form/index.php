@@ -12,8 +12,9 @@
  */
 require_once "../includes/session_inc.php";
 if (!isset($_SESSION["users_name"])) {
+    $userMessage = $_SESSION["users_name"] . ' you are already logged in';
+    $_SESSION["login_success"] = $userMessage;
     header("Location: ../pages/login-page/model-login.php");
-    $_SESSION["login_success"] = $_SESSION["users_name"] . ' you are already logged in';
 }
 require_once "../pages/view/login_view.php";
 ?>
