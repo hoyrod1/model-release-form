@@ -27,7 +27,7 @@ function errorMessage()
         $errors = $_SESSION['login_error'];
         echo "<br>";
         foreach ($errors as $error) {
-            $error_message = "<div style=\"width: 335px;margin: 30px auto; background-color:red; color:white;\" align=\"center\" class=\"alert\">";
+            $error_message = "<div style=\"width: 335px;margin: 20px auto;padding: 5px; background-color:red;color:white;\" align=\"center\" class=\"alert\">";
             $error_message .= $error;
             $error_message .= "</div>";
             echo $error_message;
@@ -51,7 +51,7 @@ function successMessage()
     if (isset($_SESSION["login_success"])) {
         $success_messages = $_SESSION["login_success"];
 
-        $message = "<p style=\"width: 335px;margin: 30px auto; background-color:green; color:white;\" align=\"center\">";
+        $message = "<p style=\"width: 335px;margin: 20px auto;padding: 5px; background-color:green; color:white;\" align=\"center\">";
         $message .= $success_messages;
         $sessage .= "</p>";
         echo $message;

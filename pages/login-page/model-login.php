@@ -31,6 +31,7 @@ require_once "../includes/login_header.php";
                 id="email"
                 class="admin-contact-email"
                 placeholder="Enter you email"
+                required
               />
             </div>
             <div class="admin-password-input-div">
@@ -40,6 +41,7 @@ require_once "../includes/login_header.php";
                 id="password"
                 class="admin-password-email"
                 placeholder="Enter you password"
+                required
               />
             </div>
             <input type="submit" name="submit" value="Login" class="admin-login" />

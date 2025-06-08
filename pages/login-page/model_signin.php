@@ -48,12 +48,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
             $errors["invalid_password"] = "Your password must contain 6-24 characters, at least one number and one letter and no spaces";
         }
         //------------------------------------------------------------------------------------------------//
-        // THIS CONTAINS THE RESULTS FROM THE DATABASE QUERY
-        $results = Get_User_model($pdo, $filtered_Email);
+
         //------------------------------------------------------------------------------------------------//
-        // CHECK IF PASSWORD ENTERED IS CORRECT
-        if (Is_Password_correct($filtered_Password, $results["pass_word"])) {
-            $errors["invalid_password"] = "Password is not correct";
+        // CHECK IF EMAIL ALREADY EXIST
+        var_dump(Does_Email_Exist_controller($pdo, $filtered_Email));
+        if (Does_Email_Exist_controller($pdo, $filtered_Email)) {
+            $errors["email_does_not_exist"] = "There is no user with this email";
         }
         //------------------------------------------------------------------------------------------------//
         //************************************************************************************************//
@@ -65,7 +65,24 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
             die("Query Failed: " . $e->getMessage());
         }
         //------------------------------------------------------------------------------------------------//
+
+        //------------------------------------------------------------------------------------------------//
         //************************************************************************************************//
+        //------------------------------------------------------------------------------------------------//
+
+        //------------------------------------------------------------------------------------------------//
+        //********************** THIS CONTAINS THE RESULTS FROM THE DATABASE QUERY ***********************//
+        $results = Get_User_model($pdo, $filtered_Email);
+        //------------------------------------------------------------------------------------------------//
+        
+        //------------------------------------------------------------------------------------------------//
+        // CHECK IF PASSWORD ENTERED IS CORRECT
+        if (Is_Password_correct($filtered_Password, $results["pass_word"])) {
+            $errors["invalid_password"] = "Password is not correct";
+            $_SESSION['login_error'] = $errors;
+            header("Location: ../login-page/model-login.php");
+            die("Query Failed: " . $e->getMessage());
+        }
         //------------------------------------------------------------------------------------------------//
         // SET THE SESSION ID WITH THE USERS (ID)
         $mewUserSessionId = session_create_id();

@@ -84,7 +84,28 @@ function Is_Password_valid(string $password)
 
 //*=========================================================================*//
 /**
- * 3. The Is_Password_correct function checks if the password entered matches
+ * 1. The Does_Email_exist function checks if the email exist in the database
+ * 
+ * @param object $pdo           This param has the PDO connection
+ * @param string $email_entered This param has the email entered
+ * 
+ * @access public  
+ * 
+ * @return mixed
+ */
+function Does_Email_Exist_controller(object $pdo, string $email_entered)
+{
+    if (!Does_Email_Exist_model($pdo, $email_entered)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+//*=========================================================================*//
+
+//*=========================================================================*//
+/**
+ * 2. The Is_Password_correct function checks if the password entered matches
  * 
  * @param string $password      This param has the password entered
  * @param string $user_password This param has the users password

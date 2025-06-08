@@ -45,20 +45,59 @@ require_once "../includes/registration_header.php";
     <div class="registration-form-container">
       <h1 class="form-title-h1">Registration Page</h1>
       <form class="reg-form" action="registration_signup.php" method="POST">
-          <input type="text" name="first_name" placeholder="Enter First Name">
+          <input
+            type="text" 
+            name="first_name" 
+            placeholder="Enter First Name"
+            required
+            >
           <br>
-          <input type="text" name="last_name" placeholder="Enter Last Name">
+          <input 
+            type="text" 
+            name="last_name" 
+            placeholder="Enter Last Name"
+            required
+            >
           <br>
-          <input type="email" name="email" placeholder="Enter Email">
+          <input 
+            type="email" 
+            name="email" 
+            placeholder="Enter Email"
+            required
+            >
           <br>
-          <input type="text" name="contact_number" placeholder="Enter Phone Number">
+          <input 
+            type="text" 
+            name="contact_number" 
+            placeholder="Enter Phone Number"
+            required
+            >
           <br>
-          <input type="text" name="model-name" placeholder="Enter Model Name">
+          <input 
+            type="text" 
+            name="model-name" 
+            placeholder="Enter Model Name"
+            required
+            >
           <br>
-          <input type="password" name="password" placeholder="Enter Password">
-          <input type="password" name="confirm_pass" placeholder="Confirm Password">
+          <input 
+            type="password" 
+            name="password" 
+            placeholder="Enter Password"
+            required
+            >
+          <input 
+            type="password" 
+            name="confirm_pass" 
+            placeholder="Confirm Password"
+            required
+            >
           <br>
-          <input type="submit" name="submit" value="Sign Up">
+          <input 
+            type="submit" 
+            name="submit" 
+            value="Sign Up"
+            >
         <div>
             Already Registered: <a href="../login-page/model-login.php">Login</a>
         </div>
