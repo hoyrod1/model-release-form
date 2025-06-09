@@ -21,6 +21,10 @@ h2 {
   text-decoration: underline;
 }
 
+li.nav-link {
+  background-color: red;
+}
+
 .model-form {
   padding: 5px;
 }

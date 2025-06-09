@@ -2,10 +2,10 @@
 /**
  * * @file
  * php version 8.2
- * Procedural login view Configuration file for Model Release Form
+ * Model Relase Form Configuration file
  * 
- * @category Login_View
- * @package  Procedural_Login_View_Configuration
+ * @category Model_Relase_Form
+ * @package  Model_Relase_Form_Configuration
  * @author   Rodney St.Cloud <hoyrod1@aol.com>
  * @license  STC Media inc
  * @link     https://model-release-form/model-form/index.php
@@ -28,6 +28,15 @@ require_once "../pages/view/login_view.php";
   <link rel="stylesheet" href="style/index.css">
 </head>
 <body>
+  <nav style="margin: 15px 0 0 0;">
+    <ul class="nav-ul-link" style="margin: 0 0 0 30px;">
+      <li class="nav-link" style=" list-style-type: none; ">
+        <a href="../model-form/logout.php" class="nav-anchor" style="color: red; text-decoration: none; font-size: larger;">
+            Log Out
+        </a>
+      </li>
+    </ul>
+  </nav>
   <?php
       successMessage(); 
     ?>
