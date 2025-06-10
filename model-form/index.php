@@ -31,7 +31,7 @@ require_once "../pages/view/login_view.php";
   <nav style="margin: 15px 0 0 0;">
     <ul class="nav-ul-link" style="margin: 0 0 0 30px;">
       <li class="nav-link" style=" list-style-type: none; ">
-        <a href="../model-form/logout.php" class="nav-anchor" style="color: red; text-decoration: none; font-size: larger;">
+        <a href="../model-form/logout.php" class="nav-anchor" style="color: red; text-decoration: none; font-size: xx-large;">
             Log Out
         </a>
       </li>
@@ -52,22 +52,39 @@ require_once "../pages/view/login_view.php";
       <label class="producer-name" for="producer-name">
         Producer/Photographer/Videographer Name:
       </label>
-      <input type="text" name="producer-name" id="producer-name">
+      <input 
+        type="text" 
+        name="producer-name" 
+        id="producer-name"
+        >
       <br>
       <label class="model-name" for="model-name">
         Model Name:
       </label>
-      <input type="text" name="model-name" id="model-name">
+      <input 
+        type="text" 
+        name="model-name" 
+        id="model-name"
+        value="<?php echo$_SESSION["users_model_name"]; ?>"
+        >
       <br>
       <label class="date-of-shoot" for="date-of-shoot">
         Date of Shoot:
       </label>
-      <input type="text" name="date-of-shoot" id="date-of-shoot">
+      <input 
+        type="text" 
+        name="date-of-shoot" 
+        id="date-of-shoot"
+        >
       <br>
       <label class="location-of-shoot" for="location-of-shoot">
         Location of Shoot:
       </label>
-      <input type="text" name="location-of-shoot" id="location-of-shoot">
+      <input 
+        type="text" 
+        name="location-of-shoot" 
+        id="location-of-shoot"
+        >
       <!-------------------------------------------->
       <h3 class="summary-title">
         <span class="summary-number">
@@ -216,32 +233,57 @@ require_once "../pages/view/login_view.php";
       <label class="print-name" for="print-name">
         Printed Name:
       </label>
-      <input type="text" name="print-name" id="print-name" value="<?php echo$_SESSION["users_name"]; ?>">
+      <input 
+        type="text" 
+        name="print-name" 
+        id="print-name" 
+        value="<?php echo$_SESSION["users_name"]; ?>"
+        >
       <br>
       <label class="social-security" for="social-security">
         Social Security:
       </label>
-      <input type="text" name="social-security" id="social-security">
+      <input 
+        type="text" 
+        name="social-security" 
+        id="social-security"
+        >
       <br>
       <label class="address" for="address">
         Address:
       </label>
-      <input type="text" name="address" id="address">
+      <input 
+        type="text" 
+        name="address" 
+        id="address"
+        >
       <br>
       <label class="city" for="city">
         City:
       </label>
-      <input type="text" name="city" id="city">
+      <input 
+        type="text" 
+        name="city" 
+        id="city"
+        >
       <br>
       <label class="state" for="state">
         State:
       </label>
-      <input type="text" name="state" id="state">
+      <input 
+        type="text" 
+        name="state" 
+        id="state"
+        >
       <br>
       <label class="zip" for="zip">
         Zip:
       </label>
-      <input type="text" name="zip" id="zip">
+      <input 
+        type="text" 
+        name="zip" 
+        id="zip"
+        >
       <!-------------------------------------------->
       <br>
       <!-------------------------------------------->

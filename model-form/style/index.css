@@ -33,7 +33,7 @@ li.nav-link {
 .model-name,
 .date-of-shoot,
 .location-of-shoot {
-  font-size: 20px;
+  font-size: 35px;
   font-weight: 700;
 }
 
@@ -63,6 +63,7 @@ li.nav-link {
 #state,
 #zip {
   margin: 10px 0 10px 0;
+  font-size: x-large;
 }
 .summary-title,
 .print-info {
@@ -163,6 +164,7 @@ li.nav-link {
   #state,
   #zip {
     width: 100%;
+    font-size: x-large;
   }
 }
 /*====================================================================*/
