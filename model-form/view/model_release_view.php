@@ -10,3 +10,5 @@
  * @license  STC Media inc
  * @link     https://model-release-form/model-form/model/model_release_view.php
  */
+declare(strict_types=1);
+//*=========================================================================*//

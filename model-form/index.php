@@ -44,7 +44,7 @@ require_once "../pages/view/login_view.php";
     <h2 class="dba">Exotic Hard Body Production</h2>
     <h3 class="corp-name">A division of S.T.C. Media Inc</h3>
     <h2 class="form-name">Model Release Form</h2>
-    <form class="model-form" action="" method="post">
+    <form class="model-form" action="model_release_form_processor.php" method="post">
     <p class="contract-summary">
       This Model Release Form ("Agreement") is made and entered 
       into as of the date set forth below by and between:
@@ -221,7 +221,12 @@ require_once "../pages/view/login_view.php";
       <label class="payment-amount" for="payment-amount">
         The model will receive a compensation in the amount of $
       </label>
-      <input type="text" name="payment-amount" id="payment-amount">
+      <input 
+        type="text" 
+        name="payment-amount" 
+        id="payment-amount"
+        require
+        >
       <!-------------------------------------------->
       <!-------------------------------------------->
       <p class="contract-summary tax-disclaimer">
@@ -281,7 +286,7 @@ require_once "../pages/view/login_view.php";
       </label>
       <input 
         type="text" 
-        name="zip" 
+        name="zip-code" 
         id="zip"
         >
       <!-------------------------------------------->

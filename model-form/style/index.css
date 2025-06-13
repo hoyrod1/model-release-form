@@ -21,9 +21,9 @@ h2 {
   text-decoration: underline;
 }
 
-li.nav-link {
+/* li.nav-link {
   background-color: red;
-}
+} */
 
 .model-form {
   padding: 5px;
@@ -33,7 +33,7 @@ li.nav-link {
 .model-name,
 .date-of-shoot,
 .location-of-shoot {
-  font-size: 35px;
+  font-size: 25px;
   font-weight: 700;
 }
 
@@ -63,7 +63,7 @@ li.nav-link {
 #state,
 #zip {
   margin: 10px 0 10px 0;
-  font-size: x-large;
+  font-size: large;
 }
 .summary-title,
 .print-info {
