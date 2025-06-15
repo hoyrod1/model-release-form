@@ -26,7 +26,9 @@ declare(strict_types=1);
  */
 function Get_Model_name(object $pdo, string $model_name)
 {
-    $query = "SELECT model_name FROM model_registration WHERE model_name = :model_name";
+    $query = "SELECT model_name 
+              FROM model_registration 
+              WHERE model_name = :model_name";
     $stmt  = $pdo->prepare($query);
     $stmt->bindValue(":model_name", $model_name, PDO::PARAM_STR);;
     $stmt->execute();
@@ -75,9 +77,19 @@ function Get_email(object $pdo, string $email)
  * 
  * @return mixed
  */
-function Register_User_model(object $pdo, string $firstname, string $lastname, string $email, string $contact_number, string $model_name, string $password)
-{
-    $reg_sql  = "INSERT INTO model_registration (firstname, lastname, email, contact_number, model_name, pass_word) VALUES(:firstname, :lastname, :email, :contact_number, :model_name, :pass_word)";
+function Register_User_model(
+    object $pdo, 
+    string $firstname, 
+    string $lastname, 
+    string $email, 
+    string $contact_number, 
+    string $model_name, 
+    string $password
+) {
+    $reg_sql  = "INSERT INTO model_registration 
+    (firstname, lastname, email, contact_number, model_name, pass_word) 
+    VALUES
+    (:firstname, :lastname, :email, :contact_number, :model_name, :pass_word)";
     $stmt = $pdo->prepare($reg_sql);
     $hash_options = [
         'cost' => 12

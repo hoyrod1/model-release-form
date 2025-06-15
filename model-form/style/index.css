@@ -32,6 +32,7 @@ h2 {
 .producer-name,
 .model-name,
 .date-of-shoot,
+.email,
 .location-of-shoot {
   font-size: 25px;
   font-weight: 700;
@@ -40,6 +41,7 @@ h2 {
 #producer-name,
 #model-name,
 #date-of-shoot,
+#email,
 #location-of-shoot,
 #payment-amount,
 #print-name,
@@ -47,7 +49,8 @@ h2 {
 #address,
 #city,
 #state,
-#zip {
+#zip,
+#country {
   background-color: aqua;
   padding: 5px;
 }
@@ -55,13 +58,15 @@ h2 {
 #producer-name,
 #model-name,
 #date-of-shoot,
+#email,
 #location-of-shoot,
 #print-name,
 #social-security,
 #address,
 #city,
 #state,
-#zip {
+#zip,
+#country {
   margin: 10px 0 10px 0;
   font-size: large;
 }
@@ -93,7 +98,8 @@ h2 {
 .address,
 .city,
 .state,
-.zip {
+.zip,
+.country {
   font-size: 20px;
   font-weight: 600;
 }
@@ -137,13 +143,15 @@ h2 {
   .model-name,
   .date-of-shoot,
   .location-of-shoot,
+  .email,
   .payment-amount,
   .print-name,
   .social-security,
   .address,
   .city,
   .state,
-  .zip {
+  .zip,
+  .country {
     display: block;
     text-align: center;
   }
@@ -156,13 +164,15 @@ h2 {
   #model-name,
   #date-of-shoot,
   #location-of-shoot,
+  #email,
   #payment-amount,
   #print-name,
   #social-security,
   #address,
   #city,
   #state,
-  #zip {
+  #zip,
+  #country {
     width: 100%;
     font-size: x-large;
   }

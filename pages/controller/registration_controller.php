@@ -29,9 +29,23 @@ declare(strict_types=1);
  * 
  * @return mixed
  */
-function Is_Input_empty(string $firstname, string $lastname, string $contact_number, string $email, string $model_name, string $password, string $confirm_password)
-{
-    if (empty($firstname) || empty($lastname) || empty($email) || empty($model_name) || empty($password) || empty($confirm_password) || empty($contact_number)) {
+function Is_Input_empty(
+    string $firstname, 
+    string $lastname, 
+    string $contact_number, 
+    string $email, 
+    string $model_name, 
+    string $password, 
+    string $confirm_password
+) {
+    if (empty($firstname) 
+        || empty($lastname) 
+        || empty($email) 
+        || empty($model_name) 
+        || empty($password) 
+        || empty($confirm_password) 
+        || empty($contact_number)
+    ) {
         return true;
     } else {
         return false;
@@ -60,7 +74,9 @@ function Is_Name_valid(string $firstname, string $lastname)
     $filtered_firstName = filter_var($firstname, FILTER_SANITIZE_STRING);
     $filtered_lastName = filter_var($lastname, FILTER_SANITIZE_STRING);
     //----------------------------------------------------------------------//
-    if (!preg_match("/^[a-zA-Z-'\. ]*$/", $filtered_firstName) || !preg_match("/^[a-zA-Z-'\. ]*$/", $filtered_lastName)) {
+    if (!preg_match("/^[a-zA-Z-'\. ]*$/", $filtered_firstName) 
+        || !preg_match("/^[a-zA-Z-'\. ]*$/", $filtered_lastName)
+    ) {
         return true;
     } else {
         return false;
@@ -243,9 +259,25 @@ function Is_Email_taken(object $pdo, string $email)
  * 
  * @return mixed
  */
-function Register_User_controller(object $pdo, string $firstname, string $lastname, string $email, string $contact_number, string $model_name, string $password)
-{
-    if (Register_User_model($pdo, $firstname, $lastname, $email, $contact_number, $model_name, $password)) {
+function Register_User_controller(
+    object $pdo, 
+    string $firstname, 
+    string $lastname, 
+    string $email, 
+    string $contact_number, 
+    string $model_name, 
+    string $password
+) {
+    if (Register_User_model(
+        $pdo, 
+        $firstname, 
+        $lastname, 
+        $email, 
+        $contact_number, 
+        $model_name, 
+        $password
+    )
+    ) {
         return true;
     } else {
         return false;

@@ -37,13 +37,22 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
         // ERROR HANDLERS ARRAY //
         $errors = [];
         // CHECK IF ALL INPUT FEILDS ARE NOT EMPTY
-        if (Is_Input_empty($first_name, $last_name, $contact_number, $email, $model_name, $pass_word, $confirm_pass)) {
+        if (Is_Input_empty(
+            $first_name, 
+            $last_name, 
+            $contact_number, 
+            $email, 
+            $model_name, 
+            $pass_word, 
+            $confirm_pass
+        )
+        ) {
             $errors["empty_input"] = "Fill in all fields";
         }
         //------------------------------------------------------------------------------------------------//
         // CHECK IF THE FIRST AND LAST NAME CONTAIN VALID DATA
         if (Is_Name_valid($first_name, $last_name)) {
-            $errors["invalid_name"] = "Please use letters, hyphens and periods in your first and last name";;
+            $errors["invalid_name"] = "Please use letters, hyphens and periods in your first and last name";
         }
         //------------------------------------------------------------------------------------------------//
         // CHECK IF CONTACT NUMBER IS VALID
@@ -91,7 +100,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
 
         //------------------------------------------------------------------------------------------------//
         // START THE PROCCESS OF REGISTERING THE USER
-        $register_test = Register_User_controller($pdo, $first_name, $last_name, $email, $contact_number, $model_name, $pass_word);
+        $register_test = Register_User_controller(
+            $pdo, 
+            $first_name, 
+            $last_name, 
+            $email, 
+            $contact_number, 
+            $model_name, 
+            $pass_word
+        );
 
         if ($register_test) {
             // header("Location: ../registration-page/model-registration.php?signup=success");

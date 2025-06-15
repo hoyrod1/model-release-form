@@ -17,6 +17,7 @@ if (!isset($_SESSION["users_name"])) {
     header("Location: ../pages/login-page/model-login.php");
 }
 require_once "../pages/view/login_view.php";
+require_once "view/model_release_view.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,7 +39,9 @@ require_once "../pages/view/login_view.php";
     </ul>
   </nav>
   <?php
-      successMessage(); 
+      successMessage();
+      modelReleaseFormErrorMessage();
+      modelReleaseFormSuccessMessage();
     ?>
   <div class="container">
     <h2 class="dba">Exotic Hard Body Production</h2>
@@ -74,6 +77,15 @@ require_once "../pages/view/login_view.php";
       <input 
         type="text" 
         name="date-of-shoot" 
+        id="date-of-shoot"
+        >
+      <br>
+      <label class="date-of-shoot" for="date-of-shoot">
+        email:
+      </label>
+      <input 
+        type="email" 
+        name="email" 
         id="date-of-shoot"
         >
       <br>
@@ -236,7 +248,7 @@ require_once "../pages/view/login_view.php";
       <!-------------------------------------------->
       <h2 class="print-info">Please enter your information</h2>
       <label class="print-name" for="print-name">
-        Printed Name:
+        Legal Name:
       </label>
       <input 
         type="text" 
@@ -288,6 +300,15 @@ require_once "../pages/view/login_view.php";
         type="text" 
         name="zip-code" 
         id="zip"
+        >
+      <br>
+      <label class="country" for="country">
+        Country:
+      </label>
+      <input 
+        type="text" 
+        name="country" 
+        id="country"
         >
       <!-------------------------------------------->
       <br>
