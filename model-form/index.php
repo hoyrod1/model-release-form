@@ -18,6 +18,8 @@ if (!isset($_SESSION["users_name"])) {
 }
 require_once "../pages/view/login_view.php";
 require_once "view/model_release_view.php";
+$producer = "Rodney St. Cloud";
+$current_date = date("m-d-Y");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -47,39 +49,39 @@ require_once "view/model_release_view.php";
     <h2 class="dba">Exotic Hard Body Production</h2>
     <h3 class="corp-name">A division of S.T.C. Media Inc</h3>
     <h2 class="form-name">Model Release Form</h2>
+    <!----------------------------------------------------------------------------->
+    <!---------------------- THE BEGINNING OF THE FORM FIELD ---------------------->
+    <!----------------------------------------------------------------------------->
     <form class="model-form" action="model_release_form_processor.php" method="post">
-    <p class="contract-summary">
-      This Model Release Form ("Agreement") is made and entered 
-      into as of the date set forth below by and between:
-    </p>
+    <!----------------------------------------------------------------------------->
+      <p class="contract-summary">
+        This Model Release Form ("Agreement") is made and entered 
+        into as of the date set forth below by and between:
+      </p>
       <label class="producer-name" for="producer-name">
-        Producer/Photographer/Videographer Name:
+        Producer's Name:
       </label>
       <input 
         type="text" 
         name="producer-name" 
         id="producer-name"
+        value="<?php echo $producer; ?>"
         >
+      <!--------------------------------------------------------------------------->
       <br>
+      <!--------------------------------------------------------------------------->
       <label class="model-name" for="model-name">
-        Model Name:
+        Model's Name:
       </label>
       <input 
         type="text" 
         name="model-name" 
         id="model-name"
-        value="<?php echo$_SESSION["users_model_name"]; ?>"
+        value="<?php echo $_SESSION["users_model_name"]; ?>"
         >
+      <!--------------------------------------------------------------------------->
       <br>
-      <label class="date-of-shoot" for="date-of-shoot">
-        Date of Shoot:
-      </label>
-      <input 
-        type="text" 
-        name="date-of-shoot" 
-        id="date-of-shoot"
-        >
-      <br>
+      <!--------------------------------------------------------------------------->
       <label class="date-of-shoot" for="date-of-shoot">
         email:
       </label>
@@ -87,8 +89,23 @@ require_once "view/model_release_view.php";
         type="email" 
         name="email" 
         id="date-of-shoot"
+        value="<?php echo $_SESSION["users_email"]; ?>"
         >
+      <!--------------------------------------------------------------------------->
       <br>
+      <!--------------------------------------------------------------------------->
+      <label class="date-of-shoot" for="date-of-shoot">
+        Date of Shoot:
+      </label>
+      <input 
+        type="text" 
+        name="date-of-shoot" 
+        id="date-of-shoot"
+        value="<?php echo $current_date; ?>"
+        >
+      <!--------------------------------------------------------------------------->
+      <br>
+      <!--------------------------------------------------------------------------->
       <label class="location-of-shoot" for="location-of-shoot">
         Location of Shoot:
       </label>
@@ -96,8 +113,10 @@ require_once "view/model_release_view.php";
         type="text" 
         name="location-of-shoot" 
         id="location-of-shoot"
+        require
         >
-      <!-------------------------------------------->
+      <!--------------------------------------------------------------------------->
+      <!--------------------------------------------------------------------------->
       <h3 class="summary-title">
         <span class="summary-number">
           1.
@@ -116,8 +135,8 @@ require_once "view/model_release_view.php";
         digital, television, streaming services, 
         and social media platforms. This release includes adult-themed
       </p>
-      <!-------------------------------------------->
-      <!-------------------------------------------->
+      <!--------------------------------------------------------------------------->
+      <!--------------------------------------------------------------------------->
       <h3 class="summary-title">
         <span class="summary-number">
           2.
@@ -130,8 +149,8 @@ require_once "view/model_release_view.php";
       agreed upon separately. The Model waives any right to future 
       royalties or compensation from the use of the images and recordings.
       </p>
-      <!-------------------------------------------->
-      <!-------------------------------------------->
+      <!--------------------------------------------------------------------------->
+      <!--------------------------------------------------------------------------->
       <h3 class="summary-title">
         <span class="summary-number">
           3.
@@ -145,8 +164,8 @@ require_once "view/model_release_view.php";
       verification purposes in compliance with 18 U.S.C. § 2257 record-keeping 
       requirements.
       </p>
-      <!-------------------------------------------->
-      <!-------------------------------------------->
+      <!--------------------------------------------------------------------------->
+      <!--------------------------------------------------------------------------->
       <h3 class="summary-title">
         <span class="summary-number">
           4.
@@ -159,8 +178,8 @@ require_once "view/model_release_view.php";
       acknowledge that they have not been coerced, threatened, or forced into 
       participating.
       </p>
-      <!-------------------------------------------->
-      <!-------------------------------------------->
+      <!--------------------------------------------------------------------------->
+      <!--------------------------------------------------------------------------->
       <h3 class="summary-title">
         <span class="summary-number">
           5.
@@ -172,8 +191,8 @@ require_once "view/model_release_view.php";
       editing, cropping, and modification of the images and recordings. The Model 
       waives any right to inspect or approve the final product or its usage.
       </p>
-      <!-------------------------------------------->
-      <!-------------------------------------------->
+      <!--------------------------------------------------------------------------->
+      <!--------------------------------------------------------------------------->
       <h3 class="summary-title">
         <span class="summary-number">
           6.
@@ -188,8 +207,8 @@ require_once "view/model_release_view.php";
       related to the use of their likeness, including but not limited to claims 
       for defamation, right of publicity, or invasion of privacy.
       </p>
-      <!-------------------------------------------->
-      <!-------------------------------------------->
+      <!--------------------------------------------------------------------------->
+      <!--------------------------------------------------------------------------->
       <h3 class="summary-title">
         <span class="summary-number">
           7.
@@ -200,8 +219,8 @@ require_once "view/model_release_view.php";
       The Model agrees to indemnify and hold harmless the 
       Producer/Photographer/Videographer from
       </p>
-      <!-------------------------------------------->
-      <!-------------------------------------------->
+      <!--------------------------------------------------------------------------->
+      <!--------------------------------------------------------------------------->
       <h3 class="summary-title">
         <span class="summary-number">
           8.
@@ -214,8 +233,8 @@ require_once "view/model_release_view.php";
       confidential. They agree not to disclose such information without prior 
       written consent from the Producer.
       </p>
-      <!-------------------------------------------->
-      <!-------------------------------------------->
+      <!--------------------------------------------------------------------------->
+      <!--------------------------------------------------------------------------->
       <h3 class="summary-title">
         <span class="summary-number">
           9.
@@ -228,8 +247,8 @@ require_once "view/model_release_view.php";
       is based. Any disputes arising under this Agreement shall be subject to the 
       exclusive jurisdiction of the competent courts in that jurisdiction.
       </p>
-      <!-------------------------------------------->
-      <!-------------------------------------------->
+      <!--------------------------------------------------------------------------->
+      <!--------------------------------------------------------------------------->
       <label class="payment-amount" for="payment-amount">
         The model will receive a compensation in the amount of $
       </label>
@@ -239,24 +258,29 @@ require_once "view/model_release_view.php";
         id="payment-amount"
         require
         >
-      <!-------------------------------------------->
-      <!-------------------------------------------->
+      <!--------------------------------------------------------------------------->
+      <!--------------------------------------------------------------------------->
       <p class="contract-summary tax-disclaimer">
       Rodney St. Cloud does not withhold any taxes
       </p>
-      <!-------------------------------------------->
-      <!-------------------------------------------->
+      <!--------------------------------------------------------------------------->
+      <!--=======================================================================-->
+      <!--------------------------------------------------------------------------->
       <h2 class="print-info">Please enter your information</h2>
-      <label class="print-name" for="print-name">
+      <!--------------------------------------------------------------------------->
+      <label class="legal-name" for="legal-name">
         Legal Name:
       </label>
       <input 
         type="text" 
-        name="print-name" 
-        id="print-name" 
-        value="<?php echo$_SESSION["users_name"]; ?>"
+        name="legal-name" 
+        id="legal-name" 
+        value="<?php echo $_SESSION["users_name"]; ?>"
+        require
         >
+      <!--------------------------------------------------------------------------->
       <br>
+      <!--------------------------------------------------------------------------->
       <label class="social-security" for="social-security">
         Social Security:
       </label>
@@ -264,8 +288,11 @@ require_once "view/model_release_view.php";
         type="text" 
         name="social-security" 
         id="social-security"
+        require
         >
+      <!--------------------------------------------------------------------------->
       <br>
+      <!--------------------------------------------------------------------------->
       <label class="address" for="address">
         Address:
       </label>
@@ -273,8 +300,11 @@ require_once "view/model_release_view.php";
         type="text" 
         name="address" 
         id="address"
+        require
         >
+      <!--------------------------------------------------------------------------->
       <br>
+      <!--------------------------------------------------------------------------->
       <label class="city" for="city">
         City:
       </label>
@@ -282,8 +312,11 @@ require_once "view/model_release_view.php";
         type="text" 
         name="city" 
         id="city"
+        require
         >
+      <!--------------------------------------------------------------------------->
       <br>
+      <!--------------------------------------------------------------------------->
       <label class="state" for="state">
         State:
       </label>
@@ -291,8 +324,11 @@ require_once "view/model_release_view.php";
         type="text" 
         name="state" 
         id="state"
+        require
         >
+      <!--------------------------------------------------------------------------->
       <br>
+      <!--------------------------------------------------------------------------->
       <label class="zip" for="zip">
         Zip:
       </label>
@@ -300,8 +336,11 @@ require_once "view/model_release_view.php";
         type="text" 
         name="zip-code" 
         id="zip"
+        require
         >
+      <!--------------------------------------------------------------------------->
       <br>
+      <!--------------------------------------------------------------------------->
       <label class="country" for="country">
         Country:
       </label>
@@ -309,13 +348,17 @@ require_once "view/model_release_view.php";
         type="text" 
         name="country" 
         id="country"
+        require
         >
-      <!-------------------------------------------->
+      <!--------------------------------------------------------------------------->
       <br>
-      <!-------------------------------------------->
+      <!--------------------------------------------------------------------------->
       <button class="submit-button" name="submit" type="submit">Submit Form</button>
-      <!-------------------------------------------->
+      <!--------------------------------------------------------------------------->
     </form>
+    <!----------------------------------------------------------------------------->
+    <!------------------------- THE END OF THE FORM FIELD ------------------------->
+    <!----------------------------------------------------------------------------->
   </div>
 </body>
 </html>

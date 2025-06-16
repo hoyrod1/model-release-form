@@ -27,7 +27,7 @@ function errorMessage()
         $errors = $_SESSION['registration_error'];
         echo "<br>";
         foreach ($errors as $error) {
-            $error_message = "<div style=\"width: 335px;margin: auto; background-color:red; color:white;\" align=\"center\" class=\"alert\">";
+            $error_message = "<div style=\"width: 335px;margin: auto;padding: 10px;background-color: red; color: white;\" align=\"center\" class=\"alert\">";
             $error_message .= $error;
             $error_message .= "</div>";
             echo $error_message;
@@ -51,7 +51,7 @@ function successMessage()
     if (isset($_SESSION["registration_success"])) {
         $success_messages = $_SESSION["registration_success"];
 
-        $message = "<p style=\"width: 335px;margin: auto; background-color:green; color:white;\" align=\"center\">";
+        $message = "<p style=\"width: 335px;margin: auto;padding: 10px;background-color: green;color:white;\" align=\"center\">";
         $message .= $success_messages;
         $sessage .= "</p>";
         echo $message;

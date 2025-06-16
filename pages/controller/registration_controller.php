@@ -11,9 +11,13 @@
  * @link     https://model-release-form/pages/controller/registration_controller.php
  */
 declare(strict_types=1);
-//*=========================================================================*//
+//*===============================================================================*//
 
-//*=========================================================================*//
+//=================================================================================//
+//*----------------------- BEGINNING OF VALIDATION SECTION -----------------------*//
+//=================================================================================//
+
+//*===============================================================================*//
 /**
  * The Is_Input_empty function checks if all the input fields are empty
  * 
@@ -51,13 +55,69 @@ function Is_Input_empty(
         return false;
     }
 }
-//*=========================================================================*//
+//*===============================================================================*//
 
-//=================================================================================//
-//*----------------------- SANITATION & VALIDATION SECTION -----------------------*//
-//=================================================================================//
+//*===============================================================================*//
+/**
+ * 3. The Is_Contact_valid function checks if phone number entered is valid
+ * 
+ * @param string $contact_number This param has the contact number
+ * 
+ * @access public  
+ * 
+ * @return mixed
+ */
+function Is_Contact_valid(string $contact_number)
+{
+    if (!preg_match("/^(\+\d{1,3}[- ]?)?\d{10}$/", $contact_number)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+//*===============================================================================*//
 
-//*=========================================================================*//
+//*===============================================================================*//
+/**
+ * 2. The Is_Email_valid function checks if email entered is valid
+ * 
+ * @param string $email This param has the email
+ * 
+ * @access public  
+ * 
+ * @return mixed
+ */
+function Is_Email_valid(string $email)
+{
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+//*===============================================================================*//
+
+//*===============================================================================*//
+/**
+ * 4. The Is_Model_Name_valid function checks if the model name entered is valid
+ * 
+ * @param string $model_name This param has the users username
+ * 
+ * @access public  
+ * 
+ * @return mixed
+ */
+function Is_Model_Name_valid(string $model_name)
+{
+    if (!preg_match("/^[0-9A-Za-z ]{6,16}$/", $model_name)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+//*===============================================================================*//
+
+//*===============================================================================*//
 /**
  * 1. The Is_Name_valid function checks if the first and lastname valid
  * 
@@ -70,113 +130,17 @@ function Is_Input_empty(
  */
 function Is_Name_valid(string $firstname, string $lastname)
 {
-    //--------------------------- SANATIZED DATA ---------------------------//
-    $filtered_firstName = filter_var($firstname, FILTER_SANITIZE_STRING);
-    $filtered_lastName = filter_var($lastname, FILTER_SANITIZE_STRING);
-    //----------------------------------------------------------------------//
-    if (!preg_match("/^[a-zA-Z-'\. ]*$/", $filtered_firstName) 
-        || !preg_match("/^[a-zA-Z-'\. ]*$/", $filtered_lastName)
+    if (!preg_match("/^[a-zA-Z-'\. ]*$/", $firstname) 
+        || !preg_match("/^[a-zA-Z-'\. ]*$/", $lastname)
     ) {
         return true;
     } else {
         return false;
     }
 }
-//*=========================================================================*//
+//*===============================================================================*//
 
-//*=========================================================================*//
-/**
- * 2. The Is_Email_valid function checks if email entered is valid
- * 
- * @param string $email This param has the email
- * 
- * @access public  
- * 
- * @return mixed
- */
-function Is_Email_valid(string $email)
-{
-    //--------------------------- SANATIZED DATA ---------------------------//
-    $filtered_Email = filter_var($email, FILTER_SANITIZE_EMAIL);
-    //----------------------------------------------------------------------//
-    if (!filter_var($filtered_Email, FILTER_VALIDATE_EMAIL)) {
-        return true;
-    } else {
-        return false;
-    }
-}
-//*=========================================================================*//
-
-//*=========================================================================*//
-/**
- * 3. The Is_Contact_valid function checks if phone number entered is valid
- * 
- * @param string $contact_number This param has the contact number
- * 
- * @access public  
- * 
- * @return mixed
- */
-function Is_Contact_valid(string $contact_number)
-{
-    //--------------------------- SANATIZED DATA ---------------------------//
-    $filtered_Number = filter_var($contact_number, FILTER_SANITIZE_STRING);
-    //----------------------------------------------------------------------//
-    if (!preg_match("/^(\+\d{1,3}[- ]?)?\d{10}$/", $filtered_Number)) {
-        return true;
-    } else {
-        return false;
-    }
-}
-//*=========================================================================*//
-
-//*=========================================================================*//
-/**
- * 4. The Is_Model_Name_valid function checks if the model name entered is valid
- * 
- * @param string $model_name This param has the users username
- * 
- * @access public  
- * 
- * @return mixed
- */
-function Is_Model_Name_valid(string $model_name)
-{
-    //--------------------------- SANATIZED DATA ---------------------------//
-    $filtered_Model_Name = filter_var($model_name, FILTER_SANITIZE_STRING);
-    //----------------------------------------------------------------------//
-    if (!preg_match("/^[0-9A-Za-z ]{6,16}$/", $filtered_Model_Name)) {
-        return true;
-    } else {
-        return false;
-    }
-}
-//*=========================================================================*//
-
-//*=========================================================================*//
-/**
- * 5. The Is_Password_valid function checks if the password entered is valid
- * 
- * @param string $password This param has the password
- * 
- * @access public  
- * 
- * @return mixed
- */
-function Is_Password_valid(string $password)
-{
-    //--------------------------- SANATIZED DATA ---------------------------//
-    $filtered_Password = filter_var($password, FILTER_SANITIZE_STRING);
-    //----------------------------------------------------------------------//
-    if (strlen($filtered_Password) < 6 || strlen($filtered_Password) > 24) {
-        return true;
-    } else {
-        return false;
-    }
-}
-//*=========================================================================*//
-
-//*=========================================================================*//
+//*===============================================================================*//
 /**
  * 5. The Is_Password_match function checks if the password matches
  * 
@@ -189,40 +153,43 @@ function Is_Password_valid(string $password)
  */
 function Is_Password_match(string $password, string $con_password)
 {
-    //--------------------------- SANATIZED DATA ---------------------------//
-    $filtered_Password = filter_var($password, FILTER_SANITIZE_STRING);
-    $filtered_ConPassword = filter_var($con_password, FILTER_SANITIZE_STRING);
-    //----------------------------------------------------------------------//
-    if ($filtered_Password !== $filtered_ConPassword) {
+    if ($password !== $con_password) {
         return true;
     } else {
         return false;
     }
 }
-//*=========================================================================*//
-//----------------------------------------------------------------------------------------------------------//
-//*=========================================================================*//
+//*===============================================================================*//
+
+//*===============================================================================*//
 /**
- * The Is_Model_Name_taken function verifies if the model name is already taken
+ * 5. The Is_Password_valid function checks if the password entered is valid
  * 
- * @param object $pdo        This param has the PDO connection
- * @param string $model_name This param has the users username
+ * @param string $password This param has the password
  * 
  * @access public  
  * 
  * @return mixed
  */
-function Is_Model_Name_taken(object $pdo, string $model_name)
+function Is_Password_valid(string $password)
 {
-    if (Get_Model_name($pdo, $model_name)) {
+    if (strlen($password) < 6 || strlen($password) > 24) {
         return true;
     } else {
         return false;
     }
 }
-//*=========================================================================*//
+//*===============================================================================*//
 
-//*=========================================================================*//
+//=================================================================================//
+//*------------------------ ENDING OF VALIDATION SECTION -------------------------*//
+//=================================================================================//
+
+//=================================================================================//
+//*------------------------- BEGINNING OF DATABASE QUERY -------------------------*//
+//=================================================================================//
+
+//*===============================================================================*//
 /**
  * The Is_Email_taken function verifies if the email is already being used
  * 
@@ -241,9 +208,30 @@ function Is_Email_taken(object $pdo, string $email)
         return false;
     }
 }
-//*=========================================================================*//
+//*===============================================================================*//
 
-//*=========================================================================*//
+//*===============================================================================*//
+/**
+ * The Is_Model_Name_taken function verifies if the model name is already taken
+ * 
+ * @param object $pdo        This param has the PDO connection
+ * @param string $model_name This param has the users username
+ * 
+ * @access public  
+ * 
+ * @return mixed
+ */
+function Is_Model_Name_taken(object $pdo, string $model_name)
+{
+    if (Get_Model_name($pdo, $model_name)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+//*===============================================================================*//
+
+//*===============================================================================*//
 /**
  * The Register_User_controller function sends the users data to be registered
  * 
@@ -283,4 +271,7 @@ function Register_User_controller(
         return false;
     }
 }
-//*=========================================================================*//
+//*===============================================================================*//
+//=================================================================================//
+//*--------------------------- ENDING OF DATABASE QUERY --------------------------*//
+//=================================================================================//

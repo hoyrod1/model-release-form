@@ -63,7 +63,7 @@ function Get_email(object $pdo, string $email)
 
 //*=========================================================================*//
 /**
- * The Register_user function registers the user to the database
+ * The Register_User_model function registers the user to the database
  * 
  * @param object $pdo            This param has the PDO connection
  * @param string $firstname      This param has the first name

@@ -21,10 +21,6 @@ h2 {
   text-decoration: underline;
 }
 
-/* li.nav-link {
-  background-color: red;
-} */
-
 .model-form {
   padding: 5px;
 }
@@ -44,7 +40,7 @@ h2 {
 #email,
 #location-of-shoot,
 #payment-amount,
-#print-name,
+#legal-name,
 #social-security,
 #address,
 #city,
@@ -60,7 +56,8 @@ h2 {
 #date-of-shoot,
 #email,
 #location-of-shoot,
-#print-name,
+#payment-amount,
+#legal-name,
 #social-security,
 #address,
 #city,
@@ -93,7 +90,8 @@ h2 {
   font-size: 18px;
 }
 
-.print-name,
+.payment-amount,
+.legal-name,
 .social-security,
 .address,
 .city,
@@ -145,7 +143,7 @@ h2 {
   .location-of-shoot,
   .email,
   .payment-amount,
-  .print-name,
+  .legal-name,
   .social-security,
   .address,
   .city,
@@ -166,7 +164,7 @@ h2 {
   #location-of-shoot,
   #email,
   #payment-amount,
-  #print-name,
+  #legal-name,
   #social-security,
   #address,
   #city,

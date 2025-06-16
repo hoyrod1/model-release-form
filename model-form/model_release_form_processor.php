@@ -17,11 +17,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
     //*----------------------------------------------------------------------*//
     $producer_name =     testInput($_POST["producer-name"]);
     $model_name =        testInput($_POST["model-name"]);
-    $date_of_shoot =     testInput($_POST["date-of-shoot"]);
     $email =             testInput($_POST["email"]);
+    $date_of_shoot =     testInput($_POST["date-of-shoot"]);
     $location_of_shoot = testInput($_POST["location-of-shoot"]);
     $payment_amount =    testInput($_POST["payment-amount"]);
-    $legal_name =        testInput($_POST["print-name"]);
+    $legal_name =        testInput($_POST["legal-name"]);
     $social_security =   testInput($_POST["social-security"]);
     $address =           testInput($_POST["address"]);
     $city =              testInput($_POST["city"]);
@@ -48,12 +48,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
         if (Is_Input_empty(
             $producer_name, // done
             $model_name, // done
-            $date_of_shoot, 
             $email, // done
+            $date_of_shoot, // done
             $location_of_shoot, 
             $payment_amount, 
             $legal_name, // done
-            $social_security, 
+            $social_security, // done 
             $address, 
             $city, 
             $state, 
@@ -83,11 +83,49 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
             $errors["invalid_socialSecurity_number"] = "Please only use hyphens between the numbers (xxx-xx-xxxx)";
         }
         //------------------------------------------------------------------------------------------------//
+        // CHECK IF CONTACT NUMBER IS VALID
+        if (Is_Payment_amount($payment_amount)) {
+            $errors["invalid_payment_amount"] = "Please only enter number, commas and periods";
+        }
+        //------------------------------------------------------------------------------------------------//
         // CHECK IF THERE ARE ANY ERRORS 
         if ($errors) {
             $_SESSION["model_release_error"] = $errors;
             header("Location: ../model-form/index.php");
             die("Query Failed: " . $e->getMessage());
+        }
+        //------------------------------------------------------------------------------------------------//
+
+        //------------------------------------------------------------------------------------------------//
+        // START THE PROCCESS OF SAVING THE MODEL RELEASE FORM INTO THE DATABASE
+        $results = Signed_ModelRelease_Form_controller(
+            $pdo, 
+            $producer_name, 
+            $model_name, 
+            $email, 
+            $date_of_shoot, 
+            $location_of_shoot, 
+            $payment_amount, 
+            $legal_name, 
+            $social_security, 
+            $address, 
+            $city, 
+            $state, 
+            $zip_code,
+            $country
+        );
+        var_dump($results);
+
+        if ($results) {
+            $_SESSION["model_release_success"] = "Your model release was saved";
+            header("Location: ../model-form/index.php");
+            $pdo = null;
+            $stmt = null;
+            die();       
+        } else {
+            $errors["model_release_failed"] = "Your model release wasn't saved";
+            header("Location: ../model-form/index.php");
+            die("Registeration Failed: " . $e->getMessage());
         }
     }
     catch(PDOException $e) 

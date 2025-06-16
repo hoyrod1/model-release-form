@@ -51,7 +51,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
 
         //------------------------------------------------------------------------------------------------//
         // CHECK IF EMAIL ALREADY EXIST
-        var_dump(Does_Email_Exist_controller($pdo, $filtered_Email));
         if (Does_Email_Exist_controller($pdo, $filtered_Email)) {
             $errors["email_does_not_exist"] = "There is no user with this email";
         }

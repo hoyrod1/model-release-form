@@ -19,8 +19,8 @@ declare(strict_types=1);
  * 
  * @param string $producer_name     This param has the first name
  * @param string $model_name        This param has the last name
- * @param string $date_of_shoot     This param has the  contact number
  * @param string $email             This param has the email
+ * @param string $date_of_shoot     This param has the  contact number
  * @param string $location_of_shoot This param has the users username
  * @param string $payment_amount    This param has the password
  * @param string $print_name        This param has the confirmed password
@@ -38,8 +38,8 @@ declare(strict_types=1);
 function Is_Input_empty(
     string $producer_name, 
     string $model_name, 
-    string $date_of_shoot, 
     string $email, 
+    string $date_of_shoot, 
     string $location_of_shoot, 
     string $payment_amount, 
     string $print_name, 
@@ -52,8 +52,8 @@ function Is_Input_empty(
 ) {
     if (empty($producer_name)  
         || empty($model_name) 
-        || empty($date_of_shoot)  
         || empty($email)  
+        || empty($date_of_shoot)  
         || empty($location_of_shoot)  
         || empty($payment_amount)  
         || empty($print_name)  
@@ -89,14 +89,9 @@ function Is_Input_empty(
  */
 function Is_Name_valid(string $producer_name, string $model_name, string $print_name)
 {
-    //--------------------------- SANATIZED DATA ---------------------------//
-    $filtered_ProducerName = filter_var($producer_name, FILTER_SANITIZE_STRING);
-    $filtered_ModelName = filter_var($model_name, FILTER_SANITIZE_STRING);
-    $filtered_PrintName = filter_var($print_name, FILTER_SANITIZE_STRING);
-    //----------------------------------------------------------------------//
-    if (!preg_match("/^[a-zA-Z-'\. ]*$/", $filtered_ProducerName) 
-        || !preg_match("/^[a-zA-Z-'\. ]*$/", $filtered_ModelName)
-        || !preg_match("/^[a-zA-Z-'\. ]*$/", $filtered_PrintName)
+    if (!preg_match("/^[a-zA-Z-'\. ]*$/", $producer_name) 
+        || !preg_match("/^[a-zA-Z-'\. ]*$/", $model_name)
+        || !preg_match("/^[a-zA-Z-'\. ]*$/", $print_name)
     ) {
         return true;
     } else {
@@ -117,10 +112,7 @@ function Is_Name_valid(string $producer_name, string $model_name, string $print_
  */
 function Is_Email_valid(string $email)
 {
-    //--------------------------- SANATIZED DATA ---------------------------//
-    $filtered_Email = filter_var($email, FILTER_SANITIZE_EMAIL);
-    //----------------------------------------------------------------------//
-    if (!preg_match("/[a-zA-Z0-9._]{3,}@[a-zA-Z0-9._]{3,}.{1}[a-zA-Z0-9._]{2,}/", $filtered_Email)) {
+    if (!preg_match("/[a-zA-Z0-9._]{3,}@[a-zA-Z0-9._]{3,}.{1}[a-zA-Z0-9._]{2,}/", $email)) {
         return true;
     } else {
         return false;
@@ -140,10 +132,7 @@ function Is_Email_valid(string $email)
  */
 function Is_SocialSecurity_valid(string $socialSecurity_number)
 {
-    //--------------------------- SANATIZED DATA ---------------------------//
-    $filtered_socialSecurity = filter_var($socialSecurity_number, FILTER_SANITIZE_STRING);
-    //----------------------------------------------------------------------//
-    if (!preg_match("/^(?!666|000|9\\d{2})\\d{3}-(?!00)\\d{2}-(?!0{4})\\d{4}$/", $filtered_socialSecurity)) {
+    if (!preg_match("/^(?!666|000|9\\d{2})\\d{3}-(?!00)\\d{2}-(?!0{4})\\d{4}$/", $socialSecurity_number)) {
         return true;
     } else {
         return false;
@@ -151,25 +140,104 @@ function Is_SocialSecurity_valid(string $socialSecurity_number)
 }
 //*=========================================================================*//
 
-// //*=========================================================================*//
-// /**
-//  * 4. The Is_Model_Name_valid function checks if the model name entered is valid
-//  * 
-//  * @param string $model_name This param has the users username
-//  * 
-//  * @access public  
-//  * 
-//  * @return mixed
-//  */
-// function Is_Model_Name_valid(string $model_name)
-// {
-//     //--------------------------- SANATIZED DATA ---------------------------//
-//     $filtered_Model_Name = filter_var($model_name, FILTER_SANITIZE_STRING);
-//     //----------------------------------------------------------------------//
-//     if (!preg_match("/^[0-9A-Za-z ]{6,16}$/", $filtered_Model_Name)) {
-//         return true;
-//     } else {
-//         return false;
-//     }
-// }
-// //*=========================================================================*//
+//*=========================================================================*//
+/**
+ * 3. The Is_Payment_amount function checks if models payment entered is valid
+ * 
+ * @param string $payment_amount This param has the payment entered
+ * 
+ * @access public  
+ * 
+ * @return mixed
+ */
+function Is_Payment_amount(string $payment_amount)
+{
+    if (!preg_match("/^[\.0-9,]*$/", $payment_amount)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+//*=========================================================================*//
+
+//*===============================================================================*//
+/**
+ * 3. The Is_Contact_valid function checks if phone number entered is valid
+ * 
+ * @param string $contact_number This param has the contact number
+ * 
+ * @access public  
+ * 
+ * @return mixed
+ */
+function Is_Contact_valid(string $contact_number)
+{
+    if (!preg_match("/^(\+\d{1,3}[- ]?)?\d{10}$/", $contact_number)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+//*===============================================================================*//
+
+//*=========================================================================*//
+/**
+ * The Signed_ModelRelease_Form_controller
+ * 
+ * @param object $pdo               This param has the PDO connection
+ * @param string $producer_name     This param has the producers name
+ * @param string $model_name        This param has the models name
+ * @param string $email             This param has the models name
+ * @param string $date_of_shoot     This param has the date of the shoot
+ * @param string $location_of_shoot This param has the location of the shoot
+ * @param string $payment_amount    This param has the models pay rate
+ * @param string $legal_name        This param has the models legal name
+ * @param string $social_security   This param has the models social security #
+ * @param string $address           This param has the models street address
+ * @param string $city              This param has the city the model lives in
+ * @param string $state             This param has the state the model lives in
+ * @param string $zip_code          This param has the zip code the model lives in
+ * @param string $country           This param has the zip code the model lives in
+ * 
+ * @access public  
+ * 
+ * @return mixed
+ */
+function Signed_ModelRelease_Form_controller(
+    object $pdo, 
+    string $producer_name, 
+    string $model_name, 
+    string $email, 
+    string $date_of_shoot, 
+    string $location_of_shoot, 
+    string $payment_amount, 
+    string $legal_name, 
+    string $social_security, 
+    string $address, 
+    string $city, 
+    string $state, 
+    string $zip_code,
+    string $country
+) {
+    if (Signed_ModelRelease_Form_model(
+        $pdo, 
+        $producer_name, 
+        $model_name, 
+        $email, 
+        $date_of_shoot, 
+        $location_of_shoot, 
+        $payment_amount, 
+        $legal_name, 
+        $social_security, 
+        $address, 
+        $city, 
+        $state, 
+        $zip_code, 
+        $country
+    )
+    ) {
+        return true;
+    } else {
+        return false;
+    }
+}
