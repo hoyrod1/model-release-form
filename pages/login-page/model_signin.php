@@ -13,14 +13,11 @@
 //*=========================================================================*//
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
     //*----------------------------------------------------------------------*//
-    $email =     trim($_POST["email"]);
-    $pass_word = trim($_POST["password"]);
+    include "../../includes/sanitize_function.php";
     //*----------------------------------------------------------------------*//
-    //--------------------------- SANATIZED DATA ---------------------------//
-    $filtered_Email = filter_var($email, FILTER_SANITIZE_STRING);
-    $filtered_Password = filter_var($pass_word, FILTER_SANITIZE_STRING);
-    //----------------------------------------------------------------------//
-
+    $filtered_Email =    testInput($_POST["email"]);
+    $filtered_Password = testInput($_POST["password"]);
+    //*----------------------------------------------------------------------*//
     try {
         // START SESSION TO CATCH ANY LOGIN ERRORS //
         include_once "../../includes/session_inc.php";

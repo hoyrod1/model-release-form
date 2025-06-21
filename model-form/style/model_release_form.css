@@ -1,0 +1,214 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+}
+
+.nav {
+  margin: 15px 0 0 0;
+}
+
+.nav-ul-link {
+  margin: 0 0 0 30px;
+}
+
+.nav-link {
+  list-style-type: none;
+}
+
+.nav-link a {
+  color: red;
+  text-decoration: none;
+  font-size: xx-large;
+}
+
+.profile-nav-link {
+  list-style-type: none;
+}
+
+.profil-nav-link a {
+  color: green;
+  text-decoration: none;
+  font-size: xx-large;
+}
+
+.container {
+  margin: 20px auto;
+  width: 70%;
+  height: 100%;
+}
+
+h2,
+h3 {
+  text-align: center;
+  margin: 5px 0 5px 0;
+}
+
+h2 {
+  text-decoration: underline;
+}
+
+.model-form {
+  padding: 5px;
+}
+
+.producer-name,
+.model-name,
+.date-of-shoot,
+.email,
+.location-of-shoot {
+  font-size: 25px;
+  font-weight: 700;
+}
+
+#producer-name,
+#model-name,
+#date-of-shoot,
+#email,
+#location-of-shoot,
+#payment-amount,
+#legal-name,
+#social-security,
+#address,
+#city,
+#state,
+#zip,
+#country {
+  background-color: aqua;
+  padding: 5px;
+}
+
+#producer-name,
+#model-name,
+#date-of-shoot,
+#email,
+#location-of-shoot,
+#payment-amount,
+#legal-name,
+#social-security,
+#address,
+#city,
+#state,
+#zip,
+#country {
+  margin: 10px 0 10px 0;
+  font-size: large;
+}
+.summary-title,
+.print-info {
+  text-align: left;
+}
+
+.form-name {
+  margin: 30px 0 0 0;
+}
+
+.contract-summary {
+  margin: 10px 0 10px 0;
+}
+.payment-amount {
+  font-size: 15px;
+  font-weight: bolder;
+}
+
+.tax-disclaimer {
+  margin: 5px 0 15px 0;
+  text-decoration: underline;
+  font-size: 18px;
+}
+
+.payment-amount,
+.legal-name,
+.social-security,
+.address,
+.city,
+.state,
+.zip,
+.country {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.submit-button {
+  display: block;
+  margin: 30px auto;
+  font-size: large;
+  font-weight: bold;
+  color: aliceblue;
+  width: 100%;
+  padding: 10px;
+  background-color: rgb(97, 98, 101);
+  border: none;
+  border-radius: 5px;
+  transition: all 1s linear;
+}
+
+.submit-button:hover {
+  background-color: white;
+  color: rgb(97, 98, 101);
+  box-shadow: 1px 1px 10px 3px rgb(97, 98, 101);
+}
+
+/*====================================================================*/
+/*------------------- MEDIA QUERY FOR 52em WIDTH ------------------*/
+@media (max-width: 52em) {
+  .summary-title,
+  .print-info {
+    text-align: center;
+  }
+
+  .print-info {
+    margin: 20px 0 20px 0;
+  }
+  .tax-disclaimer {
+    text-align: center;
+  }
+
+  .producer-name,
+  .model-name,
+  .date-of-shoot,
+  .location-of-shoot,
+  .email,
+  .payment-amount,
+  .legal-name,
+  .social-security,
+  .address,
+  .city,
+  .state,
+  .zip,
+  .country {
+    display: block;
+    text-align: center;
+  }
+
+  .payment-amount {
+    font-size: 15px;
+  }
+
+  #producer-name,
+  #model-name,
+  #date-of-shoot,
+  #location-of-shoot,
+  #email,
+  #payment-amount,
+  #legal-name,
+  #social-security,
+  #address,
+  #city,
+  #state,
+  #zip,
+  #country {
+    width: 100%;
+    font-size: x-large;
+  }
+}
+/*====================================================================*/
+/*------------------- MEDIA QUERY FOR 28.125em WIDTH ------------------*/
+@media (max-width: 28.125em) {
+  .producer-name,
+  .tax-disclaimer {
+    font-size: 13px;
+    text-align: center;
+  }
+}

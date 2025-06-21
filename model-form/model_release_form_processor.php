@@ -80,7 +80,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
         //------------------------------------------------------------------------------------------------//
         // CHECK IF CONTACT NUMBER IS VALID
         if (Is_SocialSecurity_valid($social_security)) {
-            $errors["invalid_socialSecurity_number"] = "Please only use hyphens between the numbers (xxx-xx-xxxx)";
+            $errors["invalid_socialSecurity_number"] = "Please only use hyphens between your social security numbers (xxx-xx-xxxx)";
         }
         //------------------------------------------------------------------------------------------------//
         // CHECK IF CONTACT NUMBER IS VALID

@@ -13,13 +13,15 @@
 //*=========================================================================*//
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
     //*----------------------------------------------------------------------*//
-    $first_name =     trim($_POST["first_name"]);
-    $last_name =      trim($_POST["last_name"]);
-    $contact_number = trim($_POST["contact_number"]);
-    $email =          trim($_POST["email"]);
-    $model_name =     trim($_POST["model-name"]);
-    $pass_word =      trim($_POST["password"]);
-    $confirm_pass =   trim($_POST["confirm_pass"]);
+    include "../../includes/sanitize_function.php";
+    //*----------------------------------------------------------------------*//
+    $first_name =     testInput($_POST["first_name"]);
+    $last_name =      testInput($_POST["last_name"]);
+    $contact_number = testInput($_POST["contact_number"]);
+    $email =          testInput($_POST["email"]);
+    $model_name =     testInput($_POST["model-name"]);
+    $pass_word =      testInput($_POST["password"]);
+    $confirm_pass =   testInput($_POST["confirm_pass"]);
     //*----------------------------------------------------------------------*//
 
     //*----------------------------------------------------------------------*//
