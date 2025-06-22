@@ -33,13 +33,15 @@ $current_date = date("m-d-Y");
 <body>
   <nav class="nav">
     <ul class="nav-ul-link">
+      </li class="profil-nav-link">
+        <a href="../model-form/index.php" class="profile-a-link">
+        Click here to return to your profile
+        <?php echo $_SESSION["users_model_name"]; ?>
+        </a>
+      </li>
       <li class="nav-link">
         <a href="../model-form/logout.php">
             Log Out
-        </a>
-      </li class="profil-nav-link">
-        <a href="../model-form/index.php">
-          Return to <?php echo $_SESSION["users_model_name"]; ?>'s profile
         </a>
       </li>
     </ul>

@@ -46,69 +46,62 @@ $current_date = date("m-d-Y");
       modelReleaseFormSuccessMessage();
     ?>
   <div class="container">
-      <section class="author-section">
+      <section class="model-section">
         <div class="section-one">
           <div class="title">
             <img class="head-shot" src="./images/Rodney_HeadShot.jpeg" alt="" />
-            <div class="head-author">
-              <h1 class="head-1-author">
-                Hello <?php echo $_SESSION["users_name"]; ?>
-              </h1>
-              <h4 class="head-4-author">
-                AKA: <?php echo $_SESSION["users_model_name"]; ?>
-              </h4>
-            </div>
-            <div class="author-details">
-              <table>
-                <tr class="row-data-1">
-                  <td>Name:</td>
-                  <td>Birthday:</td>
-                  <td>Address:</td>
-                  <td>Phone:</td>
-                  <td>Email:</td>
-                  <td>Website:</td>
-                </tr>
-              </table>
-              <table>
-                <tr class="row-data-2">
-                  <td>Rodney St. Cloud</td>
-                  <td>December 3, 1973</td>
-                  <td>1822 Lafeyette av Bronx, NY 10473</td>
-                  <td>718-862-7859</td>
-                  <td>trainhoyrod1@aol.com</td>
-                  <td>
-                    <a class="url-color" href="https://KadenStCloud.com" target="_blank">
-                      www.KadenStCloud.com
-                    </a>
-                  </td>
-                </tr>
-              </table>
+            <h1 class="model-name">
+              Hello <?php echo $_SESSION["users_name"]; ?>
+            </h1>
+            <h3 class="model-stage-name">
+              AKA: <?php echo $_SESSION["users_model_name"]; ?>
+            </h3>
+            <div class="section-two">
+              <p class="description">
+                Hello <?php echo $_SESSION["users_model_name"]; ?>, 
+                if this is your first time signing the model release form
+                please click the link that say "Click me to sign model release form"
+                <br>
+                but if you want to update your model release form please click the
+                link that says "Update your model release form"
+              </p>
             </div>
           </div>
         </div>
-        <div class="section-two">
-          <p class="description">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam eaque et
-            facere optio officia necessitatibus aperiam, facilis esse ipsum. Nobis,
-            voluptatem modi. Debitis officiis unde natus quam rerum expedita optio. Lorem
-            ipsum dolor sit amet consectetur adipisicing elit. Laboriosam eaque et facere
-            optio officia necessitatibus aperiam, facilis esse ipsum. Nobis, voluptatem
-            modi. Debitis officiis unde natus quam rerum expedita optio?
-          </p>
-        </div>
       </section>
       <hr />
-        <!-------------------------------------------------------------------------------->
-        <!-------------------------------------------------------------------------------->
+      <!---------------------------------------------------------------------------->
+      <!---------------------------------------------------------------------------->
       </section>
       <!-------------------------------- THE BUTTON -------------------------------->
-      <div id="index-div-button" class="index-div-button">
-        <button id="index-button" class="index-button">
-          <a href="model_release_form.php">
-            Click me to sign model release form
-          </a>
-        </button>
-      </div>
+      <?php
+        if (isset($_SESSION["users_id"])) {
+            $form_button_A = '
+            <div id="index-div-button" class="index-div-button">
+              <button id="index-button" class="index-button">
+                <a href="model_release_form.php">
+                  Click me to sign model release form
+                </a>
+              </button>
+              <button id="index-button" class="index-button">
+                <a href="model_release_form.php">
+                  Update your model release form
+                </a>
+              </button>
+            </div>';
+            echo $form_button_A;
+        } else {
+            $form_button_B = '
+            <div id="index-div-button" class="index-div-button">
+              <button id="index-button" class="index-button">
+                <a href="model_release_form.php">
+                  Click me to sign model release form
+                </a>
+              </button>
+            </div>';
+            echo $form_button_B;
+        }
+        ?>
       <!---------------------------------------------------------------------------->
     </div>
     <!---------------------------------------------------------------------------->

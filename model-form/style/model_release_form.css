@@ -10,7 +10,10 @@
 }
 
 .nav-ul-link {
-  margin: 0 0 0 30px;
+  margin: 0 30px 0 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .nav-link {
@@ -20,17 +23,18 @@
 .nav-link a {
   color: red;
   text-decoration: none;
-  font-size: xx-large;
+  font-size: x-large;
 }
 
 .profile-nav-link {
   list-style-type: none;
 }
 
-.profil-nav-link a {
+.profile-a-link {
+  font-size: large;
+  list-style-type: none;
   color: green;
   text-decoration: none;
-  font-size: xx-large;
 }
 
 .container {
