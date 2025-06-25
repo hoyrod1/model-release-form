@@ -2,10 +2,10 @@
 /**
  * * @file
  * php version 8.2
- * Model Relase Form Processor Configuration file
+ * Model Release Form Processor Configuration file
  * 
- * @category Model_Relase_Form_Processor
- * @package  Model_Relase_Form_Processor_Configuration
+ * @category Model_Release_Form_Processor
+ * @package  Model_Release_Form_Processor_Configuration
  * @author   Rodney St.Cloud <hoyrod1@aol.com>
  * @license  STC Media inc
  * @link     https://model-release-form/model-form/model_release_form_processor.php

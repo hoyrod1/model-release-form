@@ -2,22 +2,24 @@
 /**
  * * @file
  * php version 8.2
- * Model Release Form Configuration file
+ * Update Model Release Form Configuration file
  * 
- * @category Model_Release_Form
- * @package  Model_Release_Form_Configuration
+ * @category Update_Model_Release_Form
+ * @package  Update_Model_Release_Form_Configuration
  * @author   Rodney St.Cloud <hoyrod1@aol.com>
  * @license  STC Media inc
- * @link     https://model-release-form/model-form/model_release_form.php
+ * @link     https://model-release-form/model-form/update_model_release_form.php
  */
 require_once "../includes/session_inc.php";
-if (!isset($_SESSION["users_name"])) {
-    $userMessage = ' Please log in';
-    $_SESSION["login_error"] = $userMessage;
-    header("Location: ../pages/login-page/model-login.php");
-}
-require_once "../pages/view/login_view.php";
 require_once "view/model_release_view.php";
+$model_email = htmlentities($_GET["email"]);
+if (!isset($model_email)) {
+    $modelErrorMessage = $_SESSION["users_name"];
+    $modelErrorMessage .= ', there was no model release';
+    $modelErrorMessage .= ' form found in the database';
+    $_SESSION["model_release_error"] = $modelErrorMessage;
+    header("Location: model-form/index.php");
+}
 $producer = "Rodney St. Cloud";
 $current_date = date("m-d-Y");
 ?>
@@ -47,7 +49,6 @@ $current_date = date("m-d-Y");
     </ul>
   </nav>
   <?php
-      successMessage();
       modelReleaseFormErrorMessage();
       modelReleaseFormSuccessMessage();
     ?>

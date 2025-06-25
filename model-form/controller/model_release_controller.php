@@ -2,18 +2,18 @@
 /**
  * * @file
  * php version 8.2
- * Model Relase Form Controller Configuration file
+ * Model Release Form Controller Configuration file
  * 
- * @category Model_Relase_Form_Controller
- * @package  Model_Relase_Form_Controller_Configuration
+ * @category Model_Release_Form_Controller
+ * @package  Model_Release_Form_Controller_Configuration
  * @author   Rodney St.Cloud <hoyrod1@aol.com>
  * @license  STC Media inc
  * @link     https://model-release-form/model-form/model/model_release_controller.php
  */
 declare(strict_types=1);
-//*=========================================================================*//
+//*===============================================================================*//
 
-//*=========================================================================*//
+//=================================================================================//
 /**
  * The Is_Input_empty function checks if all the input fields are empty
  * 
@@ -69,13 +69,13 @@ function Is_Input_empty(
         return false;
     }
 }
-//*=========================================================================*//
+//*===============================================================================*//
 
 //=================================================================================//
 //*----------------------- SANITATION & VALIDATION SECTION -----------------------*//
 //=================================================================================//
 
-//*=========================================================================*//
+//*===============================================================================*//
 /**
  * 1. The Is_Name_valid function checks the producers, model name, name is valid
  * 
@@ -98,9 +98,9 @@ function Is_Name_valid(string $producer_name, string $model_name, string $print_
         return false;
     }
 }
-//*=========================================================================*//
+//*===============================================================================*//
 
-//*=========================================================================*//
+//=================================================================================//
 /**
  * 2. The Is_Email_valid function checks if email entered is valid
  * 
@@ -118,9 +118,9 @@ function Is_Email_valid(string $email)
         return false;
     }
 }
-//*=========================================================================*//
+//*===============================================================================*//
 
-//*=========================================================================*//
+//=================================================================================//
 /**
  * 3. The Is_SocialSecurity_valid function checks if social security entered is valid
  * 
@@ -138,9 +138,9 @@ function Is_SocialSecurity_valid(string $socialSecurity_number)
         return false;
     }
 }
-//*=========================================================================*//
+//*===============================================================================*//
 
-//*=========================================================================*//
+//=================================================================================//
 /**
  * 3. The Is_Payment_amount function checks if models payment entered is valid
  * 
@@ -158,9 +158,9 @@ function Is_Payment_amount(string $payment_amount)
         return false;
     }
 }
-//*=========================================================================*//
-
 //*===============================================================================*//
+
+//=================================================================================//
 /**
  * 3. The Is_Contact_valid function checks if phone number entered is valid
  * 
@@ -180,7 +180,7 @@ function Is_Contact_valid(string $contact_number)
 }
 //*===============================================================================*//
 
-//*=========================================================================*//
+//=================================================================================//
 /**
  * The Signed_ModelRelease_Form_controller
  * 
@@ -241,3 +241,27 @@ function Signed_ModelRelease_Form_controller(
         return false;
     }
 }
+//=================================================================================//
+
+//=================================================================================//
+/**
+ * The Get_ModelRelease_Form_controller gets the models release from the database
+ * 
+ * @param object $pdo   This param has the PDO connection
+ * @param string $email This param has the model email
+ * 
+ * @access public  
+ * 
+ * @return mixed
+ */
+function Get_ModelRelease_Form_controller(object $pdo, string $email)
+{
+    if (!Get_ModelRelease_Form_model($pdo, $email)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+//=================================================================================//
+
+//=================================================================================//

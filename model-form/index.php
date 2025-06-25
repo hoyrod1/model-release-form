@@ -10,16 +10,21 @@
  * @license  STC Media inc
  * @link     https://model-release-form/model-form/index.php
  */
+//=========================================================//
 require_once "../includes/session_inc.php";
+//== REQUIRE THE login_view.php TO DISPLAY LOGIN SUCCESS ==//
+require_once "../pages/view/login_view.php";
+//========== REQUIRE THE model_release_view.php ===========//
+require_once "view/model_release_view.php";
+//=========================================================//
+
+//=========================================================//
 if (!isset($_SESSION["users_name"])) {
-    $userMessage = $_SESSION["users_name"] . ' you are already logged in';
-    $_SESSION["login_success"] = $userMessage;
+    $userMessage = 'Please login';
+    $_SESSION["login_error"] = $userMessage;
     header("Location: ../pages/login-page/model-login.php");
 }
-require_once "../pages/view/login_view.php";
-require_once "view/model_release_view.php";
-$producer = "Rodney St. Cloud";
-$current_date = date("m-d-Y");
+//=========================================================//
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -73,33 +78,52 @@ $current_date = date("m-d-Y");
       <!---------------------------------------------------------------------------->
       <!---------------------------------------------------------------------------->
       </section>
-      <!-------------------------------- THE BUTTON -------------------------------->
+      <!---------------------------- DISPLAY THE BUTTON ---------------------------->
       <?php
-        if (isset($_SESSION["users_id"])) {
-            $form_button_A = '
-            <div id="index-div-button" class="index-div-button">
-              <button id="index-button" class="index-button">
-                <a href="model_release_form.php">
-                  Click me to sign model release form
-                </a>
-              </button>
-              <button id="index-button" class="index-button">
-                <a href="model_release_form.php">
-                  Update your model release form
-                </a>
-              </button>
-            </div>';
-            echo $form_button_A;
-        } else {
-            $form_button_B = '
-            <div id="index-div-button" class="index-div-button">
-              <button id="index-button" class="index-button">
-                <a href="model_release_form.php">
-                  Click me to sign model release form
-                </a>
-              </button>
-            </div>';
-            echo $form_button_B;
+        try {
+            //=========================================================//
+            //============ REQUIRE THE DATBASE CONNECTION ============//
+            include_once "../includes/database.procedural.inc.php";
+            //========== REQUIRE THE model_release_model.php =========//
+            include_once "model/model_release_model.php";
+            //========= REQUIRE THE model_release_controller =========//
+            include_once "controller/model_release_controller.php";
+            //=========================================================//
+
+            //-----------------------------------------------------------------------//
+            $model_email = $_SESSION["users_email"];
+            // CHECK IF MODEL RELEASE FORM ALREADY EXIST USING EMAIL TO CHECK
+            if (Get_ModelRelease_Form_controller($pdo, $model_email)) {
+                $form_button_A = '
+                <div id="index-div-button" class="index-div-button">
+                  <button id="index-button" class="index-button">
+                    <a href="model_release_form.php">
+                      Click me to sign model release form
+                    </a>
+                  </button>
+                </div>';
+                echo $form_button_A;
+            } else {
+                $form_button_B = '
+                <div id="index-div-button" class="index-div-button">
+                  <button id="index-button" class="index-button">
+                    <a href="model_release_form.php">
+                      Click me to sign model release form
+                    </a>
+                  </button>
+                  <button id="index-button" class="index-button">
+                    <a href="update_model_release_form.php?email='.$model_email.'">
+                      Update your model release form
+                    </a>
+                  </button>
+                </div>';
+                echo $form_button_B;
+            }
+            //-----------------------------------------------------------------------//
+        }
+        catch(PDOException $e) 
+        {
+            die("Connected Failed: " . $e->getMessage());
         }
         ?>
       <!---------------------------------------------------------------------------->

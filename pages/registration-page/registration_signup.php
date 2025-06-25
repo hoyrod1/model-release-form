@@ -113,9 +113,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
         );
 
         if ($register_test) {
-            // header("Location: ../registration-page/model-registration.php?signup=success");
             $_SESSION["registration_success"] = "You have successfully registered";
-            header("Location: ../registration-page/model-registration.php");
+            header("Location: ../login-page/model-login.php");
             $pdo = null;
             $stmt = null;
             die();       
