@@ -8,20 +8,68 @@
  * @package  Update_Model_Release_Form_Configuration
  * @author   Rodney St.Cloud <hoyrod1@aol.com>
  * @license  STC Media inc
- * @link     https://model-release-form/model-form/update_model_release_form.php
+ * @link     https://model-release-form/model-form/update_model_release_form/update_model_release_form.php
  */
-require_once "../includes/session_inc.php";
-require_once "view/model_release_view.php";
-$model_email = htmlentities($_GET["email"]);
-if (!isset($model_email)) {
-    $modelErrorMessage = $_SESSION["users_name"];
-    $modelErrorMessage .= ', there was no model release';
-    $modelErrorMessage .= ' form found in the database';
-    $_SESSION["model_release_error"] = $modelErrorMessage;
-    header("Location: model-form/index.php");
+//------------------------------------------------------------------------------------------------//
+require_once "../../includes/session_inc.php";
+//------------------------------------------------------------------------------------------------//
+
+//------------------------------------------------------------------------------------------------//
+if (!isset($_SESSION["users_name"])) {
+    $userMessage = ' Please log in';
+    $_SESSION["login_error"] = $userMessage;
+    header("Location: ../../pages/login-page/model-login.php");
 }
+//------------------------------------------------------------------------------------------------//
+
+//------------------------------------------------------------------------------------------------//
+try {
+  // INCLUDE THE DATBASE CONNECTION //
+  include_once "../../includes/database.procedural.inc.php";
+  // INCLUDE THE REGISTRATION MODEL THAT INTERACTS WITH THE DATABSE //
+  include_once "../model/model_release_model.php";
+  //------------------------------------------------------------------------------------------------//
+  // THE EMAIL ADDRESS STORED DURING THE LOGIN PROCESS IS USED TO RETRIEVED THE MODEL RELEASE FORM  //
+  $model_email = $_SESSION["users_email"];
+  //------------------------------------------------------------------------------------------------//
+
+  //------------------------------------------------------------------------------------------------//
+  //********************** THIS CONTAINS THE RESULTS FROM THE DATABASE QUERY ***********************//
+  $results = Get_ModelRelease_Form_model($pdo, $model_email);
+  //------------------------------------------------------------------------------------------------//
+  if ($results) {
+    $stage_name        = $results["model_name"];
+    $email             = $results["email"];
+    $location_of_shoot = $results["location_of_shoot"];
+    $compensation      = $results["compensation"];
+    $legal_name        = $results["legal_name"];
+    $social_security   = $results["social_security"];
+    $address           = $results["address"];
+    $city              = $results["city"];
+    $state             = $results["state"];
+    $zip_code          = $results["zip_code"];
+    $country           = $results["country"];
+} else {
+    die("Query Failed: " . $e->getMessage());
+  }
+  //------------------------------------------------------------------------------------------------//
+} catch(PDOException $e) 
+{
+    die("Connected Failed: " . $e->getMessage());
+}
+//------------------------------------------------------------------------------------------------//
+
+//------------------------------------------------------------------------------------------------//
+require_once "../../pages/view/login_view.php";
+require_once "../view/model_release_view.php";
+//------------------------------------------------------------------------------------------------//
+
+//------------------------------------------------------------------------------------------------//
+// THE PRODUCERS NAME IS SET
 $producer = "Rodney St. Cloud";
+// THE DATE IS SET TO THE DATE THE MODEL RELEASE FORM IS UPDATED
 $current_date = date("m-d-Y");
+//------------------------------------------------------------------------------------------------//
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,20 +77,20 @@ $current_date = date("m-d-Y");
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>STC Media Model Release Form</title>
-  <link rel="stylesheet" href="style/model_release_form.css">
+  <title>STC Media Model Release Form (Update)</title>
+  <link rel="stylesheet" href="../style/model_release_form.css">
 </head>
 <body>
   <nav class="nav">
     <ul class="nav-ul-link">
       </li class="profil-nav-link">
-        <a href="../model-form/index.php" class="profile-a-link">
+        <a href="../index.php" class="profile-a-link">
         Click here to return to your profile
         <?php echo $_SESSION["users_model_name"]; ?>
         </a>
       </li>
       <li class="nav-link">
-        <a href="../model-form/logout.php">
+        <a href="../includes/logout.php">
             Log Out
         </a>
       </li>
@@ -55,11 +103,11 @@ $current_date = date("m-d-Y");
   <div class="container">
     <h2 class="dba">Exotic Hard Body Production</h2>
     <h3 class="corp-name">A division of S.T.C. Media Inc</h3>
-    <h2 class="form-name">Model Release Form</h2>
+    <h2 class="form-name">Update Model Release Form</h2>
     <!----------------------------------------------------------------------------->
     <!---------------------- THE BEGINNING OF THE FORM FIELD ---------------------->
     <!----------------------------------------------------------------------------->
-    <form class="model-form" action="model_release_form_processor.php" method="post">
+    <form class="model-form" action="update_model_release_form_processor.php" method="post">
     <!----------------------------------------------------------------------------->
       <p class="contract-summary">
         This Model Release Form ("Agreement") is made and entered 
@@ -72,7 +120,7 @@ $current_date = date("m-d-Y");
         type="text" 
         name="producer-name" 
         id="producer-name"
-        value="<?php echo $producer; ?>"
+        value="<?= $producer; ?>"
         >
       <!--------------------------------------------------------------------------->
       <br>
@@ -84,7 +132,7 @@ $current_date = date("m-d-Y");
         type="text" 
         name="model-name" 
         id="model-name"
-        value="<?php echo $_SESSION["users_model_name"]; ?>"
+        value="<?= $_SESSION["users_model_name"]; ?>"
         >
       <!--------------------------------------------------------------------------->
       <br>
@@ -96,7 +144,7 @@ $current_date = date("m-d-Y");
         type="email" 
         name="email" 
         id="date-of-shoot"
-        value="<?php echo $_SESSION["users_email"]; ?>"
+        value="<?= $email; ?>"
         >
       <!--------------------------------------------------------------------------->
       <br>
@@ -108,7 +156,7 @@ $current_date = date("m-d-Y");
         type="text" 
         name="date-of-shoot" 
         id="date-of-shoot"
-        value="<?php echo $current_date; ?>"
+        value="<?= $current_date; ?>"
         >
       <!--------------------------------------------------------------------------->
       <br>
@@ -120,7 +168,7 @@ $current_date = date("m-d-Y");
         type="text" 
         name="location-of-shoot" 
         id="location-of-shoot"
-        require
+        value="<?= $location_of_shoot; ?>"
         >
       <!--------------------------------------------------------------------------->
       <!--------------------------------------------------------------------------->
@@ -263,7 +311,7 @@ $current_date = date("m-d-Y");
         type="text" 
         name="payment-amount" 
         id="payment-amount"
-        require
+        value="<?= $compensation ; ?>"
         >
       <!--------------------------------------------------------------------------->
       <!--------------------------------------------------------------------------->
@@ -282,8 +330,7 @@ $current_date = date("m-d-Y");
         type="text" 
         name="legal-name" 
         id="legal-name" 
-        value="<?php echo $_SESSION["users_name"]; ?>"
-        require
+        value="<?= $legal_name; ?>"
         >
       <!--------------------------------------------------------------------------->
       <br>
@@ -295,7 +342,7 @@ $current_date = date("m-d-Y");
         type="text" 
         name="social-security" 
         id="social-security"
-        require
+        value="<?= $social_security; ?>"
         >
       <!--------------------------------------------------------------------------->
       <br>
@@ -307,7 +354,7 @@ $current_date = date("m-d-Y");
         type="text" 
         name="address" 
         id="address"
-        require
+        value="<?= $address; ?>"
         >
       <!--------------------------------------------------------------------------->
       <br>
@@ -319,7 +366,7 @@ $current_date = date("m-d-Y");
         type="text" 
         name="city" 
         id="city"
-        require
+        value="<?= $city; ?>"
         >
       <!--------------------------------------------------------------------------->
       <br>
@@ -331,7 +378,7 @@ $current_date = date("m-d-Y");
         type="text" 
         name="state" 
         id="state"
-        require
+        value="<?= $state; ?>"
         >
       <!--------------------------------------------------------------------------->
       <br>
@@ -343,7 +390,7 @@ $current_date = date("m-d-Y");
         type="text" 
         name="zip-code" 
         id="zip"
-        require
+        value="<?= $zip_code; ?>"
         >
       <!--------------------------------------------------------------------------->
       <br>
@@ -355,7 +402,7 @@ $current_date = date("m-d-Y");
         type="text" 
         name="country" 
         id="country"
-        require
+        value="<?= $country; ?>"
         >
       <!--------------------------------------------------------------------------->
       <br>

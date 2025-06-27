@@ -39,7 +39,7 @@ if (!isset($_SESSION["users_name"])) {
   <nav style="margin: 15px 0 0 0;">
     <ul class="nav-ul-link" style="margin: 0 0 0 30px;">
       <li class="nav-link" style=" list-style-type: none; ">
-        <a href="../model-form/logout.php" class="nav-anchor">
+        <a href="includes/logout.php" class="nav-anchor">
             Log Out
         </a>
       </li>
@@ -98,7 +98,7 @@ if (!isset($_SESSION["users_name"])) {
                 <div id="index-div-button" class="index-div-button">
                   <button id="index-button" class="index-button">
                     <a href="model_release_form/model_release_form.php">
-                      Click me to sign and submit your model release form
+                      Click here to sign and submit your model release form
                     </a>
                   </button>
                 </div>';
@@ -108,12 +108,12 @@ if (!isset($_SESSION["users_name"])) {
                 <div id="index-div-button" class="index-div-button">
                   <button id="index-button" class="index-button">
                     <a href="model_release_form/model_release_form.php">
-                      Click me to sign a new model release form
+                      Click here to sign a new model release form
                     </a>
                   </button>
                   <button id="index-button" class="index-button">
                     <a href="update_model_release_form/update_model_release_form.php?email='.$model_email.'">
-                      Update your existing model release form
+                    Click here to update your existing model release form
                     </a>
                   </button>
                 </div>';
