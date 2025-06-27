@@ -124,7 +124,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
         } else {
             $errors["model_release_failed"] = "Your model release wasn't saved";
             header("Location: model_release_form.php");
-            die("Registeration Failed: " . $e->getMessage());
+            die("There was problem saving your model release form: " . $e->getMessage());
         }
     }
     catch(PDOException $e) 

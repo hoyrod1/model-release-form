@@ -38,6 +38,7 @@ try {
   $results = Get_ModelRelease_Form_model($pdo, $model_email);
   //------------------------------------------------------------------------------------------------//
   if ($results) {
+    $id                = $results["model_id"];
     $stage_name        = $results["model_name"];
     $email             = $results["email"];
     $location_of_shoot = $results["location_of_shoot"];
@@ -404,6 +405,8 @@ $current_date = date("m-d-Y");
         id="country"
         value="<?= $country; ?>"
         >
+      <!--------------------------------------------------------------------------->
+      <input type="hidden" id="modelReleaseId" name="modelReleaseId" value="<?= $id; ?>">
       <!--------------------------------------------------------------------------->
       <br>
       <!--------------------------------------------------------------------------->

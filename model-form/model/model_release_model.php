@@ -156,7 +156,7 @@ function Update_ModelRelease_Form_model(
                                           city = :city, 
                                           state = :state, 
                                           zip_code = :zip_code, 
-                                          country = :country, 
+                                          country = :country 
                                           WHERE model_id = :model_id";
     
     $stmt = $pdo->prepare($reg_sql);
@@ -175,6 +175,7 @@ function Update_ModelRelease_Form_model(
     $stmt->bindValue(':state', $state);
     $stmt->bindValue(':zip_code', $zip_code);
     $stmt->bindValue(':country', $country);
+    $stmt->bindValue(':model_id', $model_id);
     $execute = $stmt->execute();
     return $execute;
 }

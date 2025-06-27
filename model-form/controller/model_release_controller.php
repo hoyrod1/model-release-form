@@ -265,3 +265,67 @@ function Get_ModelRelease_Form_controller(object $pdo, string $email)
 //=================================================================================//
 
 //=================================================================================//
+/**
+ * The Update_ModelRelease_Form_controller
+ * 
+ * @param object $pdo               This param has the PDO connection
+ * @param string $id                This param has the model release id
+ * @param string $producer_name     This param has the producers name
+ * @param string $model_name        This param has the models name
+ * @param string $email             This param has the models name
+ * @param string $date_of_shoot     This param has the date of the shoot
+ * @param string $location_of_shoot This param has the location of the shoot
+ * @param string $payment_amount    This param has the models pay rate
+ * @param string $legal_name        This param has the models legal name
+ * @param string $social_security   This param has the models social security #
+ * @param string $address           This param has the models street address
+ * @param string $city              This param has the city the model lives in
+ * @param string $state             This param has the state the model lives in
+ * @param string $zip_code          This param has the zip code the model lives in
+ * @param string $country           This param has the zip code the model lives in
+ * 
+ * @access public  
+ * 
+ * @return mixed
+ */
+function Update_ModelRelease_Form_controller(
+    object $pdo, 
+    string $id, 
+    string $producer_name, 
+    string $model_name, 
+    string $email, 
+    string $date_of_shoot, 
+    string $location_of_shoot, 
+    string $payment_amount, 
+    string $legal_name, 
+    string $social_security, 
+    string $address, 
+    string $city, 
+    string $state, 
+    string $zip_code,
+    string $country
+) {
+    if (Update_ModelRelease_Form_model(
+        $pdo, 
+        $id, 
+        $producer_name, 
+        $model_name, 
+        $email, 
+        $date_of_shoot, 
+        $location_of_shoot, 
+        $payment_amount, 
+        $legal_name, 
+        $social_security, 
+        $address, 
+        $city, 
+        $state, 
+        $zip_code, 
+        $country
+    )
+    ) {
+        return true;
+    } else {
+        return false;
+    }
+}
+//=================================================================================//
