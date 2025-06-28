@@ -101,7 +101,8 @@ if (!isset($_SESSION["users_name"])) {
                       Click to sign and submit your model release form
                     </a>
                   </button>
-                </div>';
+                </div>
+                ';
                 echo $form_button_A;
             } else // ELSE IF THE RELEASE FORM EXIST THE MODEL CAN CREATE, UPDATE OR DOWNLOAD IT
             {
