@@ -95,7 +95,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
           die("Query Failed: " . $e->getMessage());
       }
       //------------------------------------------------------------------------------------------------//
-      var_dump($id);
+
       //------------------------------------------------------------------------------------------------//
       // START THE PROCCESS OF SAVING THE MODEL RELEASE FORM INTO THE DATABASE
       $results = Update_ModelRelease_Form_controller(

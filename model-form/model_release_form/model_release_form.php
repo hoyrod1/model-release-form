@@ -94,7 +94,7 @@ $current_date = date("m-d-Y");
       <input 
         type="email" 
         name="email" 
-        id="date-of-shoot"
+        id="email"
         value="<?php echo $_SESSION["users_email"]; ?>"
         >
       <!--------------------------------------------------------------------------->

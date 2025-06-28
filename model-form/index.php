@@ -91,8 +91,8 @@ if (!isset($_SESSION["users_name"])) {
             //=========================================================//
 
             //-----------------------------------------------------------------------//
-            $model_email = $_SESSION["users_email"];
-            // CHECK IF MODEL RELEASE FORM ALREADY EXIST USING EMAIL TO CHECK
+            $model_email = htmlspecialchars($_SESSION["users_email"]);
+            // CHECK IF MODEL RELEASE FORM DOES NOT EXIST USING EMAIL TO CHECK
             if (Get_ModelRelease_Form_controller($pdo, $model_email)) {
                 $form_button_A = '
                 <div id="index-div-button" class="index-div-button">
@@ -103,16 +103,17 @@ if (!isset($_SESSION["users_name"])) {
                   </button>
                 </div>';
                 echo $form_button_A;
-            } else {
+            } else // ELSE IF THE RELEASE FORM EXIST THE MODEL CAN CREATE, UPDATE OR DOWNLOAD IT
+            {
                 $form_button_B = '
                 <div id="index-div-button" class="index-div-button">
                   <button id="index-button" class="index-button">
-                    <a href="model_release_form/model_release_form.php">
-                      Click here to sign a new model release form
+                    <a href="generateModelReleaseToPDF/generateModelReleaseToPDF.php">
+                      Click here to download a copy of your model release form
                     </a>
                   </button>
                   <button id="index-button" class="index-button">
-                    <a href="update_model_release_form/update_model_release_form.php?email='.$model_email.'">
+                    <a href="update_model_release_form/update_model_release_form.php">
                     Click here to update your existing model release form
                     </a>
                   </button>
