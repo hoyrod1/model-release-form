@@ -8,7 +8,7 @@
  * @package  Header_Configuration_Page
  * @author   Rodney St.Cloud <hoyrod1@aol.com>
  * @license  STC Media inc
- * @link     https://model-release-form/pages/incudes/header.php
+ * @link     https://model-release-form/pages/incudes/registration_header.php
  */
 require_once "../../includes/session_inc.php";
 if (isset($_SESSION["users_name"])) {
@@ -63,9 +63,21 @@ if (isset($_SESSION["users_name"])) {
         <body>
           <nav>
             <ul>
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About</a></li>
-              <li><a href="#">Contact</a></li>
+        <li>
+            <a class="main-nav-link" href="https://RodneyStCloud.com">
+                RodneyStCloud.com
+            </a>
+        </li>
+        <li>
+            <a class="main-nav-link" href="https://StrippersInTheHood.com">
+                StrippersInTheHood.com
+            </a>
+        </li>
+        <li>
+            <a class="main-nav-link" href="https://StrippersInTheHoodxxx.com/Preview/preview.html">
+                StrippersInTheHoodxxx.com
+            </a>
+        </li>
               <li>
                 <a href="../login-page/model-login.php">Login</a>
               </li>

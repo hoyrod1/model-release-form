@@ -1,0 +1,305 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+/*---------------------------- BEGINNING OF NAV SECTION ----------------------------*/
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: rgb(250, 250, 250);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  transition: all 1s linear;
+}
+
+li a:hover:not(.active) {
+  /* background-color: rgb(127, 161, 224); */
+  color: rgb(127, 161, 224);
+}
+
+li a.active {
+  color: white;
+  background-color: rgb(127, 161, 224);
+}
+/*------------------------------------------------------------------------------------*/
+hr {
+  margin: 10px 0 30px 0;
+  border-color: rgb(255, 255, 255);
+}
+/*------------------------------------------------------------------------------------*/
+
+.response-text {
+  color: greenyellow;
+  font-size: xx-large;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.recover-body {
+  background-color: lightgrey;
+  height: 100vh;
+}
+
+.recover-main-container {
+  background-color: rgba(4, 4, 3, 0.581);
+  width: 80%;
+  height: 50%;
+  margin: 80px auto;
+  padding: 25px 10px;
+  border: 2px solid white;
+  border-radius: 8px;
+  box-shadow: 1px 1px 50px 1px rgba(7, 7, 7, 0.708);
+}
+
+.recover-container {
+  width: 50%;
+  height: 80%;
+  margin: 5px auto;
+}
+
+.recover-h1 {
+  color: white;
+  text-align: center;
+  text-decoration: underline;
+}
+
+hr {
+  margin: 40px 0 40px 0;
+}
+
+.rec-form {
+  padding: 50px;
+  margin: 10px auto;
+  background-color: rgba(117, 117, 117, 0.385);
+  box-shadow: 1px 1px 50px 1px rgba(244, 242, 242, 0.603);
+  width: 100%;
+  /* border: 3px solid rgb(86, 121, 149); */
+  border-radius: 8px;
+}
+
+.rec-inp,
+.recover-button {
+  margin: 10px auto;
+  width: 100%;
+  display: block;
+  padding: 10px;
+  border: 0;
+  color: white;
+}
+
+.rec-inp {
+  background-color: white;
+  color: black;
+  text-align: left;
+}
+
+.recover-button {
+  background-color: rgb(196, 195, 195);
+  text-align: center;
+  transition: all 1s;
+  cursor: pointer;
+}
+
+.recover-button:hover {
+  color: brown;
+  font-size: large;
+}
+
+.rec-login-anchor {
+  font-size: large;
+  color: brown;
+  text-decoration: none;
+  transition: all 1s;
+  cursor: pointer;
+}
+
+.rec-login-anchor:hover {
+  color: aqua;
+  font-size: x-large;
+}
+
+.rec-login {
+  margin: 20px 0 0 0;
+  font-size: medium;
+  color: white;
+}
+
+.footer-section {
+  color: rgb(250, 250, 250);
+  text-align: center;
+}
+/*------------------ MEDIA QUERY FOR 80em WIDTH ------------------*/
+@media (max-width: 80em) {
+  .recover-main-container {
+    height: 68%;
+  }
+}
+
+/*------------------ MEDIA QUERY FOR 67.5em WIDTH ------------------*/
+@media (max-width: 67.5em) {
+  .recover-main-container {
+    height: 45%;
+  }
+}
+
+/*------------------ MEDIA QUERY FOR 57.875em WIDTH ------------------*/
+/* @media (max-width: 57.875em) {
+  .recover-main-container {
+    height: 160vh;
+  }
+} */
+
+/*------------------ MEDIA QUERY FOR 57.1875em WIDTH ------------------*/
+/* @media (max-width: 57.1875em) {
+  .recover-main-container {
+    height: 45%;
+  }
+} */
+
+/*------------------ MEDIA QUERY FOR 51.25em WIDTH ------------------*/
+@media (max-width: 53.3125em) {
+  .recover-main-container {
+    height: 55%;
+  }
+}
+
+/*------------------ MEDIA QUERY FOR 50.75em WIDTH ------------------*/
+@media (max-width: 50.75em) {
+  .recover-main-container {
+    height: 60%;
+  }
+}
+
+/*------------------ MEDIA QUERY FOR 50.625em WIDTH ------------------*/
+/* @media (max-width: 50.625em) {
+  .reset-main-container {
+    height: 70vh;
+  }
+  .recover-h1 {
+    font-size: x-large;
+  }
+} */
+
+/*------------------ MEDIA QUERY FOR 50em WIDTH ------------------*/
+/* @media (max-width: 50em) {
+  .reset-main-container {
+    height: 60%;
+  }
+} */
+
+/*------------------ MEDIA QUERY FOR 47.5em WIDTH ------------------*/
+@media (max-width: 47.5em) {
+  nav {
+    width: 100%;
+  }
+
+  li {
+    width: 25%;
+  }
+
+  li a {
+    padding: 14px 10px;
+    font-size: xx-small;
+  }
+  .recover-h1 {
+    font-size: large;
+  }
+}
+
+/*------------------ MEDIA QUERY FOR 41.6875em WIDTH ------------------*/
+/* @media (max-width: 41.6875em) {
+  .recover-main-container {
+    height: 180vh;
+  }
+  .recover-container {
+    width: 90%;
+  }
+} */
+
+/*------------------ MEDIA QUERY FOR 26.75em WIDTH ------------------*/
+@media (max-width: 26.75em) {
+  .recover-main-container {
+    /* height: 60vh; */
+    margin: 25px auto;
+  }
+  .recover-container {
+    width: 100%;
+  }
+
+  .footer-section {
+    width: 100%;
+    margin: auto;
+    font-size: x-small;
+  }
+}
+
+/*------------------ MEDIA QUERY FOR 25.875em WIDTH ------------------*/
+@media (max-width: 25.875em) {
+  .recover-main-container {
+    height: 60vh;
+  }
+
+  .recover-container {
+    width: 100%;
+  }
+}
+
+/*------------------ MEDIA QUERY FOR 25.75em WIDTH ------------------*/
+@media (max-width: 25.75em) {
+  .recover-main-container {
+    height: 60vh;
+  }
+}
+
+/*------------------ MEDIA QUERY FOR 24.375em WIDTH ------------------*/
+@media (max-width: 24.375em) {
+  .recover-main-container {
+    height: 65vh;
+  }
+
+  .rec-login {
+    font-size: small;
+  }
+}
+
+/*------------------ MEDIA QUERY FOR 24em WIDTH ------------------*/
+@media (max-width: 23.4375em) {
+  .recover-main-container {
+    height: 85vh;
+  }
+
+  li a {
+    padding: 14px 20px;
+    font-size: 8px;
+  }
+}
+
+/*------------------ MEDIA QUERY FOR 23.4375em WIDTH ------------------*/
+@media (max-width: 23.4375em) {
+  .recover-main-container {
+    height: 70vh;
+  }
+}
+
+/*------------------ MEDIA QUERY FOR 22.50em WIDTH ------------------*/
+@media (max-width: 22.5em) {
+  .recover-main-container {
+    height: 75vh;
+  }
+
+  li {
+    width: 25%;
+  }
+}

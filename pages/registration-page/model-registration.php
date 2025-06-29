@@ -43,7 +43,7 @@ require_once "../includes/registration_header.php";
   successMessage();
 ?>
     <div class="registration-form-container">
-      <h1 class="form-title-h1">Registration Page</h1>
+      <h1 class="form-title-h1">Register To Sign Model Release Form</h1>
       <form class="reg-form" action="registration_signup.php" method="POST">
           <input
             type="text" 
@@ -98,14 +98,14 @@ require_once "../includes/registration_header.php";
             name="submit" 
             value="Sign Up"
             >
-        <div>
+        <div style="margin: 20px 0 0 0;">
             Already Registered: <a href="../login-page/model-login.php">Login</a>
         </div>
       </form>     
       <!-------------------------------- THE BUTTON -------------------------------->
-      <div id="admin-div-button" class="admin-start-button-div">
+      <!-- <div id="admin-div-button" class="admin-start-button-div">
         <button id="click-Me" class="admin-start-button">Click me</button>
-      </div>
+      </div> -->
       <!---------------------------------------------------------------------------->
   </div>
 <!------------------------------ END OF MAIN SECTION ------------------------------>

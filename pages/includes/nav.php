@@ -19,13 +19,19 @@
   <nav class="main-nav">
     <ul class="main-nav-list">
         <li>
-            <a class="main-nav-link" href="/home.php">Home</a>
+            <a class="main-nav-link" href="https://RodneyStCloud.com">
+                www.RodneyStCloud.com
+            </a>
         </li>
         <li>
-            <a class="main-nav-link" href="/about.php">About</a>
+            <a class="main-nav-link" href="https://StrippersInTheHood.com">
+                www.StrippersInTheHood.com
+            </a>
         </li>
         <li>
-            <a class="main-nav-link" href="/contact.php">Contact</a>
+            <a class="main-nav-link" href="https://StrippersInTheHoodxxx.com">
+                www.StrippersInTheHoodxxx.com
+            </a>
         </li>
         <li>
             <a class="main-nav-link" href="/login.php">Login</a>
