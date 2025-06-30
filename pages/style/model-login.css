@@ -131,14 +131,13 @@ hr {
 
 /*----------------------------- FORGOT PASSWORD BUTTON ------------------------------*/
 .login-anchor {
-  color: rgb(253, 253, 253);
+  color: rgb(127, 161, 224);
   text-decoration: none;
   transition: all 2s;
 }
 
 .login-anchor:hover {
-  color: rgb(224, 138, 127);
-  box-shadow: 1px 1px 10px 3px rgb(127, 161, 224);
+  color: rgb(255, 255, 255);
 }
 
 .log-check {
@@ -187,11 +186,69 @@ hr {
 /* -----------------------------------------------------------------------------------*/
 
 /*====================================================================================*/
+
+/*====================================================================================*/
 /*----------------------------- MEDIA QUERY FOR 52em WIDTH ---------------------------*/
 @media (max-width: 52em) {
+  .admin-container,
+  .admin-email-div {
+    width: 60%;
+  }
+  .admin-email-form {
+    width: 100%;
+  }
+}
+/*------------------ MEDIA QUERY FOR 47.5em WIDTH ------------------*/
+@media (max-width: 47.5em) {
+  nav {
+    width: 100%;
+  }
+
+  li {
+    width: 25%;
+  }
+
+  li a {
+    padding: 14px 0 0 0;
+    font-size: xx-small;
+  }
+}
+/*----------------------------- MEDIA QUERY FOR 33.75em WIDTH ---------------------------*/
+@media (max-width: 33.75em) {
+  .admin-container,
+  .admin-email-div {
+    width: 75%;
+  }
+  .footer-section {
+    width: 100%;
+    margin: auto;
+    margin-bottom: 10px;
+    font-size: small;
+  }
+}
+/*------------------ MEDIA QUERY FOR 26.75em WIDTH ------------------*/
+@media (max-width: 26.75em) {
+  .footer-section {
+    width: 100%;
+    margin: auto;
+    font-size: x-small;
+  }
+}
+/*------------------ MEDIA QUERY FOR 24.375em WIDTH ------------------*/
+@media (max-width: 24.375em) {
+  li a {
+    padding: 14px 20px 0 20px;
+    font-size: 8px;
+  }
+}
+/*----------------------------- MEDIA QUERY FOR 21.5em WIDTH ---------------------------*/
+@media (max-width: 21.5em) {
   .admin-container,
   .admin-email-form,
   .admin-email-div {
     width: 100%;
+  }
+  .footer-section {
+    font-size: xx-small;
   }
 }

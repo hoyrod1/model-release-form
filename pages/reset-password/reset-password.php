@@ -2,17 +2,17 @@
 /**
  * * @file
  * php version 8.2
- * Password Recover file for Model Release Form
+ * Reset Password file for Model Release Form
  * 
- * @category Password_Recover_File
- * @package  Password_Recover_Form_Configuration
+ * @category Reset_Password_File
+ * @package  Reset_Password_File_Configuration
  * @author   Rodney St.Cloud <hoyrod1@aol.com>
  * @license  STC Media inc
- * @link     https://model-release-form/pages/login-page/model-login.php
+ * @link     https://model-release-form/pages/reset-password/reset-password.php
  */
 //=================================================================================//
 //=========================== BEGINNING OF HEADER & NAV ===========================//
-require_once "../includes/recover_header.php";
+require_once "../includes/reset_password_header.php";
 //============================ ENDING OF HEADER & NAV =============================//
 ?>
 <!------------------------------- BEGGINING OF BODY -------------------------------->
@@ -22,24 +22,25 @@ require_once "../includes/recover_header.php";
 <div class="recover-main-container">
 <div class="response-text">
 <?php
+  require_once "../view/reset_password_view.php";
   require_once "../../includes/token_generator.php";
-  errorMessage();
   successMessage();
+  errorMessage();
 ?>
 </div>
 <div class="recover-container">
   <hr>
-  <h1 class="recover-h1">Recover Your Password</h1>
+  <h2 class="recover-h2">Enter Your Email To Reset Your Password</h2>
     <div class="">
-        <form class="rec-form" method="POST">
+        <form class="rec-form" action="reset_password_processor.php" method="POST">
             <input type="text" name="email" placeholder="Please enter or email" class="rec-inp">
             <input type="hidden" name="token_gen" value="<?= tokenGenerator(); ?>">
             <br />
             <button class="recover-button" name="recover">
-                Recover Password
+                Reset Password
             </button>
             <div class="rec-login">
-                Remember password: &nbsp; <a href="model-login.php" class="rec-login-anchor">login</a>
+                Remebered your password: &nbsp; <a href="../login-page/model-login.php" class="rec-login-anchor">login</a>
             </div>
         </form>
     </div>

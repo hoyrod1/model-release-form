@@ -23,17 +23,15 @@ declare(strict_types=1);
  */
 function errorMessage()
 {
-    if (isset($_SESSION['recover_error'])) {
-        $errors = $_SESSION['recover_error'];
-        echo "<br>";
-        foreach ($errors as $error) {
-            $error_message = "<div style=\"width: 335px;margin: auto;padding: 10px;background-color: red; color: white;\" align=\"center\" class=\"alert\">";
-            $error_message .= $error;
-            $error_message .= "</div>";
-            echo $error_message;
-        }
+    if (isset($_SESSION['reset_password_error'])) {
+        $error = $_SESSION['reset_password_error'];
+        
+        $error_message = "<div style=\"text-decoration:underline;width:735px;margin:auto;color:red;\" align=\"center\">";
+        $error_message .= $error;
+        $error_message .= "</div>";
+        echo $error_message;
 
-        unset($_SESSION['recover_error']);
+        unset($_SESSION['reset_password_error']);
     }
 }
 //===========================================================================//
@@ -48,14 +46,14 @@ function errorMessage()
  */
 function successMessage()
 {
-    if (isset($_SESSION["recover_success"])) {
-        $success_messages = $_SESSION["recover_success"];
+    if (isset($_SESSION["reset_password_success"])) {
+        $success_messages = $_SESSION["reset_password_success"];
 
-        $message = "<p style=\"width: 335px;margin: auto;padding: 10px;background-color: green;color:white;\" align=\"center\">";
+        $message = "<p style=\"width: 735px;margin: auto;color:green;\" align=\"center\">";
         $message .= $success_messages;
         $sessage .= "</p>";
         echo $message;
     }
-    unset($_SESSION["recover_success"]);
+    unset($_SESSION["reset_password_success"]);
 }
 //============================================================================//

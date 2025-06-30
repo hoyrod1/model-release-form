@@ -48,7 +48,9 @@ require_once "../includes/login_header.php";
             <!-------------------------------------------------------------------->
             <!-------------------------------------------------------------------->
             <div class="login-recover-remember">
-              <a href="recover.php" class="login-anchor">Forgot Password</a>
+              <a href="../reset-password/reset-password.php" class="login-anchor">
+                Forgot Password
+              </a>
               <br>
               <input class="log-check" type="checkbox" name="remember">
               <span> Remember Me</span>

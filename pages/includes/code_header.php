@@ -8,15 +8,16 @@
  * @package  Login_Header_Configuration_Page
  * @author   Rodney St.Cloud <hoyrod1@aol.com>
  * @license  STC Media inc
- * @link     https://model-release-form/pages/incudes/login_header.php
+ * @link     https://model-release-form/pages/incudes/recover_header.php
  */
-
+ob_start();
 require_once "../../includes/session_inc.php";
+session_start();
+require_once "../view/recover_view.php";
 if (isset($_SESSION["users_name"])) {
     header("Location: ../../model-form/index.php");
     $_SESSION["login_success"] = $_SESSION["users_name"] . ' you are already logged in';
 }
-require_once "../view/login_view.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,9 +25,8 @@ require_once "../view/login_view.php";
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Model Login Page</title>
-    <link rel="stylesheet" href="../style/model-login.css" />
-    <script defer src="../javascript/model-login.js"></script>
+    <title>Activate Page</title>
+    <link rel="stylesheet" href="../style/recover.css">
   </head>
   <body>
     <nav>
