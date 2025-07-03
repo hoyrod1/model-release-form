@@ -10,7 +10,7 @@
  * @license  STC Media inc
  * @link     https://model-release-form/model-form/model_release_form/model_release_form_processor.php
  */
-//*----------------------------------------------------------------------*//
+//*--------------------------------------------------------------------------*//
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
     //*----------------------------------------------------------------------*//
     include "../../includes/sanitize_function.php";

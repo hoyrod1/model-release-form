@@ -49,7 +49,7 @@ function successMessage()
     if (isset($_SESSION["reset_password_success"])) {
         $success_messages = $_SESSION["reset_password_success"];
 
-        $message = "<p style=\"width: 735px;margin: auto;color:green;\" align=\"center\">";
+        $message = "<p style=\"width: 735px;margin: auto;color:rgb(10, 245, 61);\" align=\"center\">";
         $message .= $success_messages;
         $sessage .= "</p>";
         echo $message;

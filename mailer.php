@@ -33,7 +33,7 @@ $mail->SMTPSecure = "ssl";
 
 $mail->Port       = "465";
 $mail->Username   = "hoyrod1@gmail.com";
-$mail->Password   = "gvuv mghj igxj ddsp";
+$mail->Password   = "peig cbyh rqmu xcbj";
 
 $mail->isHTML(true);
 
