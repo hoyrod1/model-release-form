@@ -27,7 +27,7 @@ if (isset($_SESSION["users_name"])) {
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Password Recover Page</title>
+    <title>Password Reset Page</title>
     <link rel="stylesheet" href="../style/reset-password.css">
   </head>
   <body>

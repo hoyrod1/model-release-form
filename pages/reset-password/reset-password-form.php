@@ -2,45 +2,35 @@
 /**
  * * @file
  * php version 8.2
- * Password Recover Code file for Model Release Form
+ * Reset Password Form file
  * 
- * @category Password_Recover_Code_File
- * @package  Password_Recover_Code_Configuration
+ * @category Reset_Password_Form
+ * @package  Reset_Password_Form_Configuration
  * @author   Rodney St.Cloud <hoyrod1@aol.com>
  * @license  STC Media inc
- * @link     https://model-release-form/pages/reset-password/code.php
+ * @link     https://model-release-form/pages/reset-password/reset-password-form.php
  */
-//=================================================================================//
+//======================================================================================//
 date_default_timezone_set('America/New_York');
 //=========================== BEGINNING OF HEADER & NAV ===========================//
 require_once "../includes/code_header.php";
 //============================ ENDING OF HEADER & NAV =============================//
-if (isset($_GET['Email']) && isset($_GET['Code'])) {
-    include_once "validate_url_token.php";
-    $token = $_GET['Code'];
-    Validate_Url_token($token);
-} else {
-    $_SESSION['reset_password_error'] = "There was an error, please enter your email";
-    header("Location: reset-password.php");
-    die();
-}
-
 ?>
 <!------------------------------- BEGGINING OF BODY -------------------------------->
 <body class="code-body">
 <!---------------------------- BEGGINING OF MAIN SECTION---------------------------->
 <div class="code-main-container">
-    <?php //Validate_Url_token(); ?>
     <div class="code-container">
         <hr>
-            <h1 class="code-h1">Re-enter your email</h1>
+            <h1 class="code-h1">Enter new password</h1>
             <div class="">
-                <form class="code-form" action="validate_token_processor.php" method="POST">
-                    <input type="text" name="email" placeholder="Please re-enter your email address" class="code-inp">
-                    <input type="hidden" name="token" value="<?= $url_token; ?>">
+                <form class="code-form" action="new_password_processor.php" method="POST">
+                    <input type="text" name="password" placeholder="Please enter your new password" class="code-inp">
                     <br />
-                    <button class="code-button" name="validate_token">
-                        Activate
+                    <input type="text" name="confirm_password" placeholder="Re-enter enter your new password" class="code-inp">
+                    <br />
+                    <button class="code-button" name="submit_change">
+                        Create new password
                     </button>
                     <div class="code-login">
                         Remember password: &nbsp; 

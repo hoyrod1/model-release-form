@@ -2,23 +2,22 @@
 /**
  * * @file
  * php version 8.2
- * Reset Password Controller Configuration file
+ * Validate Token Controller For Model Release Form
  * 
- * @category Reset_Password_Controller
- * @package  Reset_Password_Controller_Configuration
+ * @category Validate_Token_Controller
+ * @package  Validate_Token_Controller_Configuration_Page
  * @author   Rodney St.Cloud <hoyrod1@aol.com>
  * @license  STC Media inc
- * @link     https://model-release-form/pages/controller/reset_password_controller.php
+ * @link     https://model-release-form/pages/controller/validate_token_controller.php
  */
-declare(strict_types=1);
-date_default_timezone_set('America/New_York');
+//================================================================================//
 //*=========================================================================*//
 
 //=================================================================================//
 /**
  * The Is_Input_Empty_controller function checks if the input field is empty
  * 
- * @param string $email             This param has the email
+ * @param string $email This param has the email
  * 
  * @access public  
  * 
@@ -52,27 +51,27 @@ function Is_Email_Valid_controller(string $email)
     }
 }
 //*===============================================================================*//
-
 //*===============================================================================*//
 /**
- * The Does_Email_exist function verifies if the email exist on the database
+ * The Is_User_Token_Valid_controller checks if the token in URL is valid returns true
  * 
  * @param object $pdo   This param has the PDO connection
- * @param string $email This param has the users email
+ * @param string $token This param has the token from the URL
  * 
  * @access public  
  * 
  * @return mixed
  */
-function Does_Email_Exist_controller(object $pdo, string $email)
+function Is_User_Token_Valid_controller(object $pdo, string $token)
 {
-    if (!Does_Email_Exist_model($pdo, $email)) {
-        return true;
-    } else {
-        return false;
-    }
+  if (!Is_User_Token_Valid_model($pdo, $token)) {
+      return true;
+  } else {
+      return false;
+  }
 }
 //*===============================================================================*//
+
 //*===============================================================================*//
 /**
  * The Get_User_Email_controller function queries the users email from the database
@@ -93,24 +92,3 @@ function Get_User_Email_controller(object $pdo, string $email)
     }
 }
 //*===============================================================================*//
-//=================================================================================//
-//******************* BEGINNING FUNCTION TO RECOVER PASSWORD **********************//
-//=================================================================================//
-/**
- * The Set_User_Validate_Code_controller function updates the users validate_mem
- * 
- * @param object $pdo   This param has the PDO connection
- * @param string $email This param has the users email
- * 
- * @access public  
- * 
- * @return mixed
- */
-function Set_User_Validate_Token_controller(object $pdo, string $email)
-{
-    if (!Set_User_Validate_Token_model($pdo, $email)) {
-        return true;
-    } else {
-        return false;
-    }
-}

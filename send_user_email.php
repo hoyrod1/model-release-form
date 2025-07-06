@@ -8,32 +8,34 @@
  * @package  Send_User_Email_Configuration_Page
  * @author   Rodney St.Cloud <hoyrod1@aol.com>
  * @license  STC Media inc
- * @link     https://model-release-form/pages/incudes/send_user_email.php
+ * @link     https://model-release-form/send_user_email.php
  */
 //================================================================================//
-
+date_default_timezone_set('America/New_York');
 //================================================================================//
 /**
  * The SendUseremail funtion sends the email to the user to reset their password
  * 
- * @param string $email    This param has the email address
- * @param string $val_code This param has the verification code stored in the database
+ * @param string $email              This param has the email address
+ * @param string $reset_hashed_token This param has the hashed token stored in the database
  * 
  * @access public
  * 
  * @return mixed
  */
-function SendUseremail(string $email, string $val_code)
+function SendUseremail(string $email, string $reset_hashed_token)
 {
-  $mail = include "../../mailer.php";
+  $mail = include "mailer.php";
+  $pdfAttachment = "/Applications/MAMP/htdocs/model-release-form/Hot-Rod-Model-Release-Form.pdf";
   $mail->setFrom("hoyrod1@gmail.com");
   $mail->FromName = "Rodney St. Cloud";
   $mail->addReplyTo('hoyrod1@gmail.com');
   $mail->addAddress($email);
-  // $mail->Subjuct  = "Password reset";
+  // $mail->addAttachment($pdfAttachment, "Hot-Rod-Model-Release-Form.pdf");
+  $mail->Subject  = "Reset Password";
   
   $mail->Body     = <<<END
-  Copy & paste {$val_code} in the text field Click on link: http://www.kadenstcloud.com/code.php?Email=$email&Code=$val_code
+  Please click on this link: <a href="http://localhost:8888/model-release-form/pages/reset-password/code.php?Email=$email&Code=$reset_hashed_token">Click here</a> and re-enter your email to reset your password.
   END;
   
   try {

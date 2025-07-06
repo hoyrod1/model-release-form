@@ -11,6 +11,7 @@
  * @link     https://model-release-form/pages/reset-password/reset-password.php
  */
 //=================================================================================//
+date_default_timezone_set('America/New_York');
 //=========================== BEGINNING OF HEADER & NAV ===========================//
 require_once "../includes/reset_password_header.php";
 //============================ ENDING OF HEADER & NAV =============================//
@@ -22,7 +23,6 @@ require_once "../includes/reset_password_header.php";
   <div class="response-text">
   <?php
     require_once "../view/reset_password_view.php";
-    require_once "../../includes/token_generator.php";
     successMessage();
     errorMessage();
   ?>
@@ -33,7 +33,6 @@ require_once "../includes/reset_password_header.php";
         <div class="">
             <form class="rec-form" action="reset_password_processor.php" method="POST">
                 <input type="text" name="email" placeholder="Please enter or email" class="rec-inp">
-                <input type="hidden" name="token_gen" value="<?= tokenGenerator(); ?>">
                 <br />
                 <button class="recover-button" name="recover">
                     Reset Password
