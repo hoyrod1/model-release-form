@@ -15,11 +15,17 @@ date_default_timezone_set('America/New_York');
 //=========================== BEGINNING OF HEADER & NAV ===========================//
 require_once "../includes/code_header.php";
 //============================ ENDING OF HEADER & NAV =============================//
+$url_token = $_GET["token"];
 ?>
 <!------------------------------- BEGGINING OF BODY -------------------------------->
 <body class="code-body">
 <!---------------------------- BEGGINING OF MAIN SECTION---------------------------->
 <div class="code-main-container">
+    <?php
+      require_once "../view/reset_password_view.php";
+      successMessage();
+      errorMessage();
+    ?>
     <div class="code-container">
         <hr>
             <h1 class="code-h1">Enter new password</h1>
@@ -28,6 +34,7 @@ require_once "../includes/code_header.php";
                     <input type="text" name="password" placeholder="Please enter your new password" class="code-inp">
                     <br />
                     <input type="text" name="confirm_password" placeholder="Re-enter enter your new password" class="code-inp">
+                    <input type="hidden" name="token" value="<?= $url_token; ?>">
                     <br />
                     <button class="code-button" name="submit_change">
                         Create new password

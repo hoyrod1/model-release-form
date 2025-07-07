@@ -15,7 +15,8 @@ require_once "../includes/login_header.php";
 //============================ ENDING OF HEADER & NAV =============================//
 ?>
     <hr>
-    <?php 
+    <?php
+      successMessage();
       errorMessage();
       successMessage();
     ?>

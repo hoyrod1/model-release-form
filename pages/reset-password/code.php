@@ -37,7 +37,7 @@ if (isset($_GET['Email']) && isset($_GET['Code'])) {
             <div class="">
                 <form class="code-form" action="validate_token_processor.php" method="POST">
                     <input type="text" name="email" placeholder="Please re-enter your email address" class="code-inp">
-                    <input type="hidden" name="token" value="<?= $url_token; ?>">
+                    <input type="hidden" name="token" value="<?= $token; ?>">
                     <br />
                     <button class="code-button" name="validate_token">
                         Activate

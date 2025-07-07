@@ -10,6 +10,7 @@
  * @license  STC Media inc
  * @link     https://model-release-form/pages/reset-password/reset_password_processor.php
  */
+declare(strict_types=1);
 //======================================================================================//
 date_default_timezone_set('America/New_York');
 // START SESSION TO CATCH ANY LOGIN ERRORS //
@@ -78,7 +79,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["recover"])) {
     } catch (PDOException $e) {
         die("Connected Failed: " . $e->getMessage());
     }
-
   
 } else {
     $_SESSION['reset_password_error'] = "You must enter your email before proceeding";

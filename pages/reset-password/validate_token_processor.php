@@ -62,8 +62,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['validate_token']) && 
               }
               //---------------------------------------------------------------------------------//
               // IF TOKEN HAS NOT EXPIRED REDIRECT TO reset-password-form.php
+              $user_token = $user_results["reset_hashed_token"];
               $_SESSION['reset_password_success'] = "Create your new password";
-              header("Location: reset-password-form.php");
+              header("Location: reset-password-form.php?token=$user_token");
               die();
             } catch (PDOException $e) {
                 die("Connected Failed: " . $e->getMessage());
@@ -74,7 +75,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['validate_token']) && 
       header("Location: reset-password.php");
       die();
   }
-  //*=====================================================================================*//
+  //*================================================================================================*//
 
 //=========================================================================================//
 // //*************** BEGINNING FUNCTION FOR VALIDATION CODE TO RESET PASSWORD ****************//

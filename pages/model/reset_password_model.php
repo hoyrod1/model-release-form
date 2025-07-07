@@ -62,7 +62,7 @@ function Get_User_Email_model(object $pdo, string $email)
 //************ BEGINNING FUNCTION TO RECOVER PASSWORD WITH RESET TOKEN ***********//
 //================================================================================//
 /**
- * The Set_User_Validate_Code_model function updates the users validate_mem
+ * The Set_User_Validate_Token_model function sets the users hashed token
  * 
  * @param object $pdo   This param has the PDO connection
  * @param string $email This param has the users email
@@ -90,7 +90,7 @@ function Set_User_Validate_Token_model(object $pdo, string $email)
     $results = $stmt->execute();
     return $results;
 }
-//*************** ENDING FUNCTION TO RECOVER PASSWORD WITH COOKIE  ***************//
+//************* ENDING FUNCTION TO RECOVER PASSWORD WITH RESET TOKEN *************//
 //================================================================================//
 
 //================================================================================//
