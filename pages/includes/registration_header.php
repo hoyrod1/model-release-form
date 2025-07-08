@@ -36,7 +36,7 @@ if (isset($_SESSION["users_name"])) {
 
             <!------------------ BEGINNING OF JAVASCRIPT FILES ------------------>
             <!-- <script defer src="./date-file.js"></script> -->
-            <script defer src="../javascript/model-registration.js"></script>
+            <!-- <script defer src="../javascript/model-registration.js"></script> -->
             <!-- <script
               type="module"
               src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"

@@ -26,9 +26,9 @@ date_default_timezone_set('America/New_York');
 function SendUseremail(string $email, string $reset_hashed_token)
 {
   $mail = include "mailer.php";
-  $pdfAttachment = "/Applications/MAMP/htdocs/model-release-form/Hot-Rod-Model-Release-Form.pdf";
+  // $pdfAttachment = "/Applications/MAMP/htdocs/model-release-form/Hot-Rod-Model-Release-Form.pdf";
   $mail->setFrom("hoyrod1@gmail.com");
-  $mail->FromName = "Rodney St. Cloud";
+  $mail->FromName = "STC media inc";
   $mail->addReplyTo('hoyrod1@gmail.com');
   $mail->addAddress($email);
   // $mail->addAttachment($pdfAttachment, "Hot-Rod-Model-Release-Form.pdf");

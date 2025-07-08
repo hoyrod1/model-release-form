@@ -13,7 +13,10 @@
 declare(strict_types=1);
 //*=====================================================================================================*//
 //-------------------------------------------------------------------------------------------------------//
+// START SESSION TO CATCH ANY REGISTRATION ERRORS AND SUCCESES //
 require_once "../../includes/session_inc.php";
+// INCLUDE THE send_email.php FILE TO SEND EMAIL TO USER //
+require_once "../../send_user_pdf_email.php";
 //-------------------------------------------------------------------------------------------------------//
 
 //------------------------------------------------------------------------------------------------//
@@ -535,7 +538,7 @@ function generateModelReleaseToPDF(
   $dompdf->addInfo("Creator", "Rodney St. Cloud");
   $dompdf->stream("STCmedia-inc-Model-Relase-Form.pdf", ["Attachment" => 0]);
   $output = $dompdf->output();
-  $pdfFileName = "$model_name-Model-Release-Form";
+  $pdfFileName = "$legal_name-Model-Release-Form.pdf";
   file_put_contents($pdfFileName, $output);
 }
 //*==============================================================================*//
@@ -554,3 +557,4 @@ generateModelReleaseToPDF(
   $zip_code,
   $country
 );
+SendUserPdfemail($email, $legal_name);

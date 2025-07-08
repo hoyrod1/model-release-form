@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
   //*----------------------------------------------------------------------*//
   try 
   {
-      // START SESSION TO CATCH ANY REGISTRATION ERRORS //
+      // START SESSION TO CATCH ANY REGISTRATION ERRORS AND SUCCESES //
       include_once "../../includes/session_inc.php";
       // INCLUDE THE DATBASE CONNECTION //
       include_once "../../includes/database.procedural.inc.php";
@@ -123,9 +123,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
           $stmt = null;
           die();       
       } else {
-          $errors["model_release_failed"] = "Your model release has not been updated";
+          $_SESSION["model_release_error"] = "Your model release has not been updated: {$e->getMessage()}";
           header("Location: update_model_release_form.php");
-          die("There was problem updating your model release form: " . $e->getMessage());
       }
   }
   catch(PDOException $e) 

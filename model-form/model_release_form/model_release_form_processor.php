@@ -41,6 +41,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
         include_once "../model/model_release_model.php";
         // INCLUDE THE REGISTRATION CONTROLLER THAT HANDLES USER INPUT //
         include_once "../controller/model_release_controller.php";
+        // INCLUDE THE generateModelReleaseToPDF TO GENERATE A PDF FILE //
+        // include_once "../generateModelReleaseToPDF/generateModelReleaseToPDF.php";
+        // INCLUDE THE send_email.php FILE TO SEND EMAIL TO USER //
+        // include_once "../../send_user_pdf_email.php";
 
         // ERROR HANDLERS ARRAY //
         $errors = [];
@@ -116,15 +120,30 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
         );
 
         if ($results) {
-            $_SESSION["model_release_success"] = "Your model release was saved";
+            $_SESSION["model_release_success"] = "Your model release has been saved";
+            // generateModelReleaseToPDF(
+            //   $producer_name, 
+            //   $model_name, 
+            //   $email, 
+            //   $date_of_shoot, 
+            //   $location_of_shoot, 
+            //   $compensation, 
+            //   $legal_name, 
+            //   $social_security, 
+            //   $address, 
+            //   $city, 
+            //   $state, 
+            //   $zip_code,
+            //   $country
+            // );
+            // SendUserPdfemail($email, $legal_name);
             header("Location: ../index.php");
             $pdo = null;
             $stmt = null;
             die();       
         } else {
-            $errors["model_release_failed"] = "Your model release wasn't saved";
+            $_SESSION["model_release_error"] = "There was problem saving your model release form: {$e->getMessage()}";
             header("Location: model_release_form.php");
-            die("There was problem saving your model release form: " . $e->getMessage());
         }
     }
     catch(PDOException $e) 

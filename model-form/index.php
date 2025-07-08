@@ -72,9 +72,9 @@ if (!isset($_SESSION["users_name"])) {
                 </span>
                 <br>
                 <br>
-                If you want to download a copy of your model release form click 
+                If you want to email and download a copy of your model release form click 
                 <span style="color:rgba(255, 166, 0, 0.685);">
-                  "Click here to download a copy of your model release form"
+                  "Click here to email & download a copy of your model release form"
                 </span>
                 <br>
                 <br>
@@ -123,7 +123,7 @@ if (!isset($_SESSION["users_name"])) {
                   <div id="index-div-button" class="index-div-button">
                     <button id="index-button" class="index-button">
                       <a href="generateModelReleaseToPDF/generateModelReleaseToPDF.php">
-                        Click here to download a copy of your model release form
+                        Click here to email & download a copy of your model release form
                       </a>
                     </button>
                     <button id="index-button" class="index-button">
