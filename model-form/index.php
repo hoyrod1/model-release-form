@@ -16,6 +16,8 @@ require_once "../includes/session_inc.php";
 require_once "../pages/view/login_view.php";
 //========== REQUIRE THE model_release_view.php ===========//
 require_once "view/model_release_view.php";
+//======= REQUIRE THE update_model_release_view.php =======//
+require_once "view/update_model_release_view.php";
 //=========================================================//
 
 //=========================================================//
@@ -48,7 +50,9 @@ if (!isset($_SESSION["users_name"])) {
   <?php
       successMessage();
       modelReleaseFormErrorMessage();
+      updateModelReleaseFormErrorMessage();
       modelReleaseFormSuccessMessage();
+      updateModelReleaseFormSuccessMessage();
     ?>
   <div class="container">
       <section class="model-section">

@@ -262,6 +262,7 @@ $current_date = date("m-d-Y");
         type="text" 
         name="payment-amount" 
         id="payment-amount"
+        placeholder="(If this is only a content exchange shoot please enter 0.00)"
         require
         >
       <!--------------------------------------------------------------------------->

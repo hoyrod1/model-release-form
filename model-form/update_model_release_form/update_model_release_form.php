@@ -63,6 +63,7 @@ try {
 //---------------------------------------------------------------------------------------------------//
 require_once "../../pages/view/login_view.php";
 require_once "../view/model_release_view.php";
+require_once "../view/update_model_release_view.php";
 //---------------------------------------------------------------------------------------------------//
 
 //---------------------------------------------------------------------------------------------------//
@@ -99,7 +100,9 @@ $current_date = date("m-d-Y");
   </nav>
   <?php
       modelReleaseFormErrorMessage();
+      updateModelReleaseFormErrorMessage();
       modelReleaseFormSuccessMessage();
+      updateModelReleaseFormSuccessMessage();
     ?>
   <div class="container">
     <h2 class="dba">Exotic Hard Body Production</h2>
@@ -142,7 +145,7 @@ $current_date = date("m-d-Y");
         email:
       </label>
       <input 
-        type="email" 
+        type="text" 
         name="email" 
         id="date-of-shoot"
         value="<?= $email; ?>"

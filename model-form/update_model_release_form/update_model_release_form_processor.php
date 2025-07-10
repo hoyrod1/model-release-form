@@ -38,14 +38,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
       // INCLUDE THE DATBASE CONNECTION //
       include_once "../../includes/database.procedural.inc.php";
       // INCLUDE THE REGISTRATION MODEL THAT INTERACTS WITH THE DATABSE //
-      include_once "../model/model_release_model.php";
+      include_once "../model/update_model_release_model.php";
       // INCLUDE THE REGISTRATION CONTROLLER THAT HANDLES USER INPUT //
-      include_once "../controller/model_release_controller.php";
+      include_once "../controller/update_model_release_controller.php";
 
-      // ERROR HANDLERS ARRAY //
-      $errors = [];
       // CHECK IF ALL INPUT FEILDS ARE NOT EMPTY
-      if (Is_Input_empty(
+      if (Is_Update_Input_empty(
           $producer_name, // done
           $model_name, // done
           $email, // done
@@ -61,42 +59,51 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
           $country
       )
       ) {
-          $errors["empty_input"] = "Fill in all fields";
+            $_SESSION["update_model_release_error"] = "Fill in all fields";
+            header("Location: update_model_release_form.php");
+            die();
       }
       //------------------------------------------------------------------------------------------------//
-      // CHECK IF THE FIRST AND LAST NAME CONTAIN VALID DATA
-      if (Is_Name_valid(
-          $producer_name, 
-          $model_name,
-          $legal_name
-      )
-      ) {
-          $errors["invalid_names"] = "Please use letters, hyphens and periods in your first and last name";
-      }
-      // CHECK IF EMAIL IS VALID
-      if (Is_Email_valid($email)) {
-          $errors["invalid_email"] = "Invalid email format";
-      }
-      //------------------------------------------------------------------------------------------------//
-      // CHECK IF CONTACT NUMBER IS VALID
-      if (Is_SocialSecurity_valid($social_security)) {
-          $errors["invalid_socialSecurity_number"] = "Please only use hyphens between your social security numbers (xxx-xx-xxxx)";
-      }
-      //------------------------------------------------------------------------------------------------//
-      // CHECK IF CONTACT NUMBER IS VALID
-      if (Is_Payment_amount($payment_amount)) {
-          $errors["invalid_payment_amount"] = "Please only enter number, commas and periods";
-      }
-      //------------------------------------------------------------------------------------------------//
-      // CHECK IF THERE ARE ANY ERRORS 
-      if ($errors) {
-          $_SESSION["model_release_error"] = $errors;
+      // CHECKS IF THE PRODUCERS NAME CONTAIN VALID DATA
+      if (Is_Update_Producer_Name_valid($producer_name)) {
+          $_SESSION["update_model_release_error"] = "Please use letters, hyphens and periods in the producers name";
           header("Location: update_model_release_form.php");
-          die("Query Failed: " . $e->getMessage());
+          die();
+      }
+      //------------------------------------------------------------------------------------------------//
+      // CHECKS IF THE MODELS STAGE NAME CONTAIN VALID DATA
+      if (Is_Update_Model_Name_valid($model_name)) {
+          $_SESSION["update_model_release_error"] = "Please use letters, hyphens and periods in the model name";
+          header("Location: update_model_release_form.php");
+          die();
+      }
+      //------------------------------------------------------------------------------------------------//
+      // CHECKS IF THE MODELS STAGE NAME CONTAIN VALID DATA
+      if (Is_Update_Legal_Name_valid($legal_name)) {
+          $_SESSION["update_model_release_error"] = "Please use letters, hyphens and periods in the legal name";
+          header("Location: update_model_release_form.php");
+          die();
+      }
+      // ------------------------------------------------------------------------------------------------//
+      // CHECK IF EMAIL IS VALID 
+      if (Is_Update_Email_valid($email)) {
+          $_SESSION["update_model_release_error"] = "Invalid email format";
+          header("Location: update_model_release_form.php");
+          die();
+      }
+      // ------------------------------------------------------------------------------------------------//
+      // CHECK IF CONTACT NUMBER IS VALID
+      if (Is_Update_SocialSecurity_valid($social_security)) {
+          $_SESSION["update_model_release_error"] = "Please only use hyphens between your social security numbers (xxx-xx-xxxx)";
+      }
+      //------------------------------------------------------------------------------------------------//
+      // CHECK IF CONTACT NUMBER IS VALID
+      if (Is_Update_Payment_amount($payment_amount)) {
+          $_SESSION["update_model_release_error"] = "Please only enter number, commas and periods";
       }
       //------------------------------------------------------------------------------------------------//
 
-      //------------------------------------------------------------------------------------------------//
+      //----------------------------------------------------------------------------------------------//
       // START THE PROCCESS OF SAVING THE MODEL RELEASE FORM INTO THE DATABASE
       $results = Update_ModelRelease_Form_controller(
           $pdo, 
