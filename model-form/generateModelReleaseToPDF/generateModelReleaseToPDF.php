@@ -536,7 +536,7 @@ function generateModelReleaseToPDF(
   $dompdf->addInfo("Subject", "The models legal aggrement");
   $dompdf->addInfo("Keywords", "Model Release Form");
   $dompdf->addInfo("Creator", "Rodney St. Cloud");
-  $dompdf->stream("STCmedia-inc-Model-Relase-Form.pdf", ["Attachment" => 0]);
+  $dompdf->stream("$legal_name-Model-Relase-Form.pdf", ["Attachment" => 0]);
   $output = $dompdf->output();
   $pdfFileName = "$legal_name-Model-Release-Form.pdf";
   file_put_contents($pdfFileName, $output);

@@ -50,7 +50,7 @@ function Is_Input_empty(string $email, string $password)
  */
 function Is_Email_valid(string $email)
 {
-    if (!preg_match("/[a-zA-Z0-9._]{3,}@[a-zA-Z0-9._]{3,}.{1}[a-zA-Z0-9._]{2,}/", $email)) {
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         return true;
     } else {
         return false;
@@ -70,7 +70,7 @@ function Is_Email_valid(string $email)
  */
 function Is_Password_valid(string $password)
 {
-    if (!preg_match("/^[a-zA-Z,0-9_]*$/", $password)) {
+    if (!preg_match("/^[\!a-zA-Z,0-9_]*$/", $password)) {
         return true;
     } else {
         return false;

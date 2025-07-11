@@ -68,18 +68,32 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
             $errors["empty_input"] = "Fill in all fields";
         }
         //------------------------------------------------------------------------------------------------//
-        // CHECK IF THE FIRST AND LAST NAME CONTAIN VALID DATA
-        if (Is_Name_valid(
-            $producer_name, 
-            $model_name,
-            $legal_name
-        )
-        ) {
-            $errors["invalid_names"] = "Please use letters, hyphens and periods in your first and last name";
+        // CHECKS IF THE PRODUCERS NAME CONTAIN VALID DATA
+        if (Is_Producer_Name_valid($producer_name)) {
+            $_SESSION["update_model_release_error"] = "Please use letters, hyphens and periods in the producers name";
+            header("Location: update_model_release_form.php");
+            die();
         }
-        // CHECK IF EMAIL IS VALID
+        //------------------------------------------------------------------------------------------------//
+        // CHECKS IF THE MODELS STAGE NAME CONTAIN VALID DATA
+        if (Is_Model_Name_valid($model_name)) {
+            $_SESSION["update_model_release_error"] = "Please use letters, hyphens and periods in the model name";
+            header("Location: update_model_release_form.php");
+            die();
+        }
+        //------------------------------------------------------------------------------------------------//
+        // CHECKS IF THE MODELS STAGE NAME CONTAIN VALID DATA
+        if (Is_Legal_Name_valid($legal_name)) {
+            $_SESSION["update_model_release_error"] = "Please use letters, hyphens and periods in the legal name";
+            header("Location: update_model_release_form.php");
+            die();
+        }
+        // ------------------------------------------------------------------------------------------------//
+        // CHECK IF EMAIL IS VALID 
         if (Is_Email_valid($email)) {
-            $errors["invalid_email"] = "Invalid email format";
+            $_SESSION["update_model_release_error"] = "Invalid email format";
+            header("Location: update_model_release_form.php");
+            die();
         }
         //------------------------------------------------------------------------------------------------//
         // CHECK IF CONTACT NUMBER IS VALID

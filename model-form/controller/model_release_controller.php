@@ -77,19 +77,57 @@ function Is_Input_empty(
 
 //*===============================================================================*//
 /**
- * 1. The Is_Name_valid function checks the producers, model name, name is valid
+ * 1. The Is_Producer_Name_valid function checks the producers name is valid
  * 
  * @param string $producer_name This param has the producer name
- * @param string $model_name    This param has the models stage name
- * @param string $print_name    This param has the models name
  * 
  * @access public  
  * 
  * @return mixed
  */
-function Is_Name_valid(string $producer_name, string $model_name, string $print_name)
+function Is_Producer_Name_valid(string $producer_name)
 {
-    if (!preg_match("/^[a-zA-Z-'\. ]*$/", $model_name) || !preg_match("/^[a-zA-Z-'\. ]*$/", $print_name)) {
+    if (!preg_match("/^[a-zA-Z-'\. ]*$/", $producer_name)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+//*===============================================================================*//
+
+//*===============================================================================*//
+/**
+ * 1. The Is_Model_Name_valid function checks the model stage  name is valid
+ * 
+ * @param string $model_name This param has the models stage name
+ * 
+ * @access public  
+ * 
+ * @return mixed
+ */
+function Is_Model_Name_valid(string $model_name)
+{
+    if (!preg_match("/^[0-9a-zA-Z-'\. ]*$/", $model_name)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+//*===============================================================================*//
+
+//*===============================================================================*//
+/**
+ * 1. The Is_Legal_Name_valid function checks the legal name is valid
+ * 
+ * @param string $print_name This param has the models legal name
+ * 
+ * @access public  
+ * 
+ * @return mixed
+ */
+function Is_Legal_Name_valid(string $print_name)
+{
+    if (!preg_match("/^[a-zA-Z-'\. ]*$/", $print_name)) {
         return true;
     } else {
         return false;
@@ -109,7 +147,7 @@ function Is_Name_valid(string $producer_name, string $model_name, string $print_
  */
 function Is_Email_valid(string $email)
 {
-    if (!preg_match("/[a-zA-Z0-9._]{3,}@[a-zA-Z0-9._]{3,}.{1}[a-zA-Z0-9._]{2,}/", $email)) {
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         return true;
     } else {
         return false;

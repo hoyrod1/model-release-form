@@ -24,17 +24,14 @@ declare(strict_types=1);
 function modelReleaseFormErrorMessage()
 {
     if (isset($_SESSION['model_release_error'])) {
-        $errors = $_SESSION['model_release_error'];
-        echo "<br>";
-        foreach ($errors as $error) {
-            $error_message = "<div style=\"width: 335px;margin: auto;padding: 10px;background-color: red;color: white;\" align=\"center\" class=\"alert\">";
-            $error_message .= $error;
-            $error_message .= "</div>";
-            echo $error_message;
-        }
+        $error_message = $_SESSION["model_release_error"];
 
-        unset($_SESSION['model_release_error']);
+        $message = "<p style=\"width: 335px;margin: auto;padding: 10px; background-color: green;color: white;\" align=\"center\">";
+        $message .= $error_message;
+        $sessage .= "</p>";
+        echo $message;
     }
+    unset($_SESSION['model_release_error']);
 }
 //===========================================================================//
 
@@ -49,10 +46,10 @@ function modelReleaseFormErrorMessage()
 function modelReleaseFormSuccessMessage()
 {
     if (isset($_SESSION["model_release_success"])) {
-        $success_messages = $_SESSION["model_release_success"];
+        $success_message = $_SESSION["model_release_success"];
 
         $message = "<p style=\"width: 335px;margin: auto;padding: 10px; background-color: green;color: white;\" align=\"center\">";
-        $message .= $success_messages;
+        $message .= $success_message;
         $sessage .= "</p>";
         echo $message;
     }

@@ -62,7 +62,6 @@ try {
 
 //---------------------------------------------------------------------------------------------------//
 require_once "../../pages/view/login_view.php";
-require_once "../view/model_release_view.php";
 require_once "../view/update_model_release_view.php";
 //---------------------------------------------------------------------------------------------------//
 
@@ -99,9 +98,7 @@ $current_date = date("m-d-Y");
     </ul>
   </nav>
   <?php
-      modelReleaseFormErrorMessage();
       updateModelReleaseFormErrorMessage();
-      modelReleaseFormSuccessMessage();
       updateModelReleaseFormSuccessMessage();
     ?>
   <div class="container">

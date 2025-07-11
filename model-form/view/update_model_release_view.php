@@ -31,8 +31,8 @@ function updateModelReleaseFormErrorMessage()
       $sessage .= "</p>";
       echo $message;
 
-        unset($_SESSION['update_model_release_error']);
     }
+    unset($_SESSION['update_model_release_error']);
 }
 //===========================================================================//
 

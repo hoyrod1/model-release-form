@@ -109,7 +109,7 @@ function Is_Email_valid(string $email)
  */
 function Is_Model_Name_valid(string $model_name)
 {
-    if (!preg_match("/^[0-9A-Za-z ]{6,16}$/", $model_name)) {
+    if (!preg_match("/^[0-9A-Za-z ]{5,16}$/", $model_name)) {
         return true;
     } else {
         return false;

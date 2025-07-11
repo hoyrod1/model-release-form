@@ -127,7 +127,7 @@ function Is_Update_Model_Name_valid(string $model_name)
  */
 function Is_Update_Legal_Name_valid(string $print_name)
 {
-    if (!preg_match("/^[a-zA-Z]+([ \-']{0,1}[a-zA-Z]+){0,2}[.]{0,1}$/", $print_name)) {
+    if (!preg_match("/^[a-zA-Z-'\. ]*$/", $print_name)) {
         return true;
     } else {
         return false;
