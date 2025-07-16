@@ -11,6 +11,7 @@
  * @link     https://model-release-form/model-form/controller/model_release_controller.php
  */
 declare(strict_types=1);
+date_default_timezone_set('America/New_York');
 //*===============================================================================*//
 
 //=================================================================================//
@@ -167,7 +168,7 @@ function Is_Email_valid(string $email)
  */
 function Is_SocialSecurity_valid(string $socialSecurity_number)
 {
-    if (!preg_match("/^(?!666|000|9\\d{2})\\d{3}-(?!00)\\d{2}-(?!0{4})\\d{4}$/", $socialSecurity_number)) {
+    if (!preg_match("/^(?!0{3})(?!6{3})[0-8]\d{2}-(?!0{2})\d{2}-(?!0{4})\d{4}$/", $socialSecurity_number)) {
         return true;
     } else {
         return false;

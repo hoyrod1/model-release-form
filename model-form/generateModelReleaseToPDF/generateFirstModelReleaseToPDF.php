@@ -2,65 +2,20 @@
 /**
  * * @file
  * php version 8.2
- * Generate Model Release To PDF Configuration file
+ * Generate First Model Release To PDF Configuration file
  * 
- * @category Generate_Model_Release_To_PDF
- * @package  Generate_Model_Release__To_PDF_Configuration
+ * @category Generate_First_Model_Release_To_PDF
+ * @package  Generate_First_Model_Release__To_PDF_Configuration
  * @author   Rodney St.Cloud <hoyrod1@aol.com>
  * @license  STC Media inc
- * @link     https://model-release-form/model-form/generateModelReleaseToPDF/generateModelReleaseToPDF.php
+ * @link     https://model-release-form/model-form/generateModelReleaseToPDF/generateFirstModelReleaseToPDF.php
  */
 declare(strict_types=1);
 //*=====================================================================================================*//
-//-------------------------------------------------------------------------------------------------------//
-// START SESSION TO USE THE MODELS INFO CACHED TO THE SESSION AT LOGIN AND CATCH ANY ERRORS OR SUCCESES  //
-require_once "../../includes/session_inc.php";
-// INCLUDE THE send_email.php FILE TO SEND EMAIL TO USER //
-// require_once "../../send_user_pdf_email.php";
-//-------------------------------------------------------------------------------------------------------//
 
-//------------------------------------------------------------------------------------------------//
-try {
-  // INCLUDE THE DATBASE CONNECTION //
-  include_once "../../includes/database.procedural.inc.php";
-  // INCLUDE THE REGISTRATION MODEL THAT INTERACTS WITH THE DATABSE //
-  include_once "../model/model_release_model.php";
-  //------------------------------------------------------------------------------------------------//
-  // THE EMAIL ADDRESS STORED DURING THE LOGIN PROCESS IS USED TO RETRIEVED THE MODEL RELEASE FORM  //
-  $model_email = $_SESSION["users_email"];
-  //------------------------------------------------------------------------------------------------//
-
-  //------------------------------------------------------------------------------------------------//
-  //********************** THIS CONTAINS THE RESULTS FROM THE DATABASE QUERY ***********************//
-  $results = Get_ModelRelease_Form_model($pdo, $model_email);
-  //------------------------------------------------------------------------------------------------//
-  if ($results) {
-    $producer_name     = $results["producer_name"];
-    $model_name        = $results["model_name"];
-    $email             = $results["email"];
-    $date_of_shoot     = $results["date_of_shoot"];
-    $location_of_shoot = $results["location_of_shoot"];
-    $compensation      = $results["compensation"];
-    $legal_name        = $results["legal_name"];
-    $social_security   = $results["social_security"];
-    $address           = $results["address"];
-    $city              = $results["city"];
-    $state             = $results["state"];
-    $zip_code          = $results["zip_code"];
-    $country           = $results["country"];
-} else {
-    die("Query Failed: " . $e->getMessage());
-  }
-  //------------------------------------------------------------------------------------------------//
-} catch(PDOException $e) 
-{
-    die("Connected Failed: " . $e->getMessage());
-}
-//---------------------------------------------------------------------------------------------------//
-
-//*==============================================================================*//
+//*=====================================================================================================*//
 /**
- * The generateModelReleaseToPDF generates a PDF file from the model release form
+ * The generateFirstModelReleaseToPDF generates a PDF file from the model release form
  * 
  * @param string $producer_name     This param has the producers name
  * @param string $model_name        This param has the models name
@@ -86,7 +41,7 @@ use Dompdf\Dompdf;
 //*==============================================================================*//
 
 //*==============================================================================*//
-function generateModelReleaseToPDF(
+function generateFirstModelReleaseToPDF(
   string $producer_name, 
   string $model_name, 
   string $email, 
@@ -540,21 +495,7 @@ function generateModelReleaseToPDF(
   $output = $dompdf->output();
   $pdfFileName = "$legal_name-Model-Release-Form.pdf";
   file_put_contents($pdfFileName, $output);
+  $_SESSION["model_release_success"] = "Your model release has been emailed";
+  header("Location: ../index.php");
 }
 //*==================================================================================*//
-generateModelReleaseToPDF(
-  $producer_name, 
-  $model_name, 
-  $email, 
-  $date_of_shoot, 
-  $location_of_shoot, 
-  $compensation, 
-  $legal_name, 
-  $social_security, 
-  $address, 
-  $city, 
-  $state, 
-  $zip_code,
-  $country
-);
-// SendUserPdfemail($email, $legal_name);

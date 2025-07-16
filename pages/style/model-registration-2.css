@@ -5,7 +5,106 @@
   padding: 0;
   box-sizing: border-box;
 }
+/*=====================================================================================*/
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #f5f7fa;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  padding: 1rem;
+  gap: 5px;
+}
 
+.form-container {
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+.form-container h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 1.2rem;
+  position: relative;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #555;
+  font-weight: 500;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.form-group input:invalid:focus {
+  border-color: #dc3545;
+}
+
+.error-message {
+  color: #dc3545;
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+  display: none;
+}
+
+input:invalid:focus + .error-message {
+  display: block;
+}
+
+.button-submit {
+  width: 100%;
+  padding: 0.7rem;
+  background-color: #007bff;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button-submit:hover {
+  background-color: #0056b3;
+}
+
+.form-footer {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #777;
+}
+
+@media (max-width: 480px) {
+  .form-container {
+    padding: 1.5rem;
+  }
+}
+/*=====================================================================================*/
 hr {
   color: rgb(127, 161, 224);
   margin: 10px 0;
@@ -48,7 +147,7 @@ li a.active {
 
 .form-title-h1 {
   text-align: center;
-  color: rgb(127, 161, 224);
+  color: rgb(63, 94, 142);
   text-decoration: underline;
 }
 /*------------------------------------------------------------------------------------*/

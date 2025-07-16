@@ -26,7 +26,7 @@ function modelReleaseFormErrorMessage()
     if (isset($_SESSION['model_release_error'])) {
         $error_message = $_SESSION["model_release_error"];
 
-        $message = "<p style=\"width: 335px;margin: auto;padding: 10px; background-color: green;color: white;\" align=\"center\">";
+        $message = "<p style=\"width: 335px;margin: auto;padding: 10px; background-color: red;color: white;\" align=\"center\">";
         $message .= $error_message;
         $sessage .= "</p>";
         echo $message;

@@ -67,8 +67,8 @@ if (!isset($_SESSION["users_name"])) {
             </h3>
             <div class="section-two">
               <p class="description">
-                Hello <?php echo $_SESSION["users_model_name"]; ?>,
-                <br>
+                <!-- Hello <?php echo $_SESSION["users_model_name"]; ?>,
+                <br> -->
                 if this is your first time signing the model release form
                 please click the link that says 
                 <span style="color:rgba(255, 166, 0, 0.685);">
@@ -126,8 +126,13 @@ if (!isset($_SESSION["users_name"])) {
                 $form_button_B = '
                   <div id="index-div-button" class="index-div-button">
                     <button id="index-button" class="index-button">
+                      <a href="generateModelReleaseToPDF/emailModelReleaseForm.php">
+                        Click here to email a copy of your model release form
+                      </a>
+                    </button>
+                    <button id="index-button" class="index-button">
                       <a href="generateModelReleaseToPDF/generateModelReleaseToPDF.php">
-                        Click here to email & download a copy of your model release form
+                        Click here to generate and download a copy of your model release form
                       </a>
                     </button>
                     <button id="index-button" class="index-button">
@@ -150,7 +155,7 @@ if (!isset($_SESSION["users_name"])) {
     </div>
     <!---------------------------------------------------------------------------->
     <footer class="footer-logo">
-      Copyright © STC Media inc Model Relase Registration-Login System inc 
+      Copyright © STC Media inc Model Relase Registration-Login System  
       2008 - <?php echo date("Y"); ?>
     </footer>
     <!---------------------------------------------------------------------------->

@@ -105,8 +105,9 @@ p.description {
 /*--------------------------------------------------------------------------------*/
 .index-div-button {
   display: flex;
+  flex-direction: column;
   gap: 15px;
-  width: 100%;
+  width: 75%;
   height: 35%;
   margin: 10px auto;
 }

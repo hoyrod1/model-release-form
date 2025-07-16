@@ -11,6 +11,7 @@
  * @link     https://model-release-form/model-form/model_release_form/model_release_form.php
  */
 require_once "../../includes/session_inc.php";
+date_default_timezone_set('America/New_York');
 if (!isset($_SESSION["users_name"])) {
     $userMessage = ' Please log in';
     $_SESSION["login_error"] = $userMessage;
@@ -87,13 +88,15 @@ $current_date = date("m-d-Y");
         >
       <!--------------------------------------------------------------------------->
       <br>
+      <!-- allisonbloombusiness@gmail.com alisonbloom2pawg-->
+      <!-- BBClovingTrixie01-->
       <!--------------------------------------------------------------------------->
-      <label class="date-of-shoot" for="date-of-shoot">
+      <label class="email" for="email">
         email:
       </label>
       <input 
         type="email" 
-        name="email" 
+        name="model-email" 
         id="email"
         value="<?php echo $_SESSION["users_email"]; ?>"
         >
@@ -259,10 +262,11 @@ $current_date = date("m-d-Y");
         The model will receive a compensation in the amount of $
       </label>
       <input 
+        style="font-size: smaller; width: 35%;"
         type="text" 
         name="payment-amount" 
         id="payment-amount"
-        placeholder="(If this is only a content exchange shoot please enter 0.00)"
+        placeholder="(For content exchange shoot please enter 0.00)"
         require
         >
       <!--------------------------------------------------------------------------->

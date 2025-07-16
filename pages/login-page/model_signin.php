@@ -98,7 +98,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
         $_SESSION["regeneration_set"] = time();
         //------------------------------------------------------------------------------------------------//
         // AFTER LOGGING IN SET SUCCESS MESSAGE AND REDIRECT TO MODEL RELEASE FORM
-        $welcomeMessage = "Hello " .$userFullName. " please fill out the form";;
+        $welcomeMessage = "Hello " .$userFullName. " please fill out, update, download or email your \"Model Release Form\"";;
         $_SESSION["login_success"] = $welcomeMessage;
         header("Location: ../../model-form/index.php");
         // RESSET THE CONNECTION TO NULL AND KILL THE SCRIPT
