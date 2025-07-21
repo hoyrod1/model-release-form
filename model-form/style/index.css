@@ -49,6 +49,11 @@ li a.active {
   border-radius: 5px;
   box-shadow: 1px 1px 25px 3px rgba(255, 166, 0, 0.685);
 }
+
+.admin-div {
+  display: flex;
+}
+
 .section-one {
   /* display: flex;
   align-content: space-between; */

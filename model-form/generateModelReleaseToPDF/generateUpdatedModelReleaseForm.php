@@ -8,14 +8,14 @@
  * @package  Generate_First_Model_Release__To_PDF_Configuration
  * @author   Rodney St.Cloud <hoyrod1@aol.com>
  * @license  STC Media inc
- * @link     https://model-release-form/model-form/generateModelReleaseToPDF/generateFirstModelReleaseToPDF.php
+ * @link     https://model-release-form/model-form/generateModelReleaseToPDF/generateUpdatedModelReleaseToPDF.php
  */
 declare(strict_types=1);
 //*=====================================================================================================*//
 
 //*=====================================================================================================*//
 /**
- * The generateFirstModelReleaseToPDF generates the initial PDF file from the model release form
+ * The generateUpdatedModelReleaseToPDF generates an updated PDF file from the model release form
  * 
  * @param string $producer_name     This param has the producers name
  * @param string $model_name        This param has the models name
@@ -41,7 +41,7 @@ use Dompdf\Dompdf;
 //*==============================================================================*//
 
 //*==============================================================================*//
-function generateFirstModelReleaseToPDF(
+function generateUpdatedModelReleaseToPDF(
   string $producer_name, 
   string $model_name, 
   string $email, 
@@ -495,7 +495,7 @@ function generateFirstModelReleaseToPDF(
   $output = $dompdf->output();
   $pdfFileName = "$legal_name-Model-Release-Form.pdf";
   file_put_contents($pdfFileName, $output);
-  $_SESSION["model_release_success"] = "Your model release has been emailed";
+  $_SESSION["update_model_release_success"] = "Your model release has been updated and emailed from generated updated model release pdf";
   header("Location: ../index.php");
 }
 //*==================================================================================*//

@@ -41,6 +41,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
       include_once "../model/update_model_release_model.php";
       // INCLUDE THE REGISTRATION CONTROLLER THAT HANDLES USER INPUT //
       include_once "../controller/update_model_release_controller.php";
+      // INCLUDE THE generateModelReleaseToPDF TO GENERATE A PDF FILE //
+      include_once "../generateModelReleaseToPDF/generateUpdatedModelReleaseForm.php";
+      // INCLUDE THE send_email.php FILE TO SEND EMAIL TO USER //
+      include_once "../generateModelReleaseToPDF/emailUpdatedModelReleaseForm.php";
 
       // CHECK IF ALL INPUT FEILDS ARE NOT EMPTY
       if (Is_Update_Input_empty(
@@ -103,7 +107,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
       }
       //------------------------------------------------------------------------------------------------//
 
-      //----------------------------------------------------------------------------------------------//
+      //------------------------------------------------------------------------------------------------//
       // START THE PROCCESS OF SAVING THE MODEL RELEASE FORM INTO THE DATABASE
       $results = Update_ModelRelease_Form_controller(
           $pdo, 
@@ -124,13 +128,29 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
       );
 
       if ($results) {
-          $_SESSION["model_release_success"] = "Your model release has been updated";
-          header("Location: ../index.php");
-          $pdo = null;
-          $stmt = null;
-          die();       
+        generateUpdatedModelReleaseToPDF(
+            $producer_name, 
+            $model_name, 
+            $email, 
+            $date_of_shoot, 
+            $location_of_shoot, 
+            $payment_amount, 
+            $legal_name, 
+            $social_security, 
+            $address, 
+            $city, 
+            $state, 
+            $zip_code,
+            $country
+            );
+        EmailUpdatedModelReleaseForm($email, $legal_name);
+        $_SESSION["update_model_release_success"] = "Your model release has been updated and emailed from update model release processor";
+        header("Location: ../index.php");
+        $pdo = null;
+        $stmt = null;
+        die();       
       } else {
-          $_SESSION["model_release_error"] = "Your model release has not been updated: {$e->getMessage()}";
+          $_SESSION["update_model_release_error"] = "Your model release has not been updated: {$e->getMessage()}";
           header("Location: update_model_release_form.php");
       }
   }

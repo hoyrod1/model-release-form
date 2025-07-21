@@ -26,7 +26,7 @@ function updateModelReleaseFormErrorMessage()
     if (isset($_SESSION['update_model_release_error'])) {
       $success_messages = $_SESSION["update_model_release_error"];
 
-      $message = "<p style=\"width: 335px;margin: auto;padding: 10px; background-color: red;color: white;\" align=\"center\">";
+      $message = "<p style=\"width: 735px;margin: auto;padding: 10px; background-color: red;color: white;\" align=\"center\">";
       $message .= $success_messages;
       $sessage .= "</p>";
       echo $message;
@@ -49,7 +49,7 @@ function updateModelReleaseFormSuccessMessage()
     if (isset($_SESSION["update_model_release_success"])) {
         $success_messages = $_SESSION["update_model_release_success"];
 
-        $message = "<p style=\"width: 335px;margin: auto;padding: 10px; background-color: green;color: white;\" align=\"center\">";
+        $message = "<p style=\"width: 735px;margin: auto;padding: 10px; background-color: green;color: white;\" align=\"center\">";
         $message .= $success_messages;
         $sessage .= "</p>";
         echo $message;

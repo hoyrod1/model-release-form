@@ -58,13 +58,15 @@ if (!isset($_SESSION["users_name"])) {
       <section class="model-section">
         <div class="section-one">
           <div class="title">
-            <img class="head-shot" src="./images/Rodney_HeadShot.jpeg" alt="" />
-            <h1 class="model-name">
-              Hello <?php echo $_SESSION["users_name"]; ?>
-            </h1>
-            <h3 class="model-stage-name">
-              AKA: <?php echo $_SESSION["users_model_name"]; ?>
-            </h3>
+            <div class="admin-div" style="margin: 0 0 30px 0; display: flex; gap: 30px; align-items: center;">
+              <img class="head-shot" src="./images/Rodney_HeadShot.jpeg" alt="" />
+              <h1 class="model-name">
+                Hello <?php echo $_SESSION["users_name"]; ?> aka <span class="model-stage-name">(<?php echo $_SESSION["users_model_name"]; ?>)</span>,
+                <br>
+                welcome to the digital model release Form
+              </h1>
+            </div>
+            
             <div class="section-two">
               <p class="description">
                 <!-- Hello <?php echo $_SESSION["users_model_name"]; ?>,
@@ -82,7 +84,7 @@ if (!isset($_SESSION["users_name"])) {
                 </span>
                 <br>
                 <br>
-                if you want to update your information on your model release form please click the link that says 
+                if you want to update your info on your model release form please click the link that says 
                 <span style="color:rgba(255, 166, 0, 0.685);">
                   "Click here to update your existing model release form"
                 </span>

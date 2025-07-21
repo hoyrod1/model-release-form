@@ -113,13 +113,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
             die();
         }
         //------------------------------------------------------------------------------------------------//
-        // CHECK IF THERE ARE ANY ERRORS 
-        // if ($errors) {
-        //     $_SESSION["model_release_error"] = $errors;
-        //     header("Location: model_release_form.php");
-        //     die("Query Failed: " . $e->getMessage());
-        // }
-        //------------------------------------------------------------------------------------------------//
         
         //------------------------------------------------------------------------------------------------//
         // START THE PROCCESS OF SAVING THE MODEL RELEASE FORM INTO THE DATABASE
