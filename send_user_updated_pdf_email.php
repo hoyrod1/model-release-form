@@ -32,15 +32,15 @@ function SendUserUpdatedPdfemail(string $email, string $legal_name)
   $mail->addReplyTo('hoyrod1@gmail.com');
   $mail->addAddress($email);
   $mail->addAttachment($pdfAttachment, "$legal_name-Model-Release-Form.pdf");
-  $mail->Subject  = "Model Relase Form pdf copy";
+  $mail->Subject  = "$legal_name's Model Relase Form pdf copy";
   
   $mail->Body     = <<<END
-  A copy of your model release form has been attached to this email.
+  Attention $legal_name: a copy of your model release form has been attached to this email.
   END;
   
   try {
       $mail->send();
-      $_SESSION["update_model_release_success"] = "Your model release has been updated and emailed from send_user_updated_pdf_email";
+      $_SESSION["update_model_release_success"] = "Your model release has been updated and emailed through send user updated pdf email";
       header("Location: ../index.php");
   } catch (Exception $e) {
       $_SESSION["update_model_release_error"] = "Your model release has not been emailed: {$mail->ErrorInfo}";

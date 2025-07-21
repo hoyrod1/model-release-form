@@ -144,7 +144,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
             $country
             );
         EmailUpdatedModelReleaseForm($email, $legal_name);
-        $_SESSION["update_model_release_success"] = "Your model release has been updated and emailed from update model release processor";
+        $_SESSION["update_model_release_success"] = "Your model release has been updated and emailed";
         header("Location: ../index.php");
         $pdo = null;
         $stmt = null;
