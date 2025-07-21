@@ -156,6 +156,7 @@ require_once "../includes/registration_header.php";
             placeholder="Enter First Name"
             required minlength="3"
             required
+            value="<?php echo htmlspecialchars($_SESSION['form_first_name'] ?? '', ENT_QUOTES); ?>"
             >
           <br>
           <input 
@@ -164,6 +165,7 @@ require_once "../includes/registration_header.php";
             name="last_name" 
             placeholder="Enter Last Name"
             required
+            value="<?php echo htmlspecialchars($_SESSION['form_lasst_name'] ?? '', ENT_QUOTES); ?>"
             >
           <br>
           <input 
@@ -172,6 +174,7 @@ require_once "../includes/registration_header.php";
             name="email" 
             placeholder="Enter Email"
             required
+            value="<?php echo htmlspecialchars($_SESSION['form_email'] ?? '', ENT_QUOTES); ?>"
             >
           <br>
           <input 
@@ -180,6 +183,7 @@ require_once "../includes/registration_header.php";
             name="contact_number" 
             placeholder="Enter Phone Number"
             required
+            value="<?php echo htmlspecialchars($_SESSION['form_phone_number'] ?? '', ENT_QUOTES); ?>"
             >
           <br>
           <input 
@@ -188,6 +192,7 @@ require_once "../includes/registration_header.php";
             name="model-name" 
             placeholder="Enter Model Name"
             required
+            value="<?php if(isset($_SESSION['form_model_name'])){ echo htmlspecialchars($_SESSION['form_model_name'], ENT_QUOTES);}?>"
             >
           <br>
           <input 

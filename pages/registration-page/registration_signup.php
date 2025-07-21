@@ -59,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
         //------------------------------------------------------------------------------------------------//
         // CHECK IF CONTACT NUMBER IS VALID
         if (Is_Contact_valid($contact_number)) {
-            $errors["invalid_number"] = "Please only use numbers";
+            $errors["invalid_number"] = "Please only use numbers, please remove - or any other charactors";
         }
         //------------------------------------------------------------------------------------------------//
         // CHECK IF EMAIL IS VALID
@@ -94,6 +94,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
         }
         // CHECK IF THERE ARE ANY ERRORS 
         if ($errors) {
+            // SET FORM DATA TO A SESSION
+            $_SESSION['form_first_name']    = $first_name;
+            $_SESSION['form_lasst_name']    = $last_name;
+            $_SESSION['form_email']         = $email;
+            $_SESSION['form_phone_number']  = $contact_number;
+            $_SESSION['form_model_name']    = $model_name;
+            // SET REGISTRATION ERROR TO A SESSION
             $_SESSION["registration_error"] = $errors;
             header("Location: ../registration-page/model-registration.php");
             die("Query Failed: " . $e->getMessage());

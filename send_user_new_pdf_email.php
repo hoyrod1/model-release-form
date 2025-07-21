@@ -32,7 +32,7 @@ function SendUserNewPdfemail(string $email, string $legal_name)
   $mail->addReplyTo('hoyrod1@gmail.com');
   $mail->addAddress($email);
   $mail->addAttachment($pdfAttachment, "$legal_name-Model-Release-Form.pdf");
-  $mail->Subject  = "Model Relase Form pdf copy";
+  $mail->Subject  = "$legal_name's Model Relase Form pdf copy";
   
   $mail->Body     = <<<END
   A copy of your model release form has been attached to this email.
