@@ -25,7 +25,8 @@ date_default_timezone_set('America/New_York');
  * @param string $location_of_shoot This param has the users username
  * @param string $payment_amount    This param has the password
  * @param string $print_name        This param has the confirmed password
- * @param string $social_security   This param has the confirmed password
+ * @param string $social_security   This param has the social security number
+ * @param string $contact_number    This param has the contact number
  * @param string $address           This param has the confirmed password
  * @param string $city              This param has the confirmed password
  * @param string $state             This param has the confirmed password
@@ -45,6 +46,7 @@ function Is_Input_empty(
     string $payment_amount, 
     string $print_name, 
     string $social_security, 
+    string $contact_number, 
     string $address, 
     string $city, 
     string $state, 
@@ -59,6 +61,7 @@ function Is_Input_empty(
         || empty($payment_amount)  
         || empty($print_name)  
         || empty($social_security)  
+        || empty($contact_number)  
         || empty($address)  
         || empty($city)  
         || empty($state)  
@@ -229,11 +232,12 @@ function Is_Contact_valid(string $contact_number)
  * @param string $payment_amount    This param has the models pay rate
  * @param string $legal_name        This param has the models legal name
  * @param string $social_security   This param has the models social security #
+ * @param string $contact_number    This param has the models contact number #
  * @param string $address           This param has the models street address
  * @param string $city              This param has the city the model lives in
  * @param string $state             This param has the state the model lives in
  * @param string $zip_code          This param has the zip code the model lives in
- * @param string $country           This param has the zip code the model lives in
+ * @param string $country           This param has the country the model lives in
  * 
  * @access public  
  * 
@@ -249,6 +253,7 @@ function Signed_ModelRelease_Form_controller(
     string $payment_amount, 
     string $legal_name, 
     string $social_security, 
+    string $contact_number, 
     string $address, 
     string $city, 
     string $state, 
@@ -265,6 +270,7 @@ function Signed_ModelRelease_Form_controller(
         $payment_amount, 
         $legal_name, 
         $social_security, 
+        $contact_number, 
         $address, 
         $city, 
         $state, 

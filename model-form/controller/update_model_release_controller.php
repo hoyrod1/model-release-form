@@ -20,16 +20,17 @@ declare(strict_types=1);
  * @param string $producer_name     This param has the first name
  * @param string $model_name        This param has the last name
  * @param string $email             This param has the email
- * @param string $date_of_shoot     This param has the  contact number
+ * @param string $date_of_shoot     This param has the date of the shoot
  * @param string $location_of_shoot This param has the users username
- * @param string $payment_amount    This param has the password
- * @param string $print_name        This param has the confirmed password
- * @param string $social_security   This param has the confirmed password
- * @param string $address           This param has the confirmed password
- * @param string $city              This param has the confirmed password
- * @param string $state             This param has the confirmed password
- * @param string $zip_code          This param has the confirmed password
- * @param string $country           This param has the confirmed password
+ * @param string $payment_amount    This param has the models pay rate
+ * @param string $legal_name        This param has the models legal name
+ * @param string $social_security   This param has the models social security #
+ * @param string $contact_number    This param has the models contact number #
+ * @param string $address           This param has the models street address
+ * @param string $city              This param has the city the model lives in
+ * @param string $state             This param has the state the model lives in
+ * @param string $zip_code          This param has the zip code the model lives in
+ * @param string $country           This param has the country the model lives in
  * 
  * @access public  
  * 
@@ -42,8 +43,9 @@ function Is_Update_Input_empty(
   string $date_of_shoot, 
   string $location_of_shoot, 
   string $payment_amount, 
-  string $print_name, 
+  string $legal_name, 
   string $social_security, 
+  string $contact_number, 
   string $address, 
   string $city, 
   string $state, 
@@ -56,8 +58,9 @@ function Is_Update_Input_empty(
       || empty($date_of_shoot)  
       || empty($location_of_shoot)  
       || empty($payment_amount)  
-      || empty($print_name)  
+      || empty($legal_name)  
       || empty($social_security)  
+      || empty($contact_number)  
       || empty($address)  
       || empty($city)  
       || empty($state)  

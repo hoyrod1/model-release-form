@@ -23,6 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
   $payment_amount =    testInput($_POST["payment-amount"]);
   $legal_name =        testInput($_POST["legal-name"]);
   $social_security =   testInput($_POST["social-security"]);
+  $contact_number =    testInput($_POST["contact_number"]);
   $address =           testInput($_POST["address"]);
   $city =              testInput($_POST["city"]);
   $state =             testInput($_POST["state"]);
@@ -48,20 +49,21 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
 
       // CHECK IF ALL INPUT FEILDS ARE NOT EMPTY
       if (Is_Update_Input_empty(
-          $producer_name, // done
-          $model_name, // done
-          $email, // done
-          $date_of_shoot, // done
-          $location_of_shoot, 
-          $payment_amount, 
-          $legal_name, // done
-          $social_security, // done 
-          $address, 
-          $city, 
-          $state, 
-          $zip_code,
-          $country
-      )
+        $producer_name, // done
+        $model_name, // done
+        $email, // done
+        $date_of_shoot, // done
+        $location_of_shoot, 
+        $payment_amount, 
+        $legal_name, // done
+        $social_security, // done 
+        $contact_number, // done 
+        $address, 
+        $city, 
+        $state, 
+        $zip_code,
+        $country
+    )
       ) {
             $_SESSION["update_model_release_error"] = "Fill in all fields";
             header("Location: update_model_release_form.php");
@@ -109,23 +111,24 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
 
       //------------------------------------------------------------------------------------------------//
       // START THE PROCCESS OF SAVING THE MODEL RELEASE FORM INTO THE DATABASE
-      $results = Update_ModelRelease_Form_controller(
-          $pdo, 
-          $id, 
-          $producer_name, 
-          $model_name, 
-          $email, 
-          $date_of_shoot, 
-          $location_of_shoot, 
-          $payment_amount, 
-          $legal_name, 
-          $social_security, 
-          $address, 
-          $city, 
-          $state, 
-          $zip_code,
-          $country
-      );
+      $results = Update_ModelRelease_Form_model(
+        $pdo, 
+        $id, 
+        $producer_name, 
+        $model_name, 
+        $email, 
+        $date_of_shoot, 
+        $location_of_shoot, 
+        $payment_amount, 
+        $legal_name, 
+        $social_security, 
+        $contact_number, 
+        $address, 
+        $city, 
+        $state, 
+        $zip_code,
+        $country
+    );
 
       if ($results) {
         generateUpdatedModelReleaseToPDF(
@@ -137,6 +140,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
             $payment_amount, 
             $legal_name, 
             $social_security, 
+            $contact_number, 
             $address, 
             $city, 
             $state, 

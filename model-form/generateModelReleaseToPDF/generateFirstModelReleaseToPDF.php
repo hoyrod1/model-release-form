@@ -25,6 +25,7 @@ declare(strict_types=1);
  * @param string $compensation      This param has the models pay rate
  * @param string $legal_name        This param has the models legal name
  * @param string $social_security   This param has the models social security #
+ * @param string $contact_number    This param has the models contact #
  * @param string $address           This param has the models street address
  * @param string $city              This param has the city the model lives in
  * @param string $state             This param has the state the model lives in
@@ -50,6 +51,7 @@ function generateFirstModelReleaseToPDF(
   string $compensation, 
   string $legal_name, 
   string $social_security, 
+  string $contact_number, 
   string $address, 
   string $city, 
   string $state, 
@@ -417,6 +419,18 @@ function generateFirstModelReleaseToPDF(
           name="social-security" 
           id="social-security"
           value="'.$social_security.'"
+          >
+        <!--------------------------------------------------------------------------->
+        <br>
+        <!--------------------------------------------------------------------------->
+        <label class="contact_number" for="contact_number">
+          Contact number:
+        </label>
+        <input 
+          type="text" 
+          name="contact_number" 
+          id="contact_number"
+          value="'.$contact_number.'"
           >
         <!--------------------------------------------------------------------------->
         <br>

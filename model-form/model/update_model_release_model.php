@@ -27,11 +27,12 @@ declare(strict_types=1);
  * @param string $compensation      This param has the models pay rate
  * @param string $legal_name        This param has the models legal name
  * @param string $social_security   This param has the models social security #
+ * @param string $contact_number    This param has the models contact number #
  * @param string $address           This param has the models street address
  * @param string $city              This param has the city the model lives in
  * @param string $state             This param has the state the model lives in
  * @param string $zip_code          This param has the zip code the model lives in
- * @param string $country           This param has the zip code the model lives in
+ * @param string $country           This param has the country the model lives in
  * 
  * @access public  
  * 
@@ -48,6 +49,7 @@ function Update_ModelRelease_Form_model(
   string $compensation, 
   string $legal_name, 
   string $social_security, 
+  string $contact_number, 
   string $address, 
   string $city, 
   string $state, 
@@ -62,6 +64,7 @@ function Update_ModelRelease_Form_model(
                                         compensation = :compensation, 
                                         legal_name = :legal_name, 
                                         social_security = :social_security, 
+                                        contact_number = :contact_number, 
                                         address = :address, 
                                         city = :city, 
                                         state = :state, 
@@ -80,6 +83,7 @@ function Update_ModelRelease_Form_model(
   $stmt->bindValue(':compensation', $compensation);
   $stmt->bindValue(':legal_name', $legal_name);
   $stmt->bindValue(':social_security', $social_security);
+  $stmt->bindValue(':contact_number', $contact_number);
   $stmt->bindValue(':address', $address);
   $stmt->bindValue(':city', $city);
   $stmt->bindValue(':state', $state);

@@ -45,6 +45,7 @@ try {
     $compensation      = $results["compensation"];
     $legal_name        = $results["legal_name"];
     $social_security   = $results["social_security"];
+    $contact_number    = $results["contact_number"];
     $address           = $results["address"];
     $city              = $results["city"];
     $state             = $results["state"];
@@ -345,6 +346,19 @@ $current_date = date("m-d-Y");
         id="social-security"
         value="<?= $social_security; ?>"
         >
+      <!--------------------------------------------------------------------------->
+      <br>
+      <!--------------------------------------------------------------------------->
+      <label class="contact_number" for="contact_number">
+        Contact Number:
+      </label>
+      <input 
+        type="text" 
+        name="contact_number" 
+        required
+        value="<?= $contact_number; ?>"
+        >
+      <!--------------------------------------------------------------------------->
       <!--------------------------------------------------------------------------->
       <br>
       <!--------------------------------------------------------------------------->

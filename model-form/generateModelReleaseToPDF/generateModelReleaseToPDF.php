@@ -43,6 +43,7 @@ try {
     $compensation      = $results["compensation"];
     $legal_name        = $results["legal_name"];
     $social_security   = $results["social_security"];
+    $contact_number   = $results["contact_number"];
     $address           = $results["address"];
     $city              = $results["city"];
     $state             = $results["state"];
@@ -70,6 +71,7 @@ try {
  * @param string $compensation      This param has the models pay rate
  * @param string $legal_name        This param has the models legal name
  * @param string $social_security   This param has the models social security #
+ * @param string $contact_number    This param has the models contact #
  * @param string $address           This param has the models street address
  * @param string $city              This param has the city the model lives in
  * @param string $state             This param has the state the model lives in
@@ -95,6 +97,7 @@ function generateModelReleaseToPDF(
   string $compensation, 
   string $legal_name, 
   string $social_security, 
+  string $contact_number, 
   string $address, 
   string $city, 
   string $state, 
@@ -462,6 +465,18 @@ function generateModelReleaseToPDF(
           name="social-security" 
           id="social-security"
           value="'.$social_security.'"
+          >
+        <!--------------------------------------------------------------------------->
+        <br>
+        <!--------------------------------------------------------------------------->
+        <label class="contact_number" for="contact_number">
+          Contact number:
+        </label>
+        <input 
+          type="text" 
+          name="contact_number" 
+          id="contact_number"
+          value="'.$contact_number.'"
           >
         <!--------------------------------------------------------------------------->
         <br>

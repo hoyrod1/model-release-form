@@ -26,11 +26,12 @@ declare(strict_types=1);
  * @param string $compensation      This param has the models pay rate
  * @param string $legal_name        This param has the models legal name
  * @param string $social_security   This param has the models social security #
+ * @param string $contact_number    This param has the models contact number #
  * @param string $address           This param has the models street address
  * @param string $city              This param has the city the model lives in
  * @param string $state             This param has the state the model lives in
  * @param string $zip_code          This param has the zip code the model lives in
- * @param string $country           This param has the zip code the model lives in
+ * @param string $country           This param has the country the model lives in
  * 
  * @access public  
  * 
@@ -46,6 +47,7 @@ function Signed_ModelRelease_Form_model(
     string $compensation, 
     string $legal_name, 
     string $social_security, 
+    string $contact_number, 
     string $address, 
     string $city, 
     string $state, 
@@ -53,9 +55,9 @@ function Signed_ModelRelease_Form_model(
     string $country
 ) {
     $reg_sql  = "INSERT INTO model_records 
-    (producer_name, model_name, email, date_of_shoot, location_of_shoot, compensation, legal_name, social_security, address, city, state, zip_code, country) 
+    (producer_name, model_name, email, date_of_shoot, location_of_shoot, compensation, legal_name, social_security, contact_number, address, city, state, zip_code, country) 
     VALUES
-    (:producer_name, :model_name, :email, :date_of_shoot, :location_of_shoot, :compensation, :legal_name, :social_security, :address, :city, :state, :zip_code, :country)";
+    (:producer_name, :model_name, :email, :date_of_shoot, :location_of_shoot, :compensation, :legal_name, :social_security, :contact_number, :address, :city, :state, :zip_code, :country)";
     
     $stmt = $pdo->prepare($reg_sql);
 
@@ -68,6 +70,7 @@ function Signed_ModelRelease_Form_model(
     $stmt->bindValue(':compensation', $compensation);
     $stmt->bindValue(':legal_name', $legal_name);
     $stmt->bindValue(':social_security', $social_security);
+    $stmt->bindValue(':contact_number', $contact_number);
     $stmt->bindValue(':address', $address);
     $stmt->bindValue(':city', $city);
     $stmt->bindValue(':state', $state);

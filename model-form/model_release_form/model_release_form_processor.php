@@ -24,6 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
     $payment_amount    = testInput($_POST["payment-amount"]);
     $legal_name        = testInput($_POST["legal-name"]);
     $social_security   = testInput($_POST["social-security"]);
+    $contact_number    = testInput($_POST["contact_number"]);
     $address           = testInput($_POST["address"]);
     $city              = testInput($_POST["city"]);
     $state             = testInput($_POST["state"]);
@@ -59,6 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
             $payment_amount, 
             $legal_name, // done
             $social_security, // done 
+            $contact_number, // done 
             $address, 
             $city, 
             $state, 
@@ -126,6 +128,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
             $payment_amount, 
             $legal_name, 
             $social_security, 
+            $contact_number, 
             $address, 
             $city, 
             $state, 

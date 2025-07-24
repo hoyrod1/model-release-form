@@ -72,7 +72,7 @@ $current_date = date("m-d-Y");
         type="text" 
         name="producer-name" 
         id="producer-name"
-        value="<?php echo $producer; ?>"
+        value="<?php echo  htmlspecialchars($producer, ENT_QUOTES); ?>"
         >
       <!--------------------------------------------------------------------------->
       <br>
@@ -84,7 +84,7 @@ $current_date = date("m-d-Y");
         type="text" 
         name="model-name" 
         id="model-name"
-        value="<?php echo $_SESSION["users_model_name"]; ?>"
+        value="<?php echo htmlspecialchars($_SESSION["users_model_name"], ENT_QUOTES); ?>"
         >
       <!--------------------------------------------------------------------------->
       <br>
@@ -98,7 +98,7 @@ $current_date = date("m-d-Y");
         type="email" 
         name="model-email" 
         id="email"
-        value="<?php echo $_SESSION["users_email"]; ?>"
+        value="<?php echo htmlspecialchars($_SESSION["users_email"], ENT_QUOTES); ?>"
         >
       <!--------------------------------------------------------------------------->
       <br>
@@ -286,7 +286,7 @@ $current_date = date("m-d-Y");
         type="text" 
         name="legal-name" 
         id="legal-name" 
-        value="<?php echo $_SESSION["users_name"]; ?>"
+        value="<?php echo htmlspecialchars($_SESSION["users_name"], ENT_QUOTES); ?>"
         require
         >
       <!--------------------------------------------------------------------------->
@@ -300,6 +300,18 @@ $current_date = date("m-d-Y");
         name="social-security" 
         id="social-security"
         require
+        >
+      <!--------------------------------------------------------------------------->
+      <br>
+      <!--------------------------------------------------------------------------->
+      <label class="contact_number" for="contact_number">
+        Contact Number:
+      </label>
+      <input 
+        type="text" 
+        name="contact_number" 
+        required
+        value="<?php echo htmlspecialchars($_SESSION['users_number'], ENT_QUOTES); ?>"
         >
       <!--------------------------------------------------------------------------->
       <br>

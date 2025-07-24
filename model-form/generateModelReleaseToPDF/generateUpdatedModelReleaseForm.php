@@ -50,6 +50,7 @@ function generateUpdatedModelReleaseToPDF(
   string $compensation, 
   string $legal_name, 
   string $social_security, 
+  string $contact_number, 
   string $address, 
   string $city, 
   string $state, 
@@ -417,6 +418,18 @@ function generateUpdatedModelReleaseToPDF(
           name="social-security" 
           id="social-security"
           value="'.$social_security.'"
+          >
+        <!--------------------------------------------------------------------------->
+        <br>
+        <!--------------------------------------------------------------------------->
+        <label class="contact_number" for="contact_number">
+          Contact number:
+        </label>
+        <input 
+          type="text" 
+          name="contact_number" 
+          id="contact_number"
+          value="'.$contact_number.'"
           >
         <!--------------------------------------------------------------------------->
         <br>
