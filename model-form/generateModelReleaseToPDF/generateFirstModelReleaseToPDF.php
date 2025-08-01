@@ -11,9 +11,12 @@
  * @link     https://model-release-form/model-form/generateModelReleaseToPDF/generateFirstModelReleaseToPDF.php
  */
 declare(strict_types=1);
-//*=====================================================================================================*//
+//*===========================================================================================================*//
+require "../../vendor/autoload.php";
+use Dompdf\Dompdf;
+//*===========================================================================================================*//
 
-//*=====================================================================================================*//
+//*===========================================================================================================*//
 /**
  * The generateFirstModelReleaseToPDF generates the initial PDF file from the model release form
  * 
@@ -30,18 +33,12 @@ declare(strict_types=1);
  * @param string $city              This param has the city the model lives in
  * @param string $state             This param has the state the model lives in
  * @param string $zip_code          This param has the zip code the model lives in
- * @param string $country           This param has the zip code the model lives in
+ * @param string $country           This param has the country the model lives in
  * 
  * @access public  
  * 
  * @return mixed
  */
-//*==============================================================================*//
-require "../../vendor/autoload.php";
-use Dompdf\Dompdf;
-//*==============================================================================*//
-
-//*==============================================================================*//
 function generateFirstModelReleaseToPDF(
   string $producer_name, 
   string $model_name, 
@@ -106,6 +103,7 @@ function generateFirstModelReleaseToPDF(
     #location-of-shoot,
     #legal-name,
     #social-security,
+    #contact_number,
     #address,
     #city,
     #state,
@@ -142,6 +140,7 @@ function generateFirstModelReleaseToPDF(
     
     .legal-name,
     .social-security,
+    .contact_number,
     .address,
     .city,
     .state,
@@ -426,7 +425,8 @@ function generateFirstModelReleaseToPDF(
         <label class="contact_number" for="contact_number">
           Contact number:
         </label>
-        <input 
+        <input  
+          id="contact_number"
           type="text" 
           name="contact_number" 
           id="contact_number"
@@ -505,11 +505,8 @@ function generateFirstModelReleaseToPDF(
   $dompdf->addInfo("Subject", "The models legal aggrement");
   $dompdf->addInfo("Keywords", "Model Release Form");
   $dompdf->addInfo("Creator", "Rodney St. Cloud");
-  // $dompdf->stream("$legal_name-Model-Relase-Form.pdf", ["Attachment" => 0]);
   $output = $dompdf->output();
-  $pdfFileName = "$legal_name-Model-Release-Form.pdf";
+  $pdfFileName = "../../pdf-model-releases/$legal_name-Model-Release-Form.pdf";
   file_put_contents($pdfFileName, $output);
-  $_SESSION["model_release_success"] = "Your model release has been emailed";
-  header("Location: ../index.php");
 }
-//*==================================================================================*//
+//*===========================================================================================================*//

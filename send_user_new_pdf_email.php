@@ -26,7 +26,7 @@ date_default_timezone_set('America/New_York');
 function SendUserNewPdfemail(string $email, string $legal_name)
 {
   $mail = include "mailer.php";
-  $pdfAttachment = "/Applications/MAMP/htdocs/model-release-form/model-form/model_release_form/$legal_name-Model-Release-Form.pdf";
+  $pdfAttachment =  __DIR__ . "/pdf-model-releases/$legal_name-Model-Release-Form.pdf";
   $mail->setFrom("hoyrod1@gmail.com");
   $mail->FromName = "STC media inc";
   $mail->addReplyTo('hoyrod1@gmail.com');

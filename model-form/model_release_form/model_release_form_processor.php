@@ -137,21 +137,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
         );
 
         if ($results) {
-            generateFirstModelReleaseToPDF(
-                $producer_name, 
-                $model_name, 
-                $model_email, 
-                $date_of_shoot, 
-                $location_of_shoot, 
-                $payment_amount, 
-                $legal_name, 
-                $social_security, 
-                $address, 
-                $city, 
-                $state, 
-                $zip_code,
-                $country
-                );
+            generateFirstModelReleaseToPDF($producer_name, $model_name, $model_email, $date_of_shoot,
+        $location_of_shoot, $payment_amount, $legal_name, $social_security, $contact_number, $address, $city, $state, $zip_code, $country);
             EmailNewModelReleaseForm($model_email, $legal_name);
             $_SESSION["model_release_success"] = "Your model release has been saved and emailed";
             header("Location: ../index.php");

@@ -87,7 +87,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["submit"])) {
         //------------------------------------------------------------------------------------------------//
         // SET THE SESSION VARIABLES FOR THE USERS INFO
         $_SESSION["users_id"]         = $results["id"];
-        $userFullName = $results["firstname"] . " " .$results["lastname"];
+        $userFullName = $results["firstname"] . " " . $results["lastname"];
         // USING htmlspecialchars() to display USERS INFO IN THE MODEL RELEASE FORM
         $_SESSION["users_name"]       = htmlspecialchars($userFullName);
         $_SESSION["users_model_name"] = htmlspecialchars($results["model_name"]);

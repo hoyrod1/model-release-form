@@ -21,6 +21,7 @@ if (isset($_SESSION["users_name"])) {
     $_SESSION["login_success"] = $_SESSION["users_name"] . ' you are already logged in';
 }
 ?>
+<!------------------------------------------------------------------------------------------------->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -55,3 +56,4 @@ if (isset($_SESSION["users_name"])) {
         </li>
       </ul>
     </nav>
+<!------------------------------------------------------------------------------------------------->

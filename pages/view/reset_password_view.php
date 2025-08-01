@@ -31,8 +31,8 @@ function errorMessage()
         $error_message .= "</div>";
         echo $error_message;
 
-        unset($_SESSION['reset_password_error']);
     }
+    unset($_SESSION['reset_password_error']);
 }
 //===========================================================================//
 

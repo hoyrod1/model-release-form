@@ -12,9 +12,9 @@
  */
 declare(strict_types=1);
 //------------------------------------------------------------------------------------------------------------//
-// START SESSION TO USE THE MODELS INFO CACHED TO THE SESSION AT LOGIN AND CATCH ANY ERRORS OR SUCCESES       //
+//    START SESSION TO USE THE MODELS INFO CACHED TO THE SESSION AT LOGIN AND CATCH ANY ERRORS OR SUCCESES    //
 require_once "../../includes/session_inc.php";
-// INCLUDE THE send_user_updated_pdf_email.php FILE TO EMAIL UPDATED MODEL RELEASE FORM TO MODEL //
+//        INCLUDE THE send_user_updated_pdf_email.php FILE TO EMAIL UPDATED MODEL RELEASE FORM TO MODEL       //
 require_once "../../send_user_updated_pdf_email.php";
 //============================================================================================================//
 /**

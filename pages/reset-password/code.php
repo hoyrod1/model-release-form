@@ -30,7 +30,6 @@ if (isset($_GET['Email']) && isset($_GET['Code'])) {
 <body class="code-body">
 <!---------------------------- BEGGINING OF MAIN SECTION---------------------------->
 <div class="code-main-container">
-    <?php //Validate_Url_token(); ?>
     <div class="code-container">
         <hr>
             <h1 class="code-h1">Re-enter your email</h1>
@@ -44,7 +43,9 @@ if (isset($_GET['Email']) && isset($_GET['Code'])) {
                     </button>
                     <div class="code-login">
                         Remember password: &nbsp; 
-                        <a href="../login-page/model-login.php" class="code-login-anchor">login</a>
+                        <a href="../login-page/model-login.php" class="code-login-anchor">
+                            login
+                        </a>
                     </div>
                 </form>
             </div>

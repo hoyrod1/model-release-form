@@ -11,9 +11,9 @@
  * @link     https://model-release-form/model-form/model/model_release_model.php
  */
 declare(strict_types=1);
-//*==============================================================================*//
+//*============================================================================================*//
 
-//*==============================================================================*//
+//*============================================================================================*//
 /**
  * The Update_ModelRelease_Form_model updates model release form data to the database
  * 
@@ -38,24 +38,7 @@ declare(strict_types=1);
  * 
  * @return mixed
  */
-function Update_ModelRelease_Form_model(
-  object $pdo, 
-  string $model_id, 
-  string $producer_name, 
-  string $model_name, 
-  string $email, 
-  string $date_of_shoot, 
-  string $location_of_shoot, 
-  string $compensation, 
-  string $legal_name, 
-  string $social_security, 
-  string $contact_number, 
-  string $address, 
-  string $city, 
-  string $state, 
-  string $zip_code,
-  string $country
-) {
+function Update_ModelRelease_Form_model(object $pdo, string $model_id, string $producer_name, string $model_name, string $email, string $date_of_shoot, string $location_of_shoot, string $compensation, string $legal_name, string $social_security, string $contact_number, string $address, string $city, string $state, string $zip_code, string $country) {
   $reg_sql  = "UPDATE model_records SET producer_name = :producer_name, 
                                         model_name = :model_name, 
                                         email = :email, 
@@ -93,4 +76,4 @@ function Update_ModelRelease_Form_model(
   $execute = $stmt->execute();
   return $execute;
 }
-//*==============================================================================*//
+//*============================================================================================*//

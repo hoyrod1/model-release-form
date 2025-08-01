@@ -50,11 +50,8 @@ require_once "../includes/login_header.php";
             <!-------------------------------------------------------------------->
             <div class="login-recover-remember">
               <a href="../reset-password/reset-password.php" class="login-anchor">
-                Forgot Password
+                  Forgot Password
               </a>
-              <br>
-              <input class="log-check" type="checkbox" name="remember">
-              <span> Remember Me</span>
             </div>
             <!-------------------------------------------------------------------->
           </form>
@@ -62,16 +59,6 @@ require_once "../includes/login_header.php";
       </div>
       <!---------------------------------------------------------------------------->
       <hr class="admin-hr" />
-      <!---------------------------------------------------------------------------->
-
-      <!-------------------------------- THE BUTTON -------------------------------->
-      <!-- <div id="admin-div-button" class="admin-start-button-div">
-        <button id="click-Me" class="admin-start-button">
-          <a href="../registration-page/model-registration.php">
-            Click me to Register
-          </a>
-        </button>
-      </div> -->
       <!---------------------------------------------------------------------------->
     </div>
 <?php

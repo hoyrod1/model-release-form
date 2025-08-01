@@ -15,4 +15,3 @@
   Copyright © STC Media inc Model Relase Registration-Login System inc 
   2008 - <?php echo date("Y"); ?>
 </footer>
-<!-- <script defer type="text/javascript" src="js/mobile.js"></script> -->

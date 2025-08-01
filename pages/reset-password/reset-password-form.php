@@ -41,7 +41,9 @@ $url_token = $_GET["token"];
                     </button>
                     <div class="code-login">
                         Remember password: &nbsp; 
-                        <a href="../login-page/model-login.php" class="code-login-anchor">login</a>
+                        <a href="../login-page/model-login.php" class="code-login-anchor">
+                            login
+                        </a>
                     </div>
                 </form>
             </div>

@@ -10,9 +10,9 @@
  * @license  STC Media inc
  * @link     https://model-release-form/send_user_updated_pdf_email.php
  */
-//=================================================================================//
+//===============================================================================================//
 date_default_timezone_set('America/New_York');
-//=================================================================================//
+//===============================================================================================//
 /**
  * The SendUserUpdatedPdfemail funtion sends the initial model release form as a PDF in the email
  * 
@@ -26,7 +26,7 @@ date_default_timezone_set('America/New_York');
 function SendUserUpdatedPdfemail(string $email, string $legal_name)
 {
   $mail = include "mailer.php";
-  $pdfAttachment = "/Applications/MAMP/htdocs/model-release-form/model-form/update_model_release_form/$legal_name-Model-Release-Form.pdf";
+  $pdfAttachment = __DIR__ . "/pdf-model-releases/$legal_name-Model-Release-Form.pdf";
   $mail->setFrom("hoyrod1@gmail.com");
   $mail->FromName = "STC media inc";
   $mail->addReplyTo('hoyrod1@gmail.com');
@@ -47,4 +47,4 @@ function SendUserUpdatedPdfemail(string $email, string $legal_name)
       header("Location: ../index.php");
   }
 }
-//=================================================================================//
+//===============================================================================================//

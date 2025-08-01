@@ -11,9 +11,12 @@
  * @link     https://model-release-form/model-form/generateModelReleaseToPDF/generateUpdatedModelReleaseToPDF.php
  */
 declare(strict_types=1);
-//*=====================================================================================================*//
+//*===========================================================================================================*//
+require "../../vendor/autoload.php";
+use Dompdf\Dompdf;
+//*===========================================================================================================*//
 
-//*=====================================================================================================*//
+//*===========================================================================================================*//
 /**
  * The generateUpdatedModelReleaseToPDF generates an updated PDF file from the model release form
  * 
@@ -25,6 +28,7 @@ declare(strict_types=1);
  * @param string $compensation      This param has the models pay rate
  * @param string $legal_name        This param has the models legal name
  * @param string $social_security   This param has the models social security #
+ * @param string $contact_number    This param has the models contact #
  * @param string $address           This param has the models street address
  * @param string $city              This param has the city the model lives in
  * @param string $state             This param has the state the model lives in
@@ -35,12 +39,6 @@ declare(strict_types=1);
  * 
  * @return mixed
  */
-//*==============================================================================*//
-require "../../vendor/autoload.php";
-use Dompdf\Dompdf;
-//*==============================================================================*//
-
-//*==============================================================================*//
 function generateUpdatedModelReleaseToPDF(
   string $producer_name, 
   string $model_name, 
@@ -105,6 +103,7 @@ function generateUpdatedModelReleaseToPDF(
     #location-of-shoot,
     #legal-name,
     #social-security,
+    #contact_number,
     #address,
     #city,
     #state,
@@ -141,6 +140,7 @@ function generateUpdatedModelReleaseToPDF(
     
     .legal-name,
     .social-security,
+    .contact_number,
     .address,
     .city,
     .state,
@@ -426,6 +426,7 @@ function generateUpdatedModelReleaseToPDF(
           Contact number:
         </label>
         <input 
+          id="contact_number" 
           type="text" 
           name="contact_number" 
           id="contact_number"
@@ -504,9 +505,8 @@ function generateUpdatedModelReleaseToPDF(
   $dompdf->addInfo("Subject", "The models legal aggrement");
   $dompdf->addInfo("Keywords", "Model Release Form");
   $dompdf->addInfo("Creator", "Rodney St. Cloud");
-  //$dompdf->stream("$legal_name-Model-Relase-Form.pdf", ["Attachment" => 0]);
   $output = $dompdf->output();
-  $pdfFileName = "$legal_name-Model-Release-Form.pdf";
+  $pdfFileName = "../../pdf-model-releases/$legal_name-Model-Release-Form.pdf";
   file_put_contents($pdfFileName, $output);
 }
-//*==================================================================================*//
+//*===========================================================================================================*//

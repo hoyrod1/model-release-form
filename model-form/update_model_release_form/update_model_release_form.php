@@ -353,6 +353,7 @@ $current_date = date("m-d-Y");
         Contact Number:
       </label>
       <input 
+        id="contact_number"
         type="text" 
         name="contact_number" 
         required
@@ -424,7 +425,9 @@ $current_date = date("m-d-Y");
       <!--------------------------------------------------------------------------->
       <br>
       <!--------------------------------------------------------------------------->
-      <button class="submit-button" name="submit" type="submit">Update Model Release Form</button>
+      <button class="submit-button" name="submit" type="submit">
+        Update Model Release Form
+      </button>
       <!--------------------------------------------------------------------------->
     </form>
     <!----------------------------------------------------------------------------->

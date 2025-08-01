@@ -26,24 +26,23 @@ date_default_timezone_set('America/New_York');
 function SendUserPdfemail(string $email, string $legal_name)
 {
   $mail = include "mailer.php";
-  $pdfAttachment = "/Applications/MAMP/htdocs/model-release-form/model-form/generateModelReleaseToPDF/$legal_name-Model-Release-Form.pdf";
+  $pdfAttachment =  __DIR__ . "/pdf-model-releases/$legal_name-Model-Release-Form.pdf";
   $mail->setFrom("hoyrod1@gmail.com");
   $mail->FromName = "STC media inc";
   $mail->addReplyTo('hoyrod1@gmail.com');
   $mail->addAddress($email);
   $mail->addAttachment($pdfAttachment, "$legal_name-Model-Release-Form.pdf");
   $mail->Subject  = "$legal_name's Model Relase Form pdf copy";
-  
   $mail->Body     = <<<END
-  A copy of your model release form has been attached to this email.
+  Attention $legal_name: a copy of your model release form has been attached to this email
   END;
   
   try {
       $mail->send();
-      $_SESSION["model_release_success"] = "Your model release has been emailed";
+      $_SESSION["update_model_release_success"] = "Your model release has been updated and emailed through send user updated pdf email.";
       header("Location: ../index.php");
   } catch (Exception $e) {
-      $_SESSION["reset_password_error"] = "Your model release has not been emailed: {$mail->ErrorInfo}";
+      $_SESSION["update_model_release_error"] = "Your model release has not been emailed: {$mail->ErrorInfo}";
       header("Location: ../index.php");
   }
 }

@@ -147,6 +147,10 @@ p.description {
 .index-button a:hover {
   color: rgba(255, 166, 0, 0.685);
 }
+
+.button_b {
+  color: white;
+}
 /*-----------------------------------------------------------------------------------*/
 .footer-logo {
   color: #9e9189;

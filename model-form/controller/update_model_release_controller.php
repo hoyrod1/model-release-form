@@ -198,26 +198,6 @@ function Is_Update_Payment_amount(string $payment_amount)
 }
 //*===============================================================================*//
 
-// //=================================================================================//
-// /**
-//  * 3. The Is_Contact_valid function checks if phone number entered is valid
-//  * 
-//  * @param string $contact_number This param has the contact number
-//  * 
-//  * @access public  
-//  * 
-//  * @return mixed
-//  */
-// function Is_Contact_valid(string $contact_number)
-// {
-//     if (!preg_match("/^(\+\d{1,3}[- ]?)?\d{10}$/", $contact_number)) {
-//         return true;
-//     } else {
-//         return false;
-//     }
-// }
-// //*===============================================================================*//
-
 //=================================================================================//
 /**
  * The Update_ModelRelease_Form_controller
@@ -232,11 +212,12 @@ function Is_Update_Payment_amount(string $payment_amount)
  * @param string $payment_amount    This param has the models pay rate
  * @param string $legal_name        This param has the models legal name
  * @param string $social_security   This param has the models social security #
+ * @param string $contact_number    This param has the models contact number #
  * @param string $address           This param has the models street address
  * @param string $city              This param has the city the model lives in
  * @param string $state             This param has the state the model lives in
  * @param string $zip_code          This param has the zip code the model lives in
- * @param string $country           This param has the zip code the model lives in
+ * @param string $country           This param has the country the model lives in
  * 
  * @access public  
  * 
@@ -253,30 +234,14 @@ function Update_ModelRelease_Form_controller(
   string $payment_amount, 
   string $legal_name, 
   string $social_security, 
+  string $contact_number, 
   string $address, 
   string $city, 
   string $state, 
-  string $zip_code,
+  string $zip_code, 
   string $country
 ) {
-  if (Update_ModelRelease_Form_model(
-      $pdo, 
-      $id, 
-      $producer_name, 
-      $model_name, 
-      $email, 
-      $date_of_shoot, 
-      $location_of_shoot, 
-      $payment_amount, 
-      $legal_name, 
-      $social_security, 
-      $address, 
-      $city, 
-      $state, 
-      $zip_code, 
-      $country
-  )
-  ) {
+  if (Update_ModelRelease_Form_model($pdo, $id, $producer_name, $model_name, $email, $date_of_shoot, $location_of_shoot, $payment_amount, $legal_name, $social_security, $contact_number, $address, $city, $state, $zip_code, $country)) {
       return true;
   } else {
       return false;

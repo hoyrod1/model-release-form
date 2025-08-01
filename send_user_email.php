@@ -26,14 +26,11 @@ date_default_timezone_set('America/New_York');
 function SendUseremail(string $email, string $reset_hashed_token)
 {
   $mail = include "mailer.php";
-  // $pdfAttachment = "/Applications/MAMP/htdocs/model-release-form/Hot-Rod-Model-Release-Form.pdf";
   $mail->setFrom("hoyrod1@gmail.com");
   $mail->FromName = "STC media inc";
   $mail->addReplyTo('hoyrod1@gmail.com');
   $mail->addAddress($email);
-  // $mail->addAttachment($pdfAttachment, "Hot-Rod-Model-Release-Form.pdf");
   $mail->Subject  = "Reset Password";
-  
   $mail->Body     = <<<END
   Please click on this link: <a href="http://localhost:8888/model-release-form/pages/reset-password/code.php?Email=$email&Code=$reset_hashed_token">Click here</a> and re-enter your email to reset your password.
   END;

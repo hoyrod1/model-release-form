@@ -310,6 +310,7 @@ $current_date = date("m-d-Y");
       <input 
         type="text" 
         name="contact_number" 
+        id="contact_number"
         required
         value="<?php echo htmlspecialchars($_SESSION['users_number'], ENT_QUOTES); ?>"
         >

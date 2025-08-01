@@ -12,28 +12,28 @@
  */
 declare(strict_types=1);
 //*=====================================================================================================*//
-//-------------------------------------------------------------------------------------------------------//
-// START SESSION TO USE THE MODELS INFO CACHED TO THE SESSION AT LOGIN AND CATCH ANY ERRORS OR SUCCESES  //
-require_once "../../includes/session_inc.php";
-// INCLUDE THE send_email.php FILE TO SEND EMAIL TO USER //
-// require_once "../../send_user_pdf_email.php";
-//-------------------------------------------------------------------------------------------------------//
+require "../../vendor/autoload.php";
+use Dompdf\Dompdf;
+//*=====================================================================================================*//
 
-//------------------------------------------------------------------------------------------------//
+//*=====================================================================================================*//
 try {
+  // START SESSION TO USE THE MODELS INFO CACHED TO THE SESSION AT LOGIN //
+  // AND CATCH ANY ERRORS OR SUCCESES CACHED TO THE SESSION  //
+  require_once "../../includes/session_inc.php";
   // INCLUDE THE DATBASE CONNECTION //
   include_once "../../includes/database.procedural.inc.php";
   // INCLUDE THE REGISTRATION MODEL THAT INTERACTS WITH THE DATABSE //
   include_once "../model/model_release_model.php";
-  //------------------------------------------------------------------------------------------------//
+  //------------------------------------------------------------------------------------------------------//
   // THE EMAIL ADDRESS STORED DURING THE LOGIN PROCESS IS USED TO RETRIEVED THE MODEL RELEASE FORM  //
   $model_email = $_SESSION["users_email"];
-  //------------------------------------------------------------------------------------------------//
+  //------------------------------------------------------------------------------------------------------//
 
-  //------------------------------------------------------------------------------------------------//
-  //********************** THIS CONTAINS THE RESULTS FROM THE DATABASE QUERY ***********************//
+  //------------------------------------------------------------------------------------------------------//
+  //********************** THIS CONTAINS THE RESULTS FROM THE DATABASE QUERY *****************************//
   $results = Get_ModelRelease_Form_model($pdo, $model_email);
-  //------------------------------------------------------------------------------------------------//
+  //------------------------------------------------------------------------------------------------------//
   if ($results) {
     $producer_name     = $results["producer_name"];
     $model_name        = $results["model_name"];
@@ -43,7 +43,7 @@ try {
     $compensation      = $results["compensation"];
     $legal_name        = $results["legal_name"];
     $social_security   = $results["social_security"];
-    $contact_number   = $results["contact_number"];
+    $contact_number    = $results["contact_number"];
     $address           = $results["address"];
     $city              = $results["city"];
     $state             = $results["state"];
@@ -52,14 +52,12 @@ try {
 } else {
     die("Query Failed: " . $e->getMessage());
   }
-  //------------------------------------------------------------------------------------------------//
+  //------------------------------------------------------------------------------------------------------//
 } catch(PDOException $e) 
 {
     die("Connected Failed: " . $e->getMessage());
 }
-//---------------------------------------------------------------------------------------------------//
-
-//*==============================================================================*//
+//*=======================================================================================================*//
 /**
  * The generateModelReleaseToPDF generates a PDF file from the model release form
  * 
@@ -82,12 +80,6 @@ try {
  * 
  * @return mixed
  */
-//*==============================================================================*//
-require "../../vendor/autoload.php";
-use Dompdf\Dompdf;
-//*==============================================================================*//
-
-//*==============================================================================*//
 function generateModelReleaseToPDF(
   string $producer_name, 
   string $model_name, 
@@ -152,6 +144,7 @@ function generateModelReleaseToPDF(
     #location-of-shoot,
     #legal-name,
     #social-security,
+    #contact_number,
     #address,
     #city,
     #state,
@@ -188,6 +181,7 @@ function generateModelReleaseToPDF(
     
     .legal-name,
     .social-security,
+    .contact_number,
     .address,
     .city,
     .state,
@@ -473,6 +467,7 @@ function generateModelReleaseToPDF(
           Contact number:
         </label>
         <input 
+          id="contact_number" 
           type="text" 
           name="contact_number" 
           id="contact_number"
@@ -553,8 +548,8 @@ function generateModelReleaseToPDF(
   $dompdf->addInfo("Creator", "Rodney St. Cloud");
   $dompdf->stream("$legal_name-Model-Relase-Form.pdf", ["Attachment" => 0]);
   $output = $dompdf->output();
-  $pdfFileName = "$legal_name-Model-Release-Form.pdf";
-  file_put_contents($pdfFileName, $output);
+  $generatePdfFileName = "../../pdf-model-releases/$legal_name-Model-Release-Form.pdf";
+  file_put_contents($generatePdfFileName, $output);
 }
 //*==================================================================================*//
 generateModelReleaseToPDF(
@@ -566,10 +561,10 @@ generateModelReleaseToPDF(
   $compensation, 
   $legal_name, 
   $social_security, 
+  $contact_number,  
   $address, 
   $city, 
   $state, 
   $zip_code,
   $country
-);
-// SendUserPdfemail($email, $legal_name);
+);  

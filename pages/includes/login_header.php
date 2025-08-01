@@ -26,7 +26,6 @@ require_once "../view/login_view.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Model Login Page</title>
     <link rel="stylesheet" href="../style/model-login.css" />
-    <!-- <script defer src="../javascript/model-login.js"></script> -->
   </head>
   <body>
     <nav>
